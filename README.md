@@ -4,13 +4,13 @@
   <img src="static/dataflow-KG%20framework.png" alt="DataFlow-KG framework" width="100%">
 </p> -->
 
-<p align="center">
+<!-- <p align="center">
   <b>DataFlow Knowledge Graph</b>: An LLM-Driven Knowledge Graph Processing Library
 </p>
 
 <p align="center">
   Build, enrich, reason over, and operationalize knowledge graphs with composable operators.
-</p>
+</p> -->
 
 <!-- <p align="center">
   <a href="https://github.com/OpenDCAI/DataFlow-KG">GitHub</a> |
