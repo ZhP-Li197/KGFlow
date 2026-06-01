@@ -10,32 +10,44 @@ License:
 
 from dataflow.prompts.diverse_kg.finkg import FinKGRelationExtractorPrompt
 from dataflow.prompts.diverse_kg.finkg import FinKGAttributeExtractorPrompt
+from dataflow.prompts.diverse_kg.finkg import FinKGExtractionPrompt
 from dataflow.utils.registry import OPERATOR_REGISTRY
 from dataflow import get_logger
-from dataflow.operators.domain_kg.utils.finkg_get_ontology import load_finkg_ontology
 
 from dataflow.utils.storage import DataFlowStorage
 from dataflow.core import OperatorABC
 from dataflow.core import LLMServingABC
 from typing import Any, Dict, List, Optional
+from pathlib import Path
+import importlib.util
 import json
 from tqdm import tqdm
 
 from dataflow.core.prompt import prompt_restrict
 
 
+def load_finkg_ontology(*args, **kwargs):
+    module_path = Path(__file__).resolve().parents[1] / "utils" / "finkg_get_ontology.py"
+    spec = importlib.util.spec_from_file_location("dataflow.operators.utils.finkg_get_ontology_direct", module_path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module.load_finkg_ontology(*args, **kwargs)
+
+
 @prompt_restrict(
     FinKGRelationExtractorPrompt,
-    FinKGAttributeExtractorPrompt
+    FinKGAttributeExtractorPrompt,
+    FinKGExtractionPrompt
 )
 @OPERATOR_REGISTRY.register()
 class FinKGTupleExtraction(OperatorABC):
     r"""
     Extract financial knowledge graph quadruples from text using LLM.
 
-    Supports two quadruple types:
+    Supports two ontology quadruple types and one coverage quadruple mode:
       - relation: <subj> Entity <obj> Entity <rel> Relation <time> TimeValue
       - attribute: <subj> Entity <attribute> Attribute <value> AttributeValue <time> TimeValue
+      - coverage: ["subject", "predicate", "object", "time"]
 
     Each quadruple is accompanied by entity_class labels from the ontology.
     """
@@ -53,7 +65,11 @@ class FinKGTupleExtraction(OperatorABC):
         self.lang = lang
         self.logger = get_logger()
 
-        if triple_type == "attribute":
+        if triple_type == "coverage":
+            self.prompt_template = (
+                FinKGExtractionPrompt(lang=self.lang)
+            )
+        elif triple_type == "attribute":
             self.prompt_template = (
                 FinKGAttributeExtractorPrompt(lang=self.lang)
             )
@@ -63,7 +79,7 @@ class FinKGTupleExtraction(OperatorABC):
             )
         else:
             raise ValueError(
-                f"Invalid triple_type '{triple_type}'. Must be 'relation' or 'attribute'."
+                f"Invalid triple_type '{triple_type}'. Must be 'relation', 'attribute', or 'coverage'."
             )
 
     @staticmethod
@@ -97,15 +113,18 @@ class FinKGTupleExtraction(OperatorABC):
         dataframe = storage.read("dataframe")
 
         texts = dataframe[input_key].tolist()
-        ontology = load_finkg_ontology(
-            ontology_lists=ontology_lists,
-            input_key_meta=input_key_meta,
-        )
+        if isinstance(self.prompt_template, FinKGExtractionPrompt):
+            ontology = {}
+        else:
+            ontology = load_finkg_ontology(
+                ontology_lists=ontology_lists,
+                input_key_meta=input_key_meta,
+            )
 
         outputs = self.process_batch(texts, ontology)
 
         dataframe[output_key] = [
-            o.get("tuple", []) for o in outputs
+            o.get("relations", o.get("tuple", [])) for o in outputs
         ]
 
         dataframe[output_key_meta] = [
@@ -142,7 +161,10 @@ class FinKGTupleExtraction(OperatorABC):
             user_inputs = [
                 self.prompt_template.build_prompt(processed_text)
             ]
-            system_prompt = self.prompt_template.build_system_prompt(ontology)
+            if isinstance(self.prompt_template, FinKGExtractionPrompt):
+                system_prompt = self.prompt_template.build_system_prompt()
+            else:
+                system_prompt = self.prompt_template.build_system_prompt(ontology)
 
             responses = self.llm_serving.generate_from_input(
                 user_inputs=user_inputs,
@@ -152,20 +174,30 @@ class FinKGTupleExtraction(OperatorABC):
             tuples = self._tuple_parse_llm_response(responses[0])
             entity_class = self._class_parse_llm_response(responses[0])
 
-            results.append(
-                {
-                    "source_text": processed_text,
-                    "tuple": tuples,
-                    "entity_class": entity_class
-                }
-            )
+            if isinstance(self.prompt_template, FinKGCoverageExtractionPrompt):
+                results.append(
+                    {
+                        "source_text": processed_text,
+                        "relations": tuples,
+                        "entity_class": entity_class
+                    }
+                )
+            else:
+                results.append(
+                    {
+                        "source_text": processed_text,
+                        "tuple": tuples,
+                        "entity_class": entity_class
+                    }
+                )
 
         return results
 
-    def _tuple_parse_llm_response(self, response: str) -> List[str]:
+    def _tuple_parse_llm_response(self, response: str) -> List[Any]:
         try:
             cleaned = response.strip().strip("```json").strip("```")
-            return json.loads(cleaned).get("tuple", [])
+            parsed = json.loads(cleaned)
+            return parsed.get("relations", parsed.get("tuple", []))
         except Exception as e:
             self.logger.warning(f"Failed to parse LLM response: {e}")
             return []

@@ -1,5 +1,5 @@
-from dataflow.prompts.core_kg.rel_triple_generate import KGRelationTripleExtractionPrompt
-from dataflow.prompts.core_kg.attri_triple import KGAttributeTripleExtractionPrompt
+from dataflow.prompts.core_kg.rel_triple_generate import KGRelationGenerationPrompt
+from dataflow.prompts.diverse_kg.tkg import TKGAttributeQuadrupleExtractorPrompt
 import pandas as pd
 from dataflow.utils.registry import OPERATOR_REGISTRY
 from dataflow import get_logger
@@ -18,8 +18,8 @@ from typing import Union
 
 
 @prompt_restrict(
-    KGRelationTripleExtractionPrompt,
-    KGAttributeTripleExtractionPrompt
+    KGRelationGenerationPrompt,
+    TKGAttributeQuadrupleExtractorPrompt
 )
 @OPERATOR_REGISTRY.register()
 class KGTripleExtraction(OperatorABC):
@@ -36,7 +36,7 @@ class KGTripleExtraction(OperatorABC):
         self,
         llm_serving: LLMServingABC,
         seed: int = 0,
-        triple_type: str = "attribute",
+        triple_type: str = "relation",
         lang: str = "en",
         num_q: int = 5
     ):
@@ -58,11 +58,11 @@ class KGTripleExtraction(OperatorABC):
 
         if triple_type == "attribute":
             self.prompt_template = (
-                KGAttributeTripleExtractionPrompt(lang=self.lang)
+                TKGAttributeQuadrupleExtractorPrompt(lang=self.lang)
             )
         elif triple_type == "relation":
             self.prompt_template = (
-                KGRelationTripleExtractionPrompt(lang=self.lang)
+                KGRelationGenerationPrompt(lang=self.lang)
             )            
 
     @staticmethod
@@ -79,14 +79,12 @@ class KGTripleExtraction(OperatorABC):
         if lang == "zh":
             return (
                 "KGTripleExtraction 是一个三元组抽取算子，用于从文本中抽取知识图谱三元组。",
-                "输入原始文本及对应的合法实体列表，通过 LLM 提取结构化的三元组。",
-                "输入列 raw_chunk 为原始文本，entity 为合法实体列表；输出列 triple 为抽取到的三元组字符串列表。"
+                "输入为原始文本及其对应的合法实体列表，输出为结构化的三元组结果。"
             )
         else:
             return (
-                "KGTripleExtraction extracts knowledge graph triples from raw text.",
-                "Takes raw text and a predefined list of valid entities as input, and uses an LLM to extract structured triples.",
-                "Takes raw_chunk (str) and entity (List[str]) as input columns and outputs triple (List[str] of extracted triple strings)."
+                "KGTripleExtraction extracts triples from text.",
+                "Input: raw text and a list of valid entities. Output: extracted KG triples."
             )
 
     def process_batch(
@@ -190,9 +188,10 @@ class KGTripleExtraction(OperatorABC):
                 continue
 
             entities = data.get("entity", [])
+            normalized_entities = self._normalize_entity_list(entities)
 
             user_inputs = [
-                self.prompt_template.build_prompt(processed_text, entities)
+                self.prompt_template.build_prompt(entities, processed_text)
             ]
             system_prompt = self.prompt_template.build_system_prompt()
 
@@ -201,7 +200,9 @@ class KGTripleExtraction(OperatorABC):
                 system_prompt=system_prompt,
             )
 
-            triples = self._parse_llm_response(responses[0])
+            triples = self._parse_llm_response(
+                responses[0], valid_entities=normalized_entities
+            )
 
             results.append(
                 {
@@ -213,10 +214,108 @@ class KGTripleExtraction(OperatorABC):
 
         return results
 
-    def _parse_llm_response(self, response: str) -> List[Dict[str, Any]]:
+    def _normalize_entity_list(self, entities: Any) -> List[str]:
+        if isinstance(entities, str):
+            return [item.strip() for item in entities.split(",") if item.strip()]
+        if isinstance(entities, list):
+            normalized = []
+            for item in entities:
+                if isinstance(item, str):
+                    value = item.strip()
+                    if value:
+                        normalized.append(value)
+            return normalized
+        return []
+
+    def _filter_triples(
+        self, triples: Any, valid_entities: List[str]
+    ) -> List[List[str]]:
+        if not isinstance(triples, list):
+            return []
+
+        filtered_triples = []
+        seen = set()
+
+        for triple in triples:
+            if not isinstance(triple, list) or len(triple) != 3:
+                continue
+
+            subject, relation, obj = triple
+            if not all(isinstance(item, str) for item in (subject, relation, obj)):
+                continue
+
+            subject = subject.strip()
+            relation = relation.strip()
+            obj = obj.strip()
+
+            if not subject or not relation or not obj:
+                continue
+
+            resolved_subject = self._resolve_entity(subject, valid_entities)
+            resolved_obj = self._resolve_entity(obj, valid_entities)
+
+            # Favor recall: keep the model's original entity string when
+            # canonicalization to the step1 entity list is inconclusive.
+            subject = resolved_subject or subject
+            obj = resolved_obj or obj
+
+            triple_key = (subject, relation, obj)
+            if triple_key in seen:
+                continue
+            seen.add(triple_key)
+            filtered_triples.append([subject, relation, obj])
+
+        return filtered_triples
+
+    def _resolve_entity(
+        self, candidate: str, valid_entities: List[str]
+    ) -> Optional[str]:
+        if not valid_entities:
+            return candidate
+
+        if candidate in valid_entities:
+            return candidate
+
+        lowered = candidate.casefold()
+        exact_candidates = [
+            entity for entity in valid_entities if entity.casefold() == lowered
+        ]
+        if len(exact_candidates) == 1:
+            return exact_candidates[0]
+
+        normalized = re.sub(r"\s+", " ", candidate).strip(" .,;:!?\"'")
+        normalized_lower = normalized.casefold()
+        normalized_candidates = [
+            entity
+            for entity in valid_entities
+            if re.sub(r"\s+", " ", entity).strip(" .,;:!?\"'").casefold()
+            == normalized_lower
+        ]
+        if len(normalized_candidates) == 1:
+            return normalized_candidates[0]
+
+        substring_candidates = [
+            entity
+            for entity in valid_entities
+            if lowered in entity.casefold() or entity.casefold() in lowered
+        ]
+        if len(substring_candidates) == 1:
+            return substring_candidates[0]
+
+        return None
+
+    def _parse_llm_response(
+        self, response: str, valid_entities: Optional[List[str]] = None
+    ) -> List[List[str]]:
         try:
-            cleaned = response.strip().strip("```json").strip("```")
-            return json.loads(cleaned).get("triple", [])
+            cleaned = response.replace("```json", "").replace("```", "").strip()
+            parsed = json.loads(cleaned)
+            if "relations" in parsed:
+                triples = parsed.get("relations", [])
+            else:
+                triples = parsed.get("triple", [])
+
+            return self._filter_triples(triples, valid_entities or [])
         except Exception as e:
             self.logger.warning(f"Failed to parse LLM response: {e}")
             return []

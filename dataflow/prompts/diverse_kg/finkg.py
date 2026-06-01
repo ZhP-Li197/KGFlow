@@ -2,7 +2,71 @@ import textwrap
 from dataflow.utils.registry import PROMPT_REGISTRY
 from dataflow.core.prompt import PromptABC
 
+PROMPT_REGISTRY.register()
+class FinKGExtractionPrompt(PromptABC):
+    def __init__(self, lang: str = "en"):
+        self.lang = lang
+        self.system_text = self.build_system_prompt()
 
+    def build_system_prompt(self):
+        return textwrap.dedent("""\
+            You are an information extraction expert for company filings.
+            Extract temporal subject-object-relation-time tuples from the text.
+
+            Build a broad set of tuples for the text. Include both relation-like
+            tuples and attribute-like tuples about companies, businesses,
+            operations, services, locations, ownership, transactions, agreements,
+            regulations, amounts, dates, statuses, risks, and reported results.
+
+            === RULES ===
+            - Extract clearly stated tuples, not only major events.
+            - If one sentence contains multiple tuple candidates, split them into
+              multiple tuples.
+            - Include descriptive or contextual tuples if they help describe the
+              company, its business, assets, obligations, services, locations, or status.
+            - When the text lists multiple services, products, locations,
+              requirements, amounts, or affected parties, create separate tuples
+              for the important listed items.
+            - Do not drop locations, amounts, numbers, dates, statuses, or types;
+              when they modify a tuple, include them as an object in a separate tuple.
+            - Use concise subjects, objects, and relations close to the original wording.
+            - Preserve important qualifiers such as amount, percentage, date, year,
+              location, status, condition, purpose, comparison, and scope.
+            - If no time is stated for a fact, use "NA".
+            - Do not invent facts beyond the text.
+
+            === FORMAT ===
+            - Each tuple item must be a single string.
+            - Every tuple string must contain the literal markers "<subj>",
+              "<obj>", "<rel>", and "<time>" exactly as written.
+            - Format:
+              "<subj> subject text <obj> object text <rel> relation text <time> TimeValue"
+
+            Return ONLY strict JSON:
+            {
+              "tuple": [
+                "<subj> subject text <obj> object text <rel> relation text <time> TimeValue",
+                "<subj> subject text <obj> object text <rel> relation text <time> NA"
+              ]
+            }
+        """)
+
+    def build_prompt(self, text: str):
+        return textwrap.dedent(f"""\
+            Extract company filing fact tuples from the following text.
+            Follow all rules from the system prompt.
+
+            Text:
+            {text}
+
+            Output ONLY JSON:
+            {{
+              "tuple": [
+                "<subj> subject text <obj> object text <rel> relation text <time> TimeValue"
+              ]
+            }}
+        """)
+    
 @PROMPT_REGISTRY.register()
 class FinKGRelationExtractorPrompt(PromptABC):
     """

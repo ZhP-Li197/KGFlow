@@ -114,8 +114,8 @@ def load_jsonl(path: Path) -> list[dict[str, Any]]:
             if not line:
                 continue
             row = json.loads(line)
-            if "raw_chunk" not in row:
-                raise ValueError(f"{path}:{line_no} missing raw_chunk")
+            if "raw_chunk" not in row and "text" not in row:
+                raise ValueError(f"{path}:{line_no} missing text")
             rows.append(row)
     return rows
 
@@ -124,10 +124,11 @@ def build_autoschema_samples(rows: list[dict[str, Any]]) -> list[dict[str, Any]]
     samples = []
     for index, row in enumerate(rows):
         item_id = str(row.get("id") or f"item_{index:06d}")
+        text = row.get("text", row.get("raw_chunk", ""))
         samples.append(
             {
                 "id": item_id,
-                "text": str(row["raw_chunk"]),
+                "text": str(text),
                 "metadata": {
                     "lang": row.get("lang", "en"),
                     "source": row.get("source", ""),

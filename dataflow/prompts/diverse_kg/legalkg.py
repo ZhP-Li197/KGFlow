@@ -3,6 +3,63 @@ from dataflow.utils.registry import PROMPT_REGISTRY
 from dataflow.core.prompt import PromptABC
 from typing import Any, Dict, List, Union
 
+@PROMPT_REGISTRY.register()
+class LegalKGExtractionPrompt(PromptABC):
+    def __init__(self, lang: str = "en"):
+        self.lang = lang
+        self.system_text = self.build_system_prompt()
+
+    def build_system_prompt(self):
+        return textwrap.dedent("""\
+            You are a legal contract knowledge graph extraction expert.
+            Extract subject-predicate-object triples from contract provisions that are
+            likely to be supported by a legal knowledge graph.
+
+            === TARGET RELATION TYPES ===
+            1. Agreement structure:
+               supersedes, governs, incorporates, excludes, modifies, is subject to
+            2. Party obligations and rights — preserve the modal verb in the predicate:
+               shall [verb], may [verb], is entitled to, has right to, is prohibited from
+            3. Temporal provisions:
+               begins on, ends on, expires on, extends for, is effective as of,
+               is renewed for, terminates on
+            4. Conditional triggers — extract the trigger and consequence separately:
+               extends upon, terminates upon, is activated by, takes effect upon
+            5. Scope and coverage:
+               applies to, covers, is limited to, includes, excludes
+
+            === NAMED CONCEPT RULE (CRITICAL) ===
+            Preserve ALL named legal concepts EXACTLY as written — do NOT paraphrase:
+              "Initial Term", "Extension Term", "Effective Date",
+              "Change in Control", "Qualifying Termination"
+            These are likely KG nodes; any modification will break embedding retrieval.
+
+            === OBJECT LENGTH RULE ===
+            Object must be ≤ 6 words or a named legal concept.
+            For overly long objects, simplify to the core noun phrase:
+              "all prior agreements regarding the subject matter" → "prior agreements"
+              "written notice of non-extension"                  → keep as-is (≤ 6 words)
+
+            === CONDITIONAL DECOMPOSITION ===
+            Break conditional sentences into atomic triples:
+            Text: "Term extends for one year unless Company gives written notice 90 days prior"
+            Extract:
+              ["Term", "automatically extends for", "one-year period"]
+              ["Company", "may prevent extension by", "written notice"]
+              ["written notice", "must be delivered", "90 days prior"]
+
+            === NEGATION RULE ===
+            SKIP triples whose predicate is purely negative ("shall not", "no liability for",
+            "is not liable for") — these are unlikely to match KG positive edges.
+
+            Return ONLY strict JSON:
+            {
+              "relations": [
+                ["subject", "predicate", "object"],
+                ["subject", "predicate", "object"]
+              ]
+            }
+        """)
 
 @PROMPT_REGISTRY.register()
 class LegalKGRelationExtractorPrompt(PromptABC):

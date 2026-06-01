@@ -132,6 +132,8 @@ class KGEntityExtraction(OperatorABC):
         try:
             cleaned = response.replace("```json", "").replace("```", "").strip()
             entity_list = json.loads(cleaned)
+            if not isinstance(entity_list, list):
+                return ""
             entity_str = ", ".join(entity_list)
             return self._normalize_text_key(entity_str)
         except Exception as e:
@@ -175,12 +177,6 @@ class KGEntityExtraction(OperatorABC):
         return special_count / len(text) if text else 0
 
     def _normalize_text_key(self, text: str) -> str:
-        stopwords = {
-            "the", "a", "an", "of", "and", "or", "in", "on", "at",
-            "to", "for", "with", "by", "as", "from", "into",
-        }
-
-        pattern = r"\b(" + "|".join(stopwords) + r")\b"
-        cleaned = re.sub(pattern, "", text, flags=re.IGNORECASE)
-        cleaned = re.sub(r"\s+", " ", cleaned).strip()
+        cleaned = re.sub(r"\s+", " ", text).strip()
+        cleaned = re.sub(r"\s*,\s*", ", ", cleaned)
         return cleaned

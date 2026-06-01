@@ -13,7 +13,17 @@ import os
 import argparse
 import requests
 from colorama import init as color_init, Fore, Style
-from dataflow.cli_funcs import cli_env, cli_init, cli_json2kg_init, cli_json2kg_autoschemakg, cli_json2kg_wikontic
+from dataflow.cli_funcs import (
+    cli_env,
+    cli_init,
+    cli_json2kg_init,
+    cli_json2kg_autoschemakg,
+    cli_json2kg_wikontic,
+    cli_json2kg_kggen,
+    cli_json2kg_treekg,
+    cli_json2kg_kgflow,
+    cli_json2kg_eval,
+)
 from dataflow.version import __version__
 
 color_init(autoreset=True)
@@ -72,8 +82,20 @@ def build_arg_parser() -> argparse.ArgumentParser:
 
     # --- run ---
     p_run = top.add_parser("run", help="Run a model on a dataset")
-    p_run.add_argument("model", choices=["autoschemakg", "wikontic"], help="Model to run")
+    p_run.add_argument("model", choices=["autoschemakg", "wikontic", "kggen", "treekg", "kgflow"], help="Model to run")
     p_run.add_argument("dataset", help="Dataset name to run (e.g. input)")
+    p_run.add_argument(
+        "--pipeline",
+        choices=["general", "finance", "medical", "legal", "temporal"],
+        default=None,
+        help="KGFlow pipeline to run when model is 'kgflow'",
+    )
+
+    # --- eval ---
+    p_eval = top.add_parser("eval", help="Evaluate a model output on a dataset")
+    p_eval.add_argument("model", choices=["autoschemakg", "wikontic", "kggen", "treekg", "kgflow"], help="Model to evaluate")
+    p_eval.add_argument("dataset", help="Dataset name to evaluate (e.g. WikiGeneral)")
+    p_eval.add_argument("metric", choices=["coverage"], help="Evaluation metric")
 
     return parser
 
@@ -102,6 +124,17 @@ def main() -> None:
             cli_json2kg_autoschemakg(dataset=args.dataset)
         elif args.model == "wikontic":
             cli_json2kg_wikontic(dataset=args.dataset)
+        elif args.model == "kggen":
+            cli_json2kg_kggen(dataset=args.dataset)
+        elif args.model == "treekg":
+            cli_json2kg_treekg(dataset=args.dataset)
+        elif args.model == "kgflow":
+            if args.pipeline is None:
+                parser.error("text2kg run kgflow requires --pipeline {general,finance,medical,legal,temporal}")
+            cli_json2kg_kgflow(dataset=args.dataset, pipeline=args.pipeline)
+
+    elif args.command == "eval":
+        cli_json2kg_eval(method=args.model, dataset=args.dataset, metric=args.metric)
 
 
 if __name__ == "__main__":
