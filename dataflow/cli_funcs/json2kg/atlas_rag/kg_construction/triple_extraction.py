@@ -405,7 +405,7 @@ class KnowledgeGraphExtractor:
         if self.config.record:
             extraction_start_time = time.time()
         with torch.no_grad():
-            with open(output_file, "w") as output_stream:
+            with open(output_file, "w", encoding="utf-8") as output_stream:
                 for batch in data_loader:
                     batch_start_time = time.time()
                     batch_counter += 1
@@ -479,7 +479,7 @@ class KnowledgeGraphExtractor:
                 # add the total time taken for extraction at the last json object
                 total_extraction_time = time.time() - extraction_start_time
                 # read the json and modify the last json object
-                with open(output_file, "r") as f:
+                with open(output_file, "r", encoding="utf-8") as f:
                     lines = f.readlines()
                 if len(lines) > 0:
                     last_line = lines[-1]
@@ -487,7 +487,7 @@ class KnowledgeGraphExtractor:
                         last_json = json.loads(last_line)
                         last_json['total_extraction_time_seconds'] = total_extraction_time
                         lines[-1] = json.dumps(last_json, ensure_ascii=False) + "\n"
-                        with open(output_file, "w") as f:
+                        with open(output_file, "w", encoding="utf-8") as f:
                             f.writelines(lines)
                     except:
                         print("Failed to add extraction time to the last json object")

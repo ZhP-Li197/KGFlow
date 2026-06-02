@@ -126,8 +126,8 @@ def load_jsonl(path: Path) -> list[dict[str, Any]]:
             if not line:
                 continue
             row = json.loads(line)
-            if "raw_chunk" not in row:
-                raise ValueError(f"{path}:{line_no} missing raw_chunk")
+            if "raw_chunk" not in row and "text" not in row:
+                raise ValueError(f"{path}:{line_no} missing text")
             rows.append(row)
     return rows
 
@@ -183,7 +183,7 @@ def run_extraction(rows: list[dict[str, Any]], inference, structured: bool) -> N
     total = len(rows)
     for index, row in enumerate(rows):
         item_id = str(row.get("id") or f"item_{index:06d}")
-        text = str(row["raw_chunk"])
+        text = str(row.get("text", row.get("raw_chunk", "")))
         print(f"Processing {index + 1}/{total}: {item_id}", flush=True)
         if structured:
             inference.extract_triplets_with_ontology_filtering_and_add_to_db(

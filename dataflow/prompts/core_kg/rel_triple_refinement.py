@@ -3,6 +3,256 @@ from dataflow.utils.registry import PROMPT_REGISTRY
 from dataflow.core.prompt import PromptABC
 import json
 
+@PROMPT_REGISTRY.register()
+class KGInferredTripleGenerationPrompt(PromptABC):
+    def __init__(self, lang: str = "en"):
+        self.lang = lang
+        self.system_text = self.build_system_prompt()
+
+    def build_system_prompt(self):
+        if self.lang == "en":
+            return textwrap.dedent("""\
+                You are a strict knowledge graph logical inference expert.
+
+                Your task:
+                Generate NEW knowledge graph triples that can be logically inferred
+                from the GIVEN existing one-hop triples.
+
+                =========================
+                CORE INFERENCE CONSTRAINTS
+                =========================
+                1. Do NOT invent new entities.
+                   - Every subject and object in generated triples MUST already appear
+                     in the input triples.
+                2. Do NOT invent new facts or use external world knowledge.
+                3. Each generated triple MUST be inferable from AT LEAST TWO input triples.
+                4. Inference must be logically sound and explicitly derivable.
+                5. If no valid inference exists, return an empty list.
+
+                =========================
+                ALLOWED INFERENCE PATTERNS
+                =========================
+                - Chain inference:
+                  A --r1--> B, B --r2--> C  ⇒  A --r3--> C
+                - Role propagation:
+                  X member_of Y, Y related_to Z ⇒ X related_to Z
+                - Semantic compression:
+                  Reduce multi-step relations into a valid direct relation
+                  ONLY if logically implied.
+
+                =========================
+                STRICTLY FORBIDDEN
+                =========================
+                - Adding new entities
+                - Adding new relations not implied by the inputs
+                - Common-sense guessing
+                - Temporal or causal assumptions
+                - Rephrasing existing triples
+                - Duplicating input triples
+
+                =========================
+                OUTPUT FORMAT (STRICT JSON)
+                =========================
+                Return ONLY JSON:
+                {
+                  "relations": [
+                    ["subject", "relation", "object"],
+                    ["subject", "relation", "object"]
+                  ]
+                }
+            """)
+        else:
+            return textwrap.dedent("""\
+                你是一名严格的知识图谱逻辑推理专家。
+
+                你的任务：
+                基于【已给定的一跳知识图谱三元组】，生成【能够通过逻辑推理得到的新三元组】。
+
+                =========================
+                核心推理约束（必须严格遵守）
+                =========================
+                1）禁止创造新实体：
+                   - 新三元组中的主语与宾语，必须已经在输入三元组中出现过。
+                2）禁止使用外部知识或常识补全。
+                3）每一个新三元组，必须至少由【两条已有三元组】推理得到。
+                4）推理必须清晰、可解释、语义自洽。
+                5）若不存在可推理的新三元组，返回空列表。
+
+                =========================
+                允许的推理模式
+                =========================
+                - 链式推理：
+                  A → B，B → C ⇒ A → C
+                - 角色传播：
+                  X 属于 Y，Y 发生在 Z ⇒ X 发生在 Z
+                - 关系压缩：
+                  多跳关系在逻辑上可合并为单一关系
+
+                =========================
+                严格禁止
+                =========================
+                - 引入新实体
+                - 引入输入中不存在的关系
+                - 主观臆测
+                - 事实验证
+                - 重复已有三元组
+
+                =========================
+                输出格式（严格 JSON）
+                =========================
+                {
+                  "inferred_triple": [
+                    "<subj> subject <obj> object <rel> relation",
+                    "<subj> subject <obj> object <rel> relation",
+                  ]
+                }
+            """)
+
+    def build_prompt(self, triples: str):
+        if self.lang == "en":
+            return textwrap.dedent(f"""\
+                Generate inferred knowledge graph triples strictly following the rules above.
+
+                Input triples:
+                {triples}
+
+                Output triples in strict JSON only:
+            """)
+        else:
+            return textwrap.dedent(f"""\
+                请严格按照上述规则，从以下一跳三元组中生成可推理的新三元组。
+
+                输入三元组：
+                {triples}
+
+                仅以 JSON 格式输出 inferred_triple：
+            """)
+
+
+
+
+@PROMPT_REGISTRY.register()
+class KGInferAndCheckTriplePrompt(PromptABC):
+
+    def __init__(self, lang: str = "en"):
+        self.lang = lang
+        self.system_text = self.build_system_prompt()
+
+    def build_system_prompt(self):
+        if self.lang == "en":
+            return textwrap.dedent("""\
+                You are a knowledge graph expert. Given a source text and a list of already-extracted
+                relation triples, perform TWO complementary tasks and return the results combined.
+
+                === TASK A: Logical Inference ===
+                Infer NEW triples that can be logically derived from the existing triples.
+                Rules:
+                - Every subject and object MUST already appear in the existing triples.
+                - Each inferred triple MUST be derivable from AT LEAST TWO existing triples.
+                - Do NOT use external knowledge.
+                - Allowed patterns: chain inference (A→B, B→C ⇒ A→C), role propagation.
+                - If no valid inference exists, contribute nothing from this task.
+
+                === TASK B: Missing Extraction ===
+                Re-read the source text and find relation triples that are EXPLICITLY stated
+                in the text but are NOT already in the existing triple list.
+                No inference — TASK B is extraction only.
+
+                The initial extraction systematically misses the following types — prioritize these:
+
+                1. DIRECTIONAL / SPATIAL TRIPLES — positional relations expressed via prepositions
+                   Text: "Alberta is located west of Saskatchewan"
+                   Triple: ["Alberta", "is located west of", "Saskatchewan"]
+
+                2. ORDINAL / SUPERLATIVE TRIPLES — rankings or comparatives; preserve the full qualifier in the predicate
+                   Text: "Ukrainian Greek Catholic Church is the second largest Eastern Catholic Church"
+                   Triple: ["Ukrainian Greek Catholic Church", "is the second largest", "Eastern Catholic Church"]
+                   Do NOT collapse to: ["Ukrainian Greek Catholic Church", "is", "Eastern Catholic Church"]
+
+                3. TEMPORAL TRIPLES — events tied to specific dates or years
+                   Text: "The Army of Tennessee was formed on November 20, 1862"
+                   Triple: ["Army of Tennessee", "was formed on", "November 20, 1862"]
+
+                4. QUALIFIER TRIPLES — descriptive or role modifiers that the initial extraction drops
+                   Text: "Time Out is a global magazine published by Time Out Group"
+                   Triple: ["Time Out", "is a", "global magazine"]
+                   Text: "Bob Harris was the co-editor of the first Time Out publication"
+                   Triple: ["Bob Harris", "was co-editor of", "first Time Out publication"]
+
+                Rules:
+                - Do NOT duplicate any existing triple (same subject-relation-object).
+                - Subject and object should be concrete entities or specific values from the text.
+                - Preserve the full predicate phrasing — do NOT simplify directional or ordinal predicates to plain "is".
+
+                === OUTPUT ===
+                Combine results from both tasks into a single list.
+                Return ONLY strict JSON:
+                {
+                  "relations": [
+                    ["subject", "relation", "object"],
+                    ["subject", "relation", "object"]
+                  ]
+                }
+                If neither task yields results, return {"relations": []}.
+            """)
+        else:
+            return textwrap.dedent("""\
+                你是知识图谱专家。给定原文和已有三元组列表，请同时完成两个互补任务，合并输出结果。
+
+                === 任务 A：逻辑推理 ===
+                从已有三元组中推理出可逻辑导出的新三元组。
+                规则：
+                - 新三元组的主语和宾语必须已在已有三元组中出现。
+                - 每条推理三元组必须由至少两条已有三元组推导而来。
+                - 禁止使用外部知识，禁止创造新实体。
+                - 允许的推理模式：链式推理（A→B，B→C ⇒ A→C）、角色传播。
+                - 若无法推理，则此任务不贡献输出。
+
+                === 任务 B：补全遗漏 ===
+                重新阅读原文，找出原文中明确表述但未包含在已有三元组中的关系三元组。
+                规则：
+                - 事实必须在原文中有直接、明确的表述（不允许推理）。
+                - 禁止重复已有三元组（主语-关系-宾语完全相同）。
+                - 主语和宾语应为原文中出现的具体实体。
+
+                === 输出 ===
+                将两个任务的结果合并为一个列表。
+                仅输出严格 JSON：
+                {
+                  "relations": [
+                    ["主语", "关系", "宾语"],
+                    ["主语", "关系", "宾语"]
+                  ]
+                }
+                若两个任务均无输出，返回 {"relations": []}。
+            """)
+
+    def build_prompt(self, triples: str, text: str):
+        if self.lang == "en":
+            return textwrap.dedent(f"""\
+                Perform TASK A (inference) and TASK B (missing extraction) as instructed.
+
+                Existing triples:
+                {triples}
+
+                Source text:
+                {text}
+
+                Output strict JSON only:
+            """)
+        else:
+            return textwrap.dedent(f"""\
+                请按上述说明同时完成任务 A（推理）和任务 B（补全遗漏），合并输出。
+
+                已有三元组：
+                {triples}
+
+                原文：
+                {text}
+
+                仅以严格 JSON 格式输出：
+            """)
+
 
 @PROMPT_REGISTRY.register()
 class KGEntityTypeClassificationPrompt(PromptABC):

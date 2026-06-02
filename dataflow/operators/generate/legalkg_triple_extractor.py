@@ -1,5 +1,6 @@
 from dataflow.prompts.diverse_kg.legalkg import LegalKGRelationExtractorPrompt
 from dataflow.prompts.diverse_kg.legalkg import LegalKGAttributeExtractorPrompt
+from dataflow.prompts.diverse_kg.legalkg import LegalKGExtractionPrompt
 import pandas as pd
 from dataflow.utils.registry import OPERATOR_REGISTRY
 from dataflow import get_logger
@@ -19,7 +20,8 @@ from typing import Union
 
 @prompt_restrict(
     LegalKGRelationExtractorPrompt,
-    LegalKGAttributeExtractorPrompt
+    LegalKGAttributeExtractorPrompt,
+    LegalKGExtractionPrompt,
 )
 @OPERATOR_REGISTRY.register()
 class LegalKGTupleExtraction(OperatorABC):
@@ -56,14 +58,12 @@ class LegalKGTupleExtraction(OperatorABC):
         self.num_q = num_q
         self.logger = get_logger()
 
-        if triple_type == "attribute":
-            self.prompt_template = (
-                LegalKGAttributeExtractorPrompt(lang=self.lang)
-            )
-        elif triple_type == "relation":
-            self.prompt_template = (
-                LegalKGRelationExtractorPrompt(lang=self.lang)
-            )            
+        if triple_type == "coverage":
+            self.prompt_template = LegalKGExtractionPrompt(lang=self.lang)
+        elif triple_type == "attribute":
+            self.prompt_template = LegalKGAttributeExtractorPrompt(lang=self.lang)
+        else:
+            self.prompt_template = LegalKGRelationExtractorPrompt(lang=self.lang)
 
     @staticmethod
     def get_desc(lang: str = "en") :
@@ -154,20 +154,29 @@ class LegalKGTupleExtraction(OperatorABC):
 
         texts = dataframe[self.input_key].tolist()
 
-        if ontology_lists == None:
+        if isinstance(self.prompt_template, LegalKGExtractionPrompt):
+            ontology_lists = {}
+        elif ontology_lists is None:
             storage_meta = FileStorage(
-                first_entry_file_name="",  # 可以留空
+                first_entry_file_name="",
                 cache_type="json"
-            )    
-            ontology_lists = storage_meta.read(file_path=f"./.cache/api/{input_key_meta}.json", output_type="dataframe")
-            row = ontology_lists.iloc[0]
-            ontology_dict = {
+            )
+            ontology_df = storage_meta.read(file_path=f"./.cache/api/{input_key_meta}.json", output_type="dataframe")
+            row = ontology_df.iloc[0]
+            ontology_lists = {
                 "entity_type": row["entity_type"],
                 "relation_type": row["relation_type"],
-                "attribute_type": row.get("attribute_type", {})  # 可选
+                "attribute_type": row.get("attribute_type", {}),
+            }
+        elif isinstance(ontology_lists, pd.DataFrame):
+            row = ontology_lists.iloc[0]
+            ontology_lists = {
+                "entity_type": row["entity_type"],
+                "relation_type": row["relation_type"],
+                "attribute_type": row.get("attribute_type", {}),
             }
 
-        outputs = self.process_batch(texts, ontology_dict)
+        outputs = self.process_batch(texts, ontology_lists)
 
         dataframe[self.output_key] = [
             o.get(self.output_key, []) for o in outputs
@@ -214,7 +223,10 @@ class LegalKGTupleExtraction(OperatorABC):
             user_inputs = [
                 self.prompt_template.build_prompt(processed_text)
             ]
-            system_prompt = self.prompt_template.build_system_prompt(ontology_lists)
+            if isinstance(self.prompt_template, LegalKGExtractionPrompt):
+                system_prompt = self.prompt_template.build_system_prompt()
+            else:
+                system_prompt = self.prompt_template.build_system_prompt(ontology_lists)
 
             responses = self.llm_serving.generate_from_input(
                 user_inputs=user_inputs,
@@ -236,13 +248,32 @@ class LegalKGTupleExtraction(OperatorABC):
 
         return results
 
-    def _triple_parse_llm_response(self, response: str) -> List[Dict[str, Any]]:
+    def _triple_parse_llm_response(self, response: str) -> List[List[str]]:
         try:
             cleaned = response.strip().strip("```json").strip("```")
-            return json.loads(cleaned).get("triple", [])
+            parsed = json.loads(cleaned)
+            raw = parsed.get("relations", parsed.get("triple", []))
         except Exception as e:
             self.logger.warning(f"Failed to parse LLM response: {e}")
             return []
+
+        results = []
+        for item in raw:
+            if isinstance(item, list) and len(item) == 3:
+                results.append([str(x).strip() for x in item])
+                continue
+            if not isinstance(item, str):
+                continue
+            m = re.match(
+                r"<subj>\s*(.*?)\s*<obj>\s*(.*?)\s*<rel>\s*(.*)",
+                item.strip(),
+            )
+            if not m:
+                continue
+            subj, obj, rel = (p.strip() for p in m.groups())
+            if subj and rel and obj:
+                results.append([subj, rel, obj])
+        return results
 
     def _class_parse_llm_response(self, response: str) -> List[Dict[str, Any]]:
         try:

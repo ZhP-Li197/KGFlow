@@ -1,0 +1,45 @@
+import argparse
+import sys
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parents[4]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
+from dataflow.operators.generate import HRKGTripleExtraction
+
+from _kgflow_pipeline_utils import add_common_args, build_llm_serving, build_storage, latest_step_path
+
+
+class HRKGExtractionPipeline:
+    def __init__(self, args):
+        self.args = args
+        self.storage = build_storage(args)
+        self.llm_serving = build_llm_serving(args)
+        self.extractor = HRKGTripleExtraction(
+            llm_serving=self.llm_serving,
+            lang="en",
+        )
+
+    def forward(self):
+        self.extractor.run(
+            storage=self.storage.step(),
+            input_key=self.args.input_key,
+            output_key="tuple",
+        )
+        return latest_step_path(self.args, 1)
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="Run the hyper-relational KGFlow extraction pipeline.")
+    return add_common_args(parser, default_cache="./kgflow_hrkg", default_prefix="kgflow_hrkg").parse_args()
+
+
+def main():
+    pipeline = HRKGExtractionPipeline(parse_args())
+    output_path = pipeline.forward()
+    print(f"KGFlow HRKG output: {output_path.resolve()}")
+
+
+if __name__ == "__main__":
+    main()

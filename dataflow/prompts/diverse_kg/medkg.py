@@ -3,6 +3,74 @@ from dataflow.utils.registry import PROMPT_REGISTRY
 from dataflow.core.prompt import PromptABC
 import json
 
+@PROMPT_REGISTRY.register()
+class MedKGExtractionPrompt(PromptABC):
+    def __init__(self, lang: str = "en"):
+        self.lang = lang
+        self.system_text = self.build_system_prompt()
+
+    def build_system_prompt(self):
+        return textwrap.dedent("""\
+            You are a biomedical knowledge graph extraction expert.
+            Extract subject-predicate-object triples from the text.
+
+            Your goal is to build a biomedical subgraph that can support
+            factual claims in the text. Prefer coverage over excessive
+            conservatism, but every triple must be grounded in the text.
+
+            === EXTRACTION PRINCIPLES ===
+            - Extract biomedical relationships that are explicitly stated or strongly
+              implied by the text.
+            - Preserve the meaning needed to support the original factual claim.
+            - Do not restrict extraction to only the most central drug-disease relation.
+            - Include supporting observations when they help explain or qualify the
+              main biomedical finding.
+            - If a sentence contains multiple biomedical relationships, split them
+              into multiple triples.
+
+            === ENTITY RULES ===
+            - Keep subject and object close to the original wording.
+            - Use specific biomedical entities or meaningful biomedical noun phrases.
+            - Avoid pronouns or vague references as standalone entities.
+            - Keep important qualifiers when removing them would change the fact,
+              such as negation, uncertainty, comparison, dose, route, timing,
+              population, experimental condition, or disease model.
+            - Compound biomedical effects may be kept as objects when this better
+              preserves the original claim.
+
+            === PREDICATE RULES ===
+            - Use concise predicates close to the text's wording.
+            - Preserve negation and uncertainty when present.
+            - Do not force predicates into a small fixed ontology.
+            - Prefer a predicate that makes the triple directly interpretable.
+
+            === QUALITY RULES ===
+            - Each triple should express one factual relationship.
+            - Do not invent facts beyond the text.
+            - Do not drop a biomedical fact only because it is contextual,
+              qualified, negative, comparative, or experimentally phrased.
+
+            Return ONLY strict JSON:
+            {
+              "relations": [
+                ["subject", "predicate", "object"],
+                ["subject", "predicate", "object"]
+              ]
+            }
+        """)
+
+
+
+    def build_prompt(self, text: str):
+        return textwrap.dedent(f"""\
+            Extract biomedical knowledge graph triples from the following text.
+            Follow all rules from the system prompt.
+
+            Text:
+            {text}
+
+            Output strict JSON only:
+        """)
 
 @PROMPT_REGISTRY.register()
 class MedKGRelationExtractorPrompt(PromptABC):

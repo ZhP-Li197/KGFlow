@@ -6,11 +6,6 @@ import json
 
 @PROMPT_REGISTRY.register()
 class KGEntityExtractionPrompt(PromptABC):
-    """
-    阶段一：
-    从文本中抽取具体实体
-    不输出关系
-    """
 
     def __init__(self, lang: str = "zh"):
         self.lang = lang
@@ -19,18 +14,10 @@ class KGEntityExtractionPrompt(PromptABC):
     def build_system_prompt(self):
         if self.lang == "en":
             return textwrap.dedent("""\
-                You are an expert in constructing knowledge graphs. Your task is to extract knowledge entities from the given text.
-
-                █ Guidelines:
-                - You MUST extract ALL entities in the text. Do NOT return only the most important or a subset of entities.
-                - Perform coreference resolution and canonicalize names where applicable.
-                - Remove duplicates.
-                - DO NOT output vague / non-specific references such as:
-                  "these methods", "this idea", "such systems", "our approach", "it", "they", etc.
-                - Only output entities that can be clearly and uniquely identified
-                  (e.g., specific organizations, people, events, concrete concepts, methods, models, software names).
-
-                █ Output Format:
+                Extract key entities from the source text.
+                Extracted entities should mainly be subjects or objects in supported relation facts.
+                Include time, location, role, and quantity mentions only when they function as important relation arguments.
+                This is an extraction task, so be thorough and accurate to the reference text.
                 Output ONLY a JSON array of strings:
                 ["entity1","entity2",...]
             """)
@@ -55,7 +42,9 @@ class KGEntityExtractionPrompt(PromptABC):
     def build_prompt(self, text: str):
         if self.lang == "en":
             return textwrap.dedent(f"""\
-                Extract all entities from the text.
+                Extract entities from the source text.
+                Extracted entities should mainly be subjects or objects in supported relation facts.
+                Be thorough and accurate to the reference text.
 
                 █ Text
                 ```
@@ -75,14 +64,6 @@ class KGEntityExtractionPrompt(PromptABC):
 
 @PROMPT_REGISTRY.register()
 class KGRelationGenerationPrompt(PromptABC):
-    """
-    专属 Prompt：基于实体列表 + 来源文本 + 已有三元组，
-    生成【结构不重复】的高置信度知识图谱三元组
-
-    新增约束：
-    - 不允许生成头实体-尾实体与已有三元组重复的新三元组
-    """
-
     def __init__(self, lang: str = "en"):
         self.lang = lang
         self.system_text = self.build_system_prompt()
@@ -90,126 +71,57 @@ class KGRelationGenerationPrompt(PromptABC):
     def build_system_prompt(self):
         if self.lang == "en":
             return textwrap.dedent("""\
-                You are a knowledge graph construction expert.
-
-                Your task:
-                Generate NEW knowledge graph triples based on:
-                1) a given list of entity names
-                2) source texts
-                3) existing knowledge graph triples
-                4) common sense or external world knowledge
-
-                ===============================
-                ENTITY NORMALIZATION RULE (HARD)
-                ===============================
-
-                - Entity names are SYMBOLS, not natural language phrases
-                - You MUST use entity names EXACTLY as they appear in the entity list
-                - STRICT STRING MATCH is required
-
-                Forbidden modifications include (but are not limited to):
-                - Adding articles (e.g., "the", "a", "an")
-                - Changing capitalization
-                - Adding prefixes or suffixes
-                - Pluralization or singularization
-                - Rewriting or paraphrasing entity names
-
-                ===============================
-                HARD CONSTRAINTS (MUST FOLLOW)
-                ===============================
-
-                1. Existing triple constraint (PAIR-LEVEL NOVELTY):
-                - You are given a list of EXISTING triples
-                - You MUST NOT generate any new triple whose
-                  (subject, object) pair already appears in the existing triples
-                - This restriction applies EVEN IF the relation is different
-                - If unsure whether a pair already exists, DO NOT generate it
-
-                2. Quality constraint:
-                - Precision is more important than recall
-                - If a relation is uncertain, do NOT generate it
-                - Avoid speculative or controversial facts
-
-                =========================
-                OUTPUT FORMAT (STRICT JSON)
-                =========================
-                Return ONLY JSON:
+                Extract subject-predicate-object triples from the source text.
+                Subject and object must come from the provided entity list, which was extracted from the same source text.
+                This is an extraction task, so be thorough, accurate, and faithful to the reference text.
+                If multiple supported relation facts are stated, extract each of them as a separate triple.
+                For concept or definition pages, decompose definition sentences into atomic triples about type, components, roles, and processes rather than broad summary triples.
+                Keep the page topic as the preferred subject whenever a fact is stated directly about it, instead of shifting to secondary entities.
+                Do not invent unsupported facts, but do not omit clearly supported facts.
+                Return ONLY strict JSON:
                 {
-                  "inferred_triple": [
-                    "<subj> subject <obj> object <rel> relation",
-                    "<subj> subject <obj> object <rel> relation",
+                  "relations": [
+                    ["subject", "relation", "object"],
+                    ["subject", "relation", "object"]
                   ]
                 }
 
             """)
         else:
             return textwrap.dedent("""\
-                你是一名知识图谱构建专家。
-
-                你的任务：
-                基于以下信息生成【新的】知识图谱三元组：
-                1）实体名称列表
-                2）来源文本
-                3）已有的知识图谱三元组
-                4）你的常识或外部背景知识
-
-                ===============================
-                【实体规范化硬约束】
-                ===============================
-
-                - 实体名称是【符号】，不是自然语言短语
-                - 生成三元组时，实体名称必须与实体列表中的字符串【完全一致】
-                - 必须进行【字符串级完全匹配】
-
-                严格禁止以下行为（包括但不限于）：
-                - 添加冠词（如 “the / a / an”）
-                - 改变大小写
-                - 添加前缀或后缀
-                - 单复数变化
-                - 改写、同义替换实体名称
-
-                ===============================
-                【硬性约束（必须遵守）】
-                ===============================
-
-                1）已有三元组去重约束（结构级）：
-                - 已提供一组三元组作为【已有知识】
-                - 禁止生成任何“头实体 + 尾实体”与已有三元组相同的新三元组
-                - 即使关系不同，也视为违规
-                - 如果不确定是否重复，请不要生成
-
-                2）质量优先约束：
-                - 宁缺毋滥，准确性优先
-                - 不生成高度猜测性或有争议的事实
-
-                ===============================
-                【输出格式（严格遵守以下格式，严格 JSON）】
-                ===============================
-                三元组的字符串格式必须与输入完全一致。
+                从源文本中抽取主语-谓词-宾语三元组。
+                主语和宾语必须来自给定的实体列表，该实体列表由同一源文本抽取得到。
+                这是一个抽取任务，因此需要全面、准确，并忠实于参考文本。
+                如果文本中陈述了多个有依据的关系事实，请将每个事实分别抽取为一个三元组。
+                对于概念或定义类页面，应将定义句拆解为关于类型、组成、作用和过程的原子三元组，而不是生成宽泛的摘要式三元组。
+                当某个事实直接描述页面主题时，应优先将页面主题作为主语，而不是转移到次要实体。
+                不要编造文本不支持的事实，但也不要遗漏文本明确支持的事实。
+                仅返回严格 JSON：
                 {
-                  "inferred_triple": [
-                    "<subj> subject <obj> object <rel> relation",
-                    "<subj> subject <obj> object <rel> relation",
+                  "relations": [
+                    ["subject", "relation", "object"],
+                    ["subject", "relation", "object"]
                   ]
                 }
             """)
 
     def build_prompt(
         self,
-        existing_triples: str,
+        entity_list: str,
         source_texts: str
     ):
         """
         entity_list: 实体名称列表
         source_texts: 实体来源文本
-        existing_triples: 已有知识图谱三元组
         """
         if self.lang == "en":
             return textwrap.dedent(f"""\
-                Please generate NEW knowledge graph triples following all constraints above.
+                Extract subject-predicate-object triples from the source text using the provided entity list.
+                Subject and object must come from the entity list.
+                If multiple supported relation facts are stated, extract each of them as a separate triple.
 
-                Existing Triples (DO NOT repeat subject-object pairs):
-                {existing_triples}
+                Entity List:
+                {entity_list}
 
                 Source Texts:
                 {source_texts}
@@ -218,297 +130,21 @@ class KGRelationGenerationPrompt(PromptABC):
             """)
         else:
             return textwrap.dedent(f"""\
-                请严格按照上述所有约束，生成【不与已有三元组头尾重复】的新三元组。
-
-                已有三元组（禁止头-尾重复）：
-                {existing_triples}
-
-                来源文本：
-                {source_texts}
-
-                仅以 JSON 格式输出：
-            """)
-
-
-@PROMPT_REGISTRY.register()
-class KGInferredTripleGenerationPrompt(PromptABC):
-    """
-    专属 Prompt：
-    基于【已有一跳三元组】生成【可逻辑推理得到的新三元组】
-
-    核心原则：
-    - 受限推理
-    - 无新实体
-    - 无臆造
-    - 宁缺毋滥
-    """
-
-    def __init__(self, lang: str = "en"):
-        self.lang = lang
-        self.system_text = self.build_system_prompt()
-
-    def build_system_prompt(self):
-        if self.lang == "en":
-            return textwrap.dedent("""\
-                You are a strict knowledge graph logical inference expert.
-
-                Your task:
-                Generate NEW knowledge graph triples that can be logically inferred
-                from the GIVEN existing one-hop triples.
-
-                =========================
-                CORE INFERENCE CONSTRAINTS
-                =========================
-                1. Do NOT invent new entities.
-                   - Every subject and object in generated triples MUST already appear
-                     in the input triples.
-                2. Do NOT invent new facts or use external world knowledge.
-                3. Each generated triple MUST be inferable from AT LEAST TWO input triples.
-                4. Inference must be logically sound and explicitly derivable.
-                5. If no valid inference exists, return an empty list.
-
-                =========================
-                ALLOWED INFERENCE PATTERNS
-                =========================
-                - Chain inference:
-                  A --r1--> B, B --r2--> C  ⇒  A --r3--> C
-                - Role propagation:
-                  X member_of Y, Y related_to Z ⇒ X related_to Z
-                - Semantic compression:
-                  Reduce multi-step relations into a valid direct relation
-                  ONLY if logically implied.
-
-                =========================
-                STRICTLY FORBIDDEN
-                =========================
-                - Adding new entities
-                - Adding new relations not implied by the inputs
-                - Common-sense guessing
-                - Temporal or causal assumptions
-                - Rephrasing existing triples
-                - Duplicating input triples
-
-                =========================
-                OUTPUT FORMAT (STRICT JSON)
-                =========================
-                Return ONLY JSON:
-                {
-                  "inferred_triple": [
-                    "<subj> subject <obj> object <rel> relation",
-                    "<subj> subject <obj> object <rel> relation",
-                  ]
-                }
-            """)
-        else:
-            return textwrap.dedent("""\
-                你是一名严格的知识图谱逻辑推理专家。
-
-                你的任务：
-                基于【已给定的一跳知识图谱三元组】，生成【能够通过逻辑推理得到的新三元组】。
-
-                =========================
-                核心推理约束（必须严格遵守）
-                =========================
-                1）禁止创造新实体：
-                   - 新三元组中的主语与宾语，必须已经在输入三元组中出现过。
-                2）禁止使用外部知识或常识补全。
-                3）每一个新三元组，必须至少由【两条已有三元组】推理得到。
-                4）推理必须清晰、可解释、语义自洽。
-                5）若不存在可推理的新三元组，返回空列表。
-
-                =========================
-                允许的推理模式
-                =========================
-                - 链式推理：
-                  A → B，B → C ⇒ A → C
-                - 角色传播：
-                  X 属于 Y，Y 发生在 Z ⇒ X 发生在 Z
-                - 关系压缩：
-                  多跳关系在逻辑上可合并为单一关系
-
-                =========================
-                严格禁止
-                =========================
-                - 引入新实体
-                - 引入输入中不存在的关系
-                - 主观臆测
-                - 事实验证
-                - 重复已有三元组
-
-                =========================
-                输出格式（严格 JSON）
-                =========================
-                {
-                  "inferred_triple": [
-                    "<subj> subject <obj> object <rel> relation",
-                    "<subj> subject <obj> object <rel> relation",
-                  ]
-                }
-            """)
-
-    def build_prompt(self, triples: str):
-        """
-        triples: 多行或列表形式的三元组字符串
-        """
-        if self.lang == "en":
-            return textwrap.dedent(f"""\
-                Generate inferred knowledge graph triples strictly following the rules above.
-
-                Input triples:
-                {triples}
-
-                Output inferred triples in JSON only:
-            """)
-        else:
-            return textwrap.dedent(f"""\
-                请严格按照上述规则，从以下一跳三元组中生成可推理的新三元组。
-
-                输入三元组：
-                {triples}
-
-                仅以 JSON 格式输出 inferred_triple：
-            """)
-
-
-@PROMPT_REGISTRY.register()
-class KGRelationTripleExtractionPrompt(PromptABC):
-    """
-    阶段二：
-    给定 text + entity 列表
-    - 从 text 中抽取 结构化 实体-关系-实体 三元组
-    - subject / object 必须严格来自给定实体列表
-    - 关系必须明确由 text 支持，禁止臆测
-    - 以 JSON 输出
-    """
-
-    def __init__(self, lang: str = "zh"):
-        self.lang = lang
-        self.system_text = self.build_system_prompt()
-
-    def build_system_prompt(self):
-        if self.lang == "en":
-            return textwrap.dedent("""\
-                You are a rigorous Knowledge Graph relation extraction expert.
-
-                === TASK ===
-                Given:
-                - A text paragraph
-                - A list of entities
-
-                Your goal:
-                Extract factual, text-supported (subject, relation, object) triples.
-
-                === STRICT RULES ===
-                1) Subj and Obj MUST come ONLY from the given entity list. Do NOT modify them (exact original form). Never invent new entities.
-                   - Do NOT use variants from the text that are not in the list, using its **normalized entity names** in the list instead.
-                2) A triple must be explicitly supported by the text. If unsure → DO NOT output.
-                3) Relations must:
-                   - be predicate/verb-like (e.g., is_born_in, uses_method)
-                   - If a relation is not a complete verb phrase (like 'related_to', 'part_of'), **normalize it to a full predicate**, e.g., 'is_related_to', 'is_part_of'
-                   - use underscore _ to connect multi-word relations
-                   - come from explicit semantics in the text
-                   - NOT hallucinated
-                4) Do NOT merge or infer semantic facts beyond the text.
-                5) Avoid duplicates and contradictions.
-                6) If no valid triples exist → return {"triple": []}
-
-
-                === OUTPUT FORMAT (MUST FOLLOW EXACTLY) ===
-                Return ONLY pure JSON:
-                {
-                  "triple": [
-                    "<subj> {entity} <obj> {entity} <rel> {relation}",
-                    "<subj> {entity} <obj> {entity} <rel> {relation}"
-                  ]
-                }
-
-                === OUTPUT EXAMPLE ===
-                {
-                  "triple": [
-                    "<subj> Henry <obj> Maria Rodriguez <rel> is_trained_by",
-                    "<subj> Henry <obj> Maria Rodriguez <rel> is_trained_by"
-                  ]
-                }
-                No explanation. No extra fields.
-            """)
-        else:
-            return textwrap.dedent("""\
-                你是一名严谨的知识图谱关系抽取专家。
-
-                === 任务 ===
-                已知：
-                - 一段文本 text
-                - 一个实体列表
-
-                目标：
-                从 text 中抽取 (实体-关系-实体, subject-relation-object) 三元组。
-
-                === 严格规则 ===
-                1）subject 与 object 必须严格来自给定实体列表，**保持原名不改动**，禁止创造新实体。
-                   - 不允许使用文本中未规范化的变体，使用其列表中的规范化名称作为代替。
-                2）三元组必须在文本中有**清晰语义支持**，如果不确定，宁缺毋滥。
-                3）关系：
-                   - 必须是谓语形式，例如 is_born_in, uses_method
-                   - 如果关系不完整（如 related_to、part_of），**规范化为完整谓语**（例如 is_related_to、is_part_of）
-                   - 关系中的多词用下划线 _ 连接
-                   - 严禁臆造，必须在文本中明确可推导
-                4）不做主观推断，不跨句推理，禁止逻辑外延。
-                5）去重，避免矛盾三元组。
-                6）若无可抽取内容，返回 {"triple": []}
-
-                === 输出格式（严格遵守）===
-                仅返回JSON:
-                {
-                  "triple": [
-                    "<subj> {entity} <obj> {entity} <rel> {relation}",
-                    "<subj> {entity} <obj> {entity} <rel> {relation}"
-                  ]
-                }
-
-                === 输出例子 ===
-                {
-                  "triple": [
-                    "<subj> Henry <obj> Maria Rodriguez <rel> is_trained_by",
-                    "<subj> Henry <obj> Maria Rodriguez <rel> is_trained_by"
-                  ]
-                }             
-                不输出任何解释或多余内容。
-            """)
-
-    def build_prompt(self, text, entity_list: str):
-        """
-        input_json example:
-        {
-          "source":"..../bitter_lesson.pdf",
-          "text_path":"..../bitter_lesson.md",
-          "raw_chunk":".... text ....",
-          "entity":"search, learning self play, value function, ..."
-        }
-        """
-        if self.lang == "en":
-            return textwrap.dedent(f"""\
-                Extract knowledge graph triples strictly following the system rules.
-
-                Input text:
-                {text}
-
-                Entity list:
-                {entity_list}
-
-                Output only pure JSON:
-            """)
-        else:
-            return textwrap.dedent(f"""\
-                请严格按照系统规则，从文本中抽取实体关系三元组。
-
-                输入文本：
-                {text}
+                请使用给定实体列表，从源文本中抽取主语-谓词-宾语三元组。
+                主语和宾语必须来自实体列表。
+                如果文本中陈述了多个有依据的关系事实，请将每个事实分别抽取为一个三元组。
 
                 实体列表：
                 {entity_list}
 
-                仅输出 JSON：
+                来源文本：
+                {source_texts}
+
+                仅输出严格 JSON：
             """)
+
+
+
 
 
 @PROMPT_REGISTRY.register()

@@ -1,4 +1,4 @@
-from dataflow.prompts.diverse_kg.medkg import MedKGRelationExtractorPrompt
+from dataflow.prompts.diverse_kg.medkg import MedKGRelationExtractorPrompt, MedKGExtractionPrompt
 import pandas as pd
 from dataflow.utils.registry import OPERATOR_REGISTRY
 from dataflow import get_logger
@@ -18,9 +18,19 @@ from typing import Union
 
 @prompt_restrict(
     MedKGRelationExtractorPrompt,
+    MedKGExtractionPrompt,
 )
 @OPERATOR_REGISTRY.register()
 class MedKGTripleExtraction(OperatorABC):
+    r"""
+    A processor for extracting knowledge graph triples from text.
+
+    This operator takes raw text and a predefined list of valid entities as input,
+    and uses an LLM-based prompt to extract entity–relation–entity triples.
+    The extracted triples are written back to the dataframe for downstream
+    knowledge graph construction or reasoning tasks.
+    """
+
     def __init__(
         self,
         llm_serving: LLMServingABC,
@@ -44,12 +54,23 @@ class MedKGTripleExtraction(OperatorABC):
         self.lang = lang
         self.num_q = num_q
         self.logger = get_logger()
-        self.prompt_template = (
-                MedKGRelationExtractorPrompt(lang=self.lang)
-            )        
+
+        if triple_type == "coverage":
+            self.prompt_template = MedKGExtractionPrompt(lang=self.lang)
+        else:
+            self.prompt_template = MedKGRelationExtractorPrompt(lang=self.lang)
 
     @staticmethod
     def get_desc(lang: str = "en") -> tuple:
+        """
+        Return a short description of the operator.
+
+        Args:
+            lang: Language of the description.
+
+        Returns:
+            A tuple containing a brief description and the expected input/output.
+        """
         if lang == "zh":
             return (
                 "MedKGTripleExtraction 是一个三元组抽取算子，用于从文本中抽取知识图谱三元组。",
@@ -64,7 +85,7 @@ class MedKGTripleExtraction(OperatorABC):
     def process_batch(
         self,
         texts: List[str],
-        ontology_lists: Dict[str, Any],
+        ontology_lists,
         sources: Optional[List[str]] = None
     ) -> List[Dict[str, Any]]:
         """
@@ -107,102 +128,12 @@ class MedKGTripleExtraction(OperatorABC):
                 f"The following column(s) already exist and would be overwritten: {conflict}"
             )
 
-    def _load_single_ontology_from_cache(
-        self,
-        storage_meta: FileStorage,
-        ontology_name: str,
-    ) -> Dict[str, Any]:
-        ontology_file_name = ontology_name if ontology_name.endswith(".json") else f"{ontology_name}.json"
-        ontology_data = storage_meta.read(
-            file_path=f"./.cache/medical/{ontology_file_name}",
-            output_type="dataframe"
-        )
-        return self._normalize_ontology(ontology_data)
-
-    def _normalize_ontology(self, ontology_data: Any) -> Dict[str, Any]:
-        if isinstance(ontology_data, pd.DataFrame):
-            if ontology_data.empty:
-                raise ValueError("Ontology dataframe is empty")
-            ontology_data = ontology_data.iloc[0].to_dict()
-
-        if not isinstance(ontology_data, dict):
-            raise ValueError("Ontology must be a dict or a dataframe containing one ontology row")
-
-        return ontology_data
-
-    def _merge_ontology_sections(
-        self,
-        merged_section: Dict[str, List[str]],
-        section_data: Any,
-    ) -> None:
-        if not isinstance(section_data, dict):
-            return
-
-        for group_name, values in section_data.items():
-            if not isinstance(values, list):
-                continue
-
-            merged_values = merged_section.setdefault(group_name, [])
-            existing = set(merged_values)
-
-            for value in values:
-                value = str(value)
-                if value not in existing:
-                    merged_values.append(value)
-                    existing.add(value)
-
-    def _merge_ontologies(self, ontology_list: List[Dict[str, Any]]) -> Dict[str, Any]:
-        if not ontology_list:
-            raise ValueError("Ontology list must not be empty")
-
-        merged_ontology = {
-            "entity_type": {},
-            "relation_type": {},
-        }
-
-        for ontology in ontology_list:
-            normalized_ontology = self._normalize_ontology(ontology)
-            self._merge_ontology_sections(
-                merged_ontology["entity_type"],
-                normalized_ontology.get("entity_type", {}),
-            )
-            self._merge_ontology_sections(
-                merged_ontology["relation_type"],
-                normalized_ontology.get("relation_type", {}),
-            )
-
-        return merged_ontology
-
-    def _resolve_ontology(
-        self,
-        ontology_lists: Optional[Any],
-        input_key_meta: Union[str, List[str]],
-    ) -> Dict[str, Any]:
-        if ontology_lists is not None:
-            if isinstance(ontology_lists, list):
-                return self._merge_ontologies(ontology_lists)
-            return self._normalize_ontology(ontology_lists)
-
-        storage_meta = FileStorage(
-            first_entry_file_name="",
-            cache_type="json"
-        )
-
-        if isinstance(input_key_meta, list):
-            loaded_ontologies = [
-                self._load_single_ontology_from_cache(storage_meta, ontology_name)
-                for ontology_name in input_key_meta
-            ]
-            return self._merge_ontologies(loaded_ontologies)
-
-        return self._load_single_ontology_from_cache(storage_meta, input_key_meta)
-
     def run(
         self,
         storage: DataFlowStorage = None,
         ontology_lists = None,
         input_key: str = "raw_chunk",
-        input_key_meta: Union[str, List[str]] = "ontology",
+        input_key_meta: str = "ontology",
         output_key: str = "triple",
         output_key_meta: str = "entity_class"
     ):
@@ -215,7 +146,24 @@ class MedKGTripleExtraction(OperatorABC):
         self._validate_dataframe(dataframe)
 
         texts = dataframe[self.input_key].tolist()
-        ontology_lists = self._resolve_ontology(ontology_lists, input_key_meta)
+
+        if isinstance(self.prompt_template, MedKGExtractionPrompt):
+            ontology_lists = {}
+        elif ontology_lists is None:
+            storage_meta = FileStorage(
+                first_entry_file_name="",
+                cache_type="json"
+            )
+            ontology_file_name = input_key_meta if input_key_meta.endswith(".json") else f"{input_key_meta}.json"
+            ontology_lists = storage_meta.read(
+                file_path=f"./.cache/medical/{ontology_file_name}",
+                output_type="dataframe"
+            )
+
+        if isinstance(ontology_lists, pd.DataFrame):
+            if ontology_lists.empty:
+                raise ValueError("Ontology dataframe is empty")
+            ontology_lists = ontology_lists.iloc[0].to_dict()
 
         outputs = self.process_batch(texts, ontology_lists)
 
@@ -260,7 +208,10 @@ class MedKGTripleExtraction(OperatorABC):
             user_inputs = [
                 self.prompt_template.build_prompt(processed_text)
             ]
-            system_prompt = self.prompt_template.build_system_prompt(ontology_lists)
+            if isinstance(self.prompt_template, MedKGExtractionPrompt):
+                system_prompt = self.prompt_template.build_system_prompt()
+            else:
+                system_prompt = self.prompt_template.build_system_prompt(ontology_lists)
 
             responses = self.llm_serving.generate_from_input(
                 user_inputs=user_inputs,
@@ -280,13 +231,32 @@ class MedKGTripleExtraction(OperatorABC):
 
         return results
 
-    def _parse_llm_response(self, response: str) -> List[Dict[str, Any]]:
+    def _parse_llm_response(self, response: str) -> List[List[str]]:
         try:
             cleaned = response.strip().strip("```json").strip("```")
-            return json.loads(cleaned).get("triple", [])
+            parsed = json.loads(cleaned)
+            raw = parsed.get("relations", parsed.get("triple", []))
         except Exception as e:
             self.logger.warning(f"Failed to parse LLM response: {e}")
             return []
+
+        results = []
+        for item in raw:
+            if isinstance(item, list) and len(item) == 3:
+                results.append([str(x).strip() for x in item])
+                continue
+            if not isinstance(item, str):
+                continue
+            m = re.match(
+                r"<subj>\s*(.*?)\s*<obj>\s*(.*?)\s*<rel>\s*(.*)",
+                item.strip(),
+            )
+            if not m:
+                continue
+            subj, obj, rel = (p.strip() for p in m.groups())
+            if subj and rel and obj:
+                results.append([subj, rel, obj])
+        return results
 
     def _class_parse_llm_response(self, response: str) -> List[Dict[str, Any]]:
         try:
