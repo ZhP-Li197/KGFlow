@@ -15,8 +15,8 @@ def is_torch_cuda_available():
 
 def get_env_info():
     info = {
-        "`Dataflow` version": __version__,
-        "`Dataflow` install path": DataFlowPath.get_dataflow_dir(),
+        "`KGFlow` version": __version__,
+        "`KGFlow` install path": DataFlowPath.get_dataflow_dir(),
         "Platform": platform.platform(),
         "Python version": platform.python_version(),
         "PyTorch version": torch.__version__,
