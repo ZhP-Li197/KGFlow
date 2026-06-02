@@ -48,3 +48,4 @@ networkx
 pyvis
 dotenv
 dspy
+neo4j

@@ -11,6 +11,7 @@ if TYPE_CHECKING:
     from .kg_triple_disambiguation import KGTripleDisambiguation
     from .kg_tuple_normalization import KGTupleNormalization
     from .tkg_4tuple_disambiguation import TKGTupleDisambiguation
+    from .kg_rel_triple_inference import KGRelationTripleInference
 
 else:
     import sys

@@ -129,8 +129,6 @@ class KGInferredTripleGenerationPrompt(PromptABC):
             """)
 
 
-
-
 @PROMPT_REGISTRY.register()
 class KGInferAndCheckTriplePrompt(PromptABC):
 

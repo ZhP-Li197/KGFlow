@@ -10,7 +10,6 @@ if TYPE_CHECKING:
     from .hrkg_rel_triple_completeness_eval import HRKGTripleCompletenessEvaluator
     from .hrkg_rel_triple_consistency_eval import HRKGTripleConsistencyEvaluator
     from .kg_rel_triple_consistency_eval import KGRelationTripleConsistencyEvaluator
-    from .kg_rel_triple_inference import KGRelationTripleInference
     from .kg_rel_triple_nx_visual import KGRelationTripleVisualization
     from .kg_rel_triple_strength_eval import KGRelationStrengthScoring
     from .kg_rel_triple_topology_eval import KGRelationTripleTopologyEvaluator

@@ -61,7 +61,6 @@ class KGEntityExtractionPrompt(PromptABC):
                 ```
             """)
 
-
 @PROMPT_REGISTRY.register()
 class KGRelationGenerationPrompt(PromptABC):
     def __init__(self, lang: str = "en"):
@@ -142,7 +141,6 @@ class KGRelationGenerationPrompt(PromptABC):
 
                 仅输出严格 JSON：
             """)
-
 
 
 

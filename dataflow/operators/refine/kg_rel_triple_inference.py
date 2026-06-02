@@ -1,4 +1,5 @@
-from dataflow.prompts.core_kg.rel_triple_generate import KGInferredTripleGenerationPrompt, KGRelationGenerationPrompt
+from dataflow.prompts.core_kg.rel_triple_refinement import KGInferredTripleGenerationPrompt
+from dataflow.prompts.core_kg.rel_triple_generate import KGRelationGenerationPrompt
 import pandas as pd
 from dataflow.utils.registry import OPERATOR_REGISTRY
 from dataflow import get_logger
@@ -91,7 +92,6 @@ class KGRelationTripleInference(OperatorABC):
                 user_inputs=[user_prompt],
                 system_prompt=system_prompt,
             )
-            print(responses)
 
             inferred = self._parse_llm_response(responses[0])
             results.append({"inferred_triple": inferred})
@@ -131,8 +131,9 @@ class KGRelationTripleInference(OperatorABC):
                 seen = set()
                 merged = []
                 for t in original + inferred:
-                    if t not in seen:
-                        seen.add(t)
+                    key = tuple(t) if isinstance(t, list) else t
+                    if key not in seen:
+                        seen.add(key)
                         merged.append(t)
                 merged_triples.append(merged)
 
