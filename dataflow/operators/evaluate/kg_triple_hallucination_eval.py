@@ -1,15 +1,3 @@
-"""
-====================================
-DataFlow-KG:
-====================================
-
-Author: OpenAI Codex
-Created: 2026-05-28
-
-License:
-    MIT License
-"""
-
 import json
 from typing import Any, Dict, List, Tuple, Union
 

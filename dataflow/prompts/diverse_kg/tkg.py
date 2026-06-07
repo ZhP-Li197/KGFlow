@@ -21,8 +21,11 @@ class TKGRelationQuadrupleExtractorPrompt(PromptABC):
             return textwrap.dedent("""\
                 You are an expert in extracting temporal relation quadruples from natural language text.
 
-                Each quadruple MUST follow this exact format:
-                <subj> Entity <obj> Entity <rel> Relation <time> TimeValue
+                Each quadruple MUST be a single string that follows this exact tagged format:
+                <subj> subject <obj> object <rel> relation <time> time_value
+
+                The tags <subj>, <obj>, <rel>, and <time> are mandatory literal tokens.
+                Do NOT replace these tags with words such as Entity, Relation, Subject, or Object.
 
                 === TIME STANDARDIZATION ===
                 1. Specific date: YYYY-MM-DD, e.g., 2025-03-03
@@ -42,14 +45,17 @@ class TKGRelationQuadrupleExtractorPrompt(PromptABC):
                 === OUTPUT FORMAT ===
                 - JSON object only
                 - Key: "tuple"
-                - Example items:
+                - Every item must keep all four literal tags: <subj>, <obj>, <rel>, <time>
+                - Correct examples:
 
-                  "<subj> Entity <obj> Entity <rel> Relation <time> 2025-03-03"
-                  "<subj> Entity <obj> Entity <rel> Relation <time> March 2025"
-                  "<subj> Entity <obj> Entity <rel> Relation <time> 2025"
-                  "<subj> Entity <obj> Entity <rel> Relation <time> Q1 2025"
-                  "<subj> Entity <obj> Entity <rel> Relation <time> 2025-01-01|2025-01-03"
-                  "<subj> Entity <obj> Entity <rel> Relation <time> NA"
+                  "<subj> Steve Spangler <obj> News for Kids <rel> offered <time> 1991"
+                  "<subj> News for Kids <obj> local television stations <rel> premiered on <time> 1991"
+                  "<subj> Entity A <obj> Entity B <rel> relation phrase <time> NA"
+
+                - Incorrect examples that must NEVER be used:
+
+                  "Steve Spangler Entity News for Kids Relation offered 1991"
+                  "Steve Spangler <obj> News for Kids <rel> offered <time> 1991"
 
                 - Do NOT add explanations or extra text
             """)
@@ -101,7 +107,7 @@ class TKGRelationQuadrupleExtractorPrompt(PromptABC):
                 Output ONLY JSON:
                 {{
                   "tuple": [
-                    "<subj> Entity <obj> Entity <rel> Relation <time> TimeValue"
+                    "<subj> subject <obj> object <rel> relation <time> time_value"
                   ]
                 }}
             """)

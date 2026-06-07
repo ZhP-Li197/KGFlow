@@ -1,6 +1,8 @@
 import argparse
+import importlib.util
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -11,11 +13,11 @@ from colorama import Fore, Style
 HF_DATASET_REPO = "b1u1/KGFlow-bench"
 
 KGFLOW_PIPELINES = {
-    "general": ("generalkg_extraction_pipeline.py", 5),
-    "finance": ("finkg_extraction_pipeline.py", 1),
-    "medical": ("medkg_extraction_pipeline.py", 1),
-    "legal": ("legalkg_extraction_pipeline.py", 1),
-    "temporal": ("tkg_extraction.py", 1),
+    "general": "generalkg_extraction_pipeline.py",
+    "finance": "finkg_extraction_pipeline.py",
+    "medical": "medkg_extraction_pipeline.py",
+    "legal": "legalkg_extraction_pipeline.py",
+    "temporal": "tkg_extraction.py",
 }
 
 
@@ -33,6 +35,18 @@ def _method_output_path(method: str) -> Path:
 
 def _api_pipeline_dir() -> Path:
     return Path(__file__).resolve().parents[1] / "statics" / "pipelines" / "api_pipelines"
+
+
+def _latest_pipeline_output(cache_dir: Path, output_prefix: str) -> Path | None:
+    files = list(cache_dir.glob(f"{output_prefix}_step*.jsonl")) + list(cache_dir.glob(f"{output_prefix}_step*.json"))
+    if not files:
+        return None
+
+    def step_number(path: Path) -> int:
+        match = re.search(r"_step(\d+)\.", path.name)
+        return int(match.group(1)) if match else -1
+
+    return max(files, key=step_number)
 
 
 def _load_json_records(path: Path) -> list[dict]:
@@ -81,6 +95,30 @@ def _normalize_triples(triples) -> list[list[str]]:
         if normalized:
             output.append(normalized)
     return output
+
+
+def _write_predictions_with_gold_fields(input_path: Path, prediction_path: Path, output_path: Path) -> None:
+    gold_records = _load_json_records(input_path)
+    predictions = _load_json_records(prediction_path)
+    gold_by_id = {
+        str(record.get("id") or f"item_{index:06d}"): record
+        for index, record in enumerate(gold_records)
+    }
+
+    enriched = []
+    for index, pred in enumerate(predictions):
+        item_id = str(pred.get("id") or f"item_{index:06d}")
+        gold = gold_by_id.get(item_id, {})
+        item = dict(pred)
+        item["id"] = item_id
+        if "relational_facts" in gold:
+            item["relational_facts"] = gold["relational_facts"]
+        for key in ("title", "text", "url", "source", "domain", "metadata"):
+            if key in gold and not item.get(key):
+                item[key] = gold[key]
+        enriched.append(item)
+
+    output_path.write_text(json.dumps(enriched, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
 def _require_jsonl_dataset(dataset: str) -> Path | None:
@@ -234,6 +272,32 @@ def cli_json2kg_kggen(dataset: str):
         return
     api_key, api_url, model = api_env
 
+    kggen_requirements = [
+        ("dspy", "dspy"),
+        ("networkx", "networkx"),
+        ("sentence_transformers", "sentence-transformers"),
+        ("sklearn", "scikit-learn"),
+        ("numpy", "numpy"),
+        ("pydantic", "pydantic"),
+        ("nltk", "nltk"),
+        ("semhash", "semhash"),
+        ("inflect", "inflect"),
+        ("scipy", "scipy"),
+        ("rank_bm25", "rank-bm25"),
+        ("neo4j", "neo4j"),
+    ]
+    missing_pkgs = [
+        pip_name
+        for import_name, pip_name in kggen_requirements
+        if importlib.util.find_spec(import_name) is None
+    ]
+    if missing_pkgs:
+        install_cmd = "pip install " + " ".join(sorted(set(missing_pkgs)))
+        print(f"{Fore.RED}Missing optional dependencies for KGGen: {', '.join(sorted(set(missing_pkgs)))}{Style.RESET_ALL}")
+        print("KGGen is a third-party baseline and requires extra packages.")
+        print(f"Please run: {install_cmd}")
+        return
+
     print(f"{Fore.GREEN}Running KGGen on {input_path}...{Style.RESET_ALL}")
     module = _import_from_json2kg("kggen_baseline")
     parser = module.build_arg_parser()
@@ -290,12 +354,11 @@ def cli_json2kg_kgflow(dataset: str, pipeline: str):
         print(f"{Fore.RED}Error: unsupported KGFlow pipeline '{pipeline}'. Choose from: {choices}.{Style.RESET_ALL}")
         return
 
-    script_name, final_step = KGFLOW_PIPELINES[pipeline]
+    script_name = KGFLOW_PIPELINES[pipeline]
     script_path = _api_pipeline_dir() / script_name
     cache_dir = Path(os.getcwd()) / f"cache_kgflow_{pipeline}"
     output_prefix = f"kgflow_{pipeline}"
     output_path = _method_output_path("kgflow")
-    final_cache_path = cache_dir / f"{output_prefix}_step{final_step}.jsonl"
 
     cmd = [
         sys.executable,
@@ -326,11 +389,12 @@ def cli_json2kg_kgflow(dataset: str, pipeline: str):
         print(f"{Fore.RED}Error: KGFlow pipeline failed with exit code {exc.returncode}.{Style.RESET_ALL}")
         return
 
-    if not final_cache_path.exists():
-        print(f"{Fore.RED}Error: expected KGFlow output not found: {final_cache_path}{Style.RESET_ALL}")
+    final_cache_path = _latest_pipeline_output(cache_dir, output_prefix)
+    if final_cache_path is None:
+        print(f"{Fore.RED}Error: no KGFlow output found in {cache_dir}{Style.RESET_ALL}")
         return
 
-    shutil.copy2(final_cache_path, output_path)
+    _write_predictions_with_gold_fields(input_path, final_cache_path, output_path)
     print(f"{Fore.GREEN}Done. Output saved to {output_path}{Style.RESET_ALL}")
 
 

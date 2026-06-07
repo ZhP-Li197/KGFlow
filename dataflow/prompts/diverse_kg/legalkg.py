@@ -13,7 +13,8 @@ class LegalKGExtractionPrompt(PromptABC):
         return textwrap.dedent("""\
             You are a legal contract knowledge graph extraction expert.
             Extract subject-predicate-object triples from contract provisions that are
-            likely to be supported by a legal knowledge graph.
+            likely to be supported by a legal knowledge graph.Prefer coverage over excessive
+            conservatism, but every triple must be grounded in the text.
 
             === TARGET RELATION TYPES ===
             1. Agreement structure:
@@ -34,12 +35,6 @@ class LegalKGExtractionPrompt(PromptABC):
               "Change in Control", "Qualifying Termination"
             These are likely KG nodes; any modification will break embedding retrieval.
 
-            === OBJECT LENGTH RULE ===
-            Object must be ≤ 6 words or a named legal concept.
-            For overly long objects, simplify to the core noun phrase:
-              "all prior agreements regarding the subject matter" → "prior agreements"
-              "written notice of non-extension"                  → keep as-is (≤ 6 words)
-
             === CONDITIONAL DECOMPOSITION ===
             Break conditional sentences into atomic triples:
             Text: "Term extends for one year unless Company gives written notice 90 days prior"
@@ -59,6 +54,18 @@ class LegalKGExtractionPrompt(PromptABC):
                 ["subject", "predicate", "object"]
               ]
             }
+        """)
+
+
+    def build_prompt(self, text: str):
+        return textwrap.dedent(f"""\
+            Extract legal knowledge graph triples from the following contract provision.
+            Follow all rules from the system prompt.
+
+            Text:
+            {text}
+
+            Output strict JSON only:
         """)
 
 @PROMPT_REGISTRY.register()
