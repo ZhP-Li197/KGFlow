@@ -156,7 +156,6 @@ The `coverage` metric evaluates how well the generated KG covers the factual inf
 | Finance      | `Finance`      | Financial text-to-KG benchmark dataset derived from EDGAR filings                                |
 | Legal        | `Legal`        | Legal text-to-KG benchmark dataset derived from LEDGAR contract clauses                          |
 
-```
 
 ---
 
