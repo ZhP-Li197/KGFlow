@@ -3,6 +3,7 @@ from __future__ import annotations
 import ast
 import csv
 import json
+import logging
 import os
 import sys
 import tempfile
@@ -54,7 +55,10 @@ class AutoSchemaKGBaseline:
             temp_parent = ROOT / ".tmp"
             temp_parent.mkdir(parents=True, exist_ok=True)
             with tempfile.TemporaryDirectory(prefix="run_", dir=temp_parent) as work_dir:
-                return self._run(args, rows, Path(work_dir))
+                try:
+                    return self._run(args, rows, Path(work_dir))
+                finally:
+                    close_autoschema_file_handlers()
         return self._run(args, rows, args.work_dir)
 
     def _run(self, args, rows: list[dict[str, Any]], work_dir: Path) -> Path:
@@ -104,6 +108,14 @@ class InMemoryKnowledgeGraphExtractor(KnowledgeGraphExtractor):
 
     def load_dataset(self) -> Any:
         return {"train": build_autoschema_samples(self._rows)}
+
+
+def close_autoschema_file_handlers() -> None:
+    for logger in (logging.getLogger(), logging.getLogger("MyLogger")):
+        for handler in list(logger.handlers):
+            if isinstance(handler, logging.FileHandler):
+                handler.close()
+                logger.removeHandler(handler)
 
 
 def load_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -314,3 +326,4 @@ def dedupe_triples(triples: Iterable[Triple]) -> list[Triple]:
 def write_json(path: Path, data: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+

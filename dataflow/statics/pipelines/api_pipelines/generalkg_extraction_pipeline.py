@@ -1,11 +1,4 @@
 import argparse
-import sys
-from pathlib import Path
-
-REPO_ROOT = Path(__file__).resolve().parents[4]
-if str(REPO_ROOT) not in sys.path:
-    sys.path.insert(0, str(REPO_ROOT))
-
 from dataflow.operators.refine import KGRelationTripleInference
 from dataflow.operators.filter import KGTupleRemoveRepeated, KGTupleValidity
 from dataflow.operators.generate import KGEntityExtraction, KGTripleExtraction
@@ -27,9 +20,10 @@ class GeneralKGExtractionPipeline:
         self.triple_inference = KGRelationTripleInference(
             llm_serving=self.llm_serving,
             lang="en",
+            with_text=True,
             merge_to_input=True,
         )
-        self.tuple_dedup = KGTupleRemoveRepeated(lang="en")
+        # self.tuple_dedup = KGTupleRemoveRepeated(lang="en")
         self.tuple_validation = KGTupleValidity(
             llm_serving=self.llm_serving,
             lang="en",
@@ -53,17 +47,18 @@ class GeneralKGExtractionPipeline:
             input_key="triple",
             output_key="inferred_triple",
         )
-        self.tuple_dedup.run(
-            storage=self.storage.step(),
-            input_key="triple",
-            output_key="triple",
-        )
+        # 如果不是所有chunk都来自一篇文章则不使用这个算子
+        # self.tuple_dedup.run(
+        #     storage=self.storage.step(),
+        #     input_key="triple",
+        #     output_key="triple",
+        # )
         self.tuple_validation.run(
             storage=self.storage.step(),
             input_key="triple",
             output_key="valid_triple",
         )
-        return latest_step_path(self.args, 5)
+        return latest_step_path(self.args, self.storage.operator_step + 1)
 
 
 def parse_args():

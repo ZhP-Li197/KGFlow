@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-"""KGGen baseline wrapper aligned with the json2kg one-click workflow."""
-
 from __future__ import annotations
 
 import argparse
@@ -60,11 +57,14 @@ def _relation_to_triple(relation: Any) -> str | None:
     return None
 
 
-def _normalize_output(raw_output: Path, final_output: Path, input_key: str, output_key: str) -> None:
+def _normalize_output(raw_output: Path, final_output: Path, input_key: str, output_key: str, source_records: list[dict[str, Any]]) -> None:
     records = _load_records(raw_output)
+    source_by_id = {str(item.get("id", index)): item for index, item in enumerate(source_records)}
     normalized = []
 
     for item in records:
+        item_id = str(item.get("id"))
+        source = source_by_id.get(item_id, {})
         kg = item.get("extracted_kg") or {}
         triples = []
         for relation in kg.get("relations", []) or []:
@@ -75,7 +75,9 @@ def _normalize_output(raw_output: Path, final_output: Path, input_key: str, outp
         normalized.append(
             {
                 "id": item.get("id"),
-                input_key: item.get(input_key, item.get("text", "")),
+                "title": source.get("title"),
+                input_key: source.get(input_key, item.get(input_key, item.get("text", ""))),
+                "relational_facts": source.get("relational_facts", []),
                 output_key: triples,
                 "baseline": "KGGen",
                 "extraction_status": kg.get("extraction_status", "unknown"),
@@ -127,7 +129,7 @@ def run(args: argparse.Namespace) -> Path:
         force=args.force,
     )
 
-    _normalize_output(kggen_raw_output, output_path, args.input_key, args.output_key)
+    _normalize_output(kggen_raw_output, output_path, args.input_key, args.output_key, source_records)
     print(f"KGGen normalized predictions written to: {output_path}")
     return output_path
 

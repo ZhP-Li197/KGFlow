@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-"""TreeKG baseline wrapper aligned with the json2kg one-click workflow."""
-
 from __future__ import annotations
 
 import argparse
@@ -220,6 +217,7 @@ def _run_json_input(args: argparse.Namespace) -> Path:
                 "id": item_id,
                 "title": title,
                 "baseline": "TreeKG",
+                "relational_facts": record.get("relational_facts", []),
                 args.output_key: triples,
                 "entities": result.get("entities", []) or [],
                 "relations": relations,

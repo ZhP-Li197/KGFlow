@@ -18,9 +18,6 @@ SRC = ROOT / "src"
 if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
-LOCAL_CONTRIEVER = Path("/home/liuxuem/Wikontic/facebook/contriever")
-if not os.getenv("HF_MODEL_PATH") and LOCAL_CONTRIEVER.is_dir():
-    os.environ["HF_MODEL_PATH"] = str(LOCAL_CONTRIEVER)
 
 
 from wikontic.create_ontological_triplets_db import create_ontological_triplets_database

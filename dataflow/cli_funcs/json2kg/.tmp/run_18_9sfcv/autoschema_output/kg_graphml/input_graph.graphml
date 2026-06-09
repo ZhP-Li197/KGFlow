@@ -1,0 +1,2346 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d5" for="edge" attr.name="concepts" attr.type="string"/>
+<key id="d4" for="edge" attr.name="type" attr.type="string"/>
+<key id="d3" for="edge" attr.name="relation" attr.type="string"/>
+<key id="d2" for="node" attr.name="file_id" attr.type="string"/>
+<key id="d1" for="node" attr.name="type" attr.type="string"/>
+<key id="d0" for="node" attr.name="id" attr.type="string"/>
+<graph edgedefault="directed"><node id="92814496f9605fca6a01eb4f24c9833dff15e59fe23aa32e83cab0caade17e08">
+  <data key="d0">Time Out</data>
+  <data key="d1">entity</data>
+  <data key="d2">9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1</data>
+</node>
+<node id="5be6eb8e209675c3a41a470131a0e26f9932ebd09da0c72f4f60d17331405686">
+  <data key="d0">Time Out Group</data>
+  <data key="d1">entity</data>
+  <data key="d2">9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1</data>
+</node>
+<node id="54b64b428e2a018a30d99faa0dbb3229f8b16d7a960951b6bcf60ba8d6292283">
+  <data key="d0">a London-only publication</data>
+  <data key="d1">entity</data>
+  <data key="d2">9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1</data>
+</node>
+<node id="f70ace1806b0dec2befd97ed11a3c9a2d8db835d8f0ee259a2739e741e7619c5">
+  <data key="d0">333 cities in 59 countries</data>
+  <data key="d1">entity</data>
+  <data key="d2">9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1</data>
+</node>
+<node id="263c9378de25281038147eb136fc32812d9dc17c88f62b1005081539063e3e0b">
+  <data key="d0">London edition</data>
+  <data key="d1">entity</data>
+  <data key="d2">9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1</data>
+</node>
+<node id="dbed9d38d61b4ae47dc977f90b8542efff52df41c6b8942e87fbef99531119ea">
+  <data key="d0">a free publication</data>
+  <data key="d1">entity</data>
+  <data key="d2">9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1</data>
+</node>
+<node id="b0b8b87698462496805b44891e63592e80057ad48ed1427cb9a45b7815bad01c">
+  <data key="d0">over 307,000</data>
+  <data key="d1">entity</data>
+  <data key="d2">9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1</data>
+</node>
+<node id="8787e70f52e89a9570217099ed6d9716bf4757d5ab868519ff43e63e24afe2c2">
+  <data key="d0">Nokia</data>
+  <data key="d1">entity</data>
+  <data key="d2">9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1</data>
+</node>
+<node id="c157a9f2d81e525e03e1ef4852209d89f19459726ca06b113e1749f9b03ff556">
+  <data key="d0">iOS and Android</data>
+  <data key="d1">entity</data>
+  <data key="d2">9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1</data>
+</node>
+<node id="6c72c6947c8152ea0c1016438d8d4f48fef998446d025bb578a97a1a6ac28f84">
+  <data key="d0">International Consumer Magazine of the Year award</data>
+  <data key="d1">entity</data>
+  <data key="d2">9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1</data>
+</node>
+<node id="386a11d1bcb2cfe18cdac748649a2ad1a6345b029ab6d20fcd5aa4387b39794b">
+  <data key="d0">International Consumer Media Brand of the Year</data>
+  <data key="d1">entity</data>
+  <data key="d2">9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1</data>
+</node>
+<node id="8dc4f5a3a8044a7ca933d37c0a2b23462785f1a125799cb28e9580a6193009d6">
+  <data key="d0">Tony Elliott</data>
+  <data key="d1">entity</data>
+  <data key="d2">9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1</data>
+</node>
+<node id="a5a7f377e65b3cc1d2fb310041f1b8ab86e6f8ca8b6609b4934fa66771cc6957">
+  <data key="d0">his birthday money</data>
+  <data key="d1">entity</data>
+  <data key="d2">9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1</data>
+</node>
+<node id="341f7413ee22b076da9119c021c7a5a0ea27e1078f3f4f61987f8568f18bf2e3">
+  <data key="d0">Bob Harris</data>
+  <data key="d1">entity</data>
+  <data key="d2">9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1</data>
+</node>
+<node id="c1a294ac9c36d535a8f6b78109c03d017b7269a3bc0dbff9d5b7861daaa8ddf4">
+  <data key="d0">first product</data>
+  <data key="d1">entity</data>
+  <data key="d2">9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1</data>
+</node>
+<node id="4acbb22e77818687a0769b7cde177c6bf98e6cf2b2359fad37a06cd1a9022b2c">
+  <data key="d0">Where It's At</data>
+  <data key="d1">entity</data>
+  <data key="d2">9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1</data>
+</node>
+<node id="b2ce878bd5b80a799f91fc1f2d54275d08886044aeecc97626f319466830d36e">
+  <data key="d0">Dave Brubeck's album Time Out</data>
+  <data key="d1">entity</data>
+  <data key="d2">9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1</data>
+</node>
+<node id="6bacced9104b4be4f9f0aee4591f7adc08994483e771f57bf012d445d33cd857">
+  <data key="d0">original collective decision-making structure</data>
+  <data key="d1">entity</data>
+  <data key="d2">9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1</data>
+</node>
+<node id="97051a2f9be6cb5482b24d2a4599b92c64e03cc03be6533ff514b806ea57d781">
+  <data key="d0">the foundation of City Limits</data>
+  <data key="d1">entity</data>
+  <data key="d2">9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1</data>
+</node>
+<node id="1cafc22ec484523cb3144f7035c345661b65869b720601785ddc3b1ee8d18ffd">
+  <data key="d0">60 purported CIA agents</data>
+  <data key="d1">entity</data>
+  <data key="d2">9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1</data>
+</node>
+<node id="fb4ab26bb408f7f6bd57ba0a150fd8162bf44291c686d9a0aba00fc608377e08">
+  <data key="d0">slum</data>
+  <data key="d1">entity</data>
+  <data key="d2">7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1</data>
+</node>
+<node id="1250c862b061eb8c7491a6892ad70548f4d9e2a82774dc305081d695efa7a59c">
+  <data key="d0">derogatory term</data>
+  <data key="d1">entity</data>
+  <data key="d2">7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1</data>
+</node>
+<node id="355220adf865e6902cc85147c76cb0855fa7d33524b9cf874b997e02f9f8ea0d">
+  <data key="d0">densely packed housing units</data>
+  <data key="d1">entity</data>
+  <data key="d2">7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1</data>
+</node>
+<node id="f9f1db0c24418b0cca86bb2853ad841ab3d459218834dd70201e10446fd1477a">
+  <data key="d0">poverty</data>
+  <data key="d1">entity</data>
+  <data key="d2">7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1</data>
+</node>
+<node id="939ccfc9f0d5e359a2ca1a98e9acc6e361943008ef7d52bdf29557006bbfb9ba">
+  <data key="d0">infrastructure</data>
+  <data key="d1">entity</data>
+  <data key="d2">7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1</data>
+</node>
+<node id="f1d212b87695eb955e8e723aa21f28fc74cd8e021c3b95fe3f164de9aef09f46">
+  <data key="d0">deteriorated or incomplete</data>
+  <data key="d1">entity</data>
+  <data key="d2">7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1</data>
+</node>
+<node id="e17ded53533ac371e4decc53dae93ac334b56a8467ae0b0375fce5ea8ec0f6cc">
+  <data key="d0">impoverished people</data>
+  <data key="d1">entity</data>
+  <data key="d2">7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1</data>
+</node>
+<node id="fb319825c198e4d48c0012ba1d309cbd73b4a42dd0c84e5cbc18880a5c083949">
+  <data key="d0">slum residences</data>
+  <data key="d1">entity</data>
+  <data key="d2">7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1</data>
+</node>
+<node id="59540028a7d7fd0be63e40ec1b76e21ad240cec69eaad8042340aa4f45903059">
+  <data key="d0">shanty houses to professionally built dwellings</data>
+  <data key="d1">entity</data>
+  <data key="d2">7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1</data>
+</node>
+<node id="fdc3f041b52271578264d530e376d8d7b12204daa81276e2f4721ad549d649bb">
+  <data key="d0">slums</data>
+  <data key="d1">entity</data>
+  <data key="d2">7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1</data>
+</node>
+<node id="a1d123e3a6fb9e0aae8e01ae86179cdcc4de3ce634090ab7362106cc134481db">
+  <data key="d0">reliable sanitation services</data>
+  <data key="d1">entity</data>
+  <data key="d2">7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1</data>
+</node>
+<node id="0363485ab1c2fcdb89782d873c600762ea6e2290b003a288bd5986652a2beaee">
+  <data key="d0">supply of clean water</data>
+  <data key="d1">entity</data>
+  <data key="d2">7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1</data>
+</node>
+<node id="7eba09c332e533b043909ab30111d388efee3ba0d16a8aea812e9cd1e906b4de">
+  <data key="d0">reliable electricity</data>
+  <data key="d1">entity</data>
+  <data key="d2">7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1</data>
+</node>
+<node id="b661a90f9fca5deb337c39335e03a7fbc4f629c79121d8ae04b9e3d877a332c3">
+  <data key="d0">law enforcement</data>
+  <data key="d1">entity</data>
+  <data key="d2">7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1</data>
+</node>
+<node id="f06f5d672fde051a4286ab36008995357222df2d58a26880c209479df322e906">
+  <data key="d0">United Nations</data>
+  <data key="d1">entity</data>
+  <data key="d2">7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1</data>
+</node>
+<node id="d4e9cf45a3661ae0fbc1a8f0c9926a354df26a84f3d315c6218f6228dd15e65d">
+  <data key="d0">urbanization</data>
+  <data key="d1">entity</data>
+  <data key="d2">7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1</data>
+</node>
+<node id="829732965581c2a8711e98bb1fc32475dcd832fdf5a232169cfacfaf989956a6">
+  <data key="d0">growth of slums</data>
+  <data key="d1">entity</data>
+  <data key="d2">7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1</data>
+</node>
+<node id="4f7e83e579c0e3615fc3c8edfcf327590692999995af1fb1adbe8029c198fa0b">
+  <data key="d0">19th to late 20th centuries</data>
+  <data key="d1">entity</data>
+  <data key="d2">7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1</data>
+</node>
+<node id="31f38fbe20a48240b2d7e645c986f9b020568c30aec3b7c98a0f40e841990e72">
+  <data key="d0">developing countries</data>
+  <data key="d1">entity</data>
+  <data key="d2">7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1</data>
+</node>
+<node id="ac7e9acbe180bd6482416ef16667c65f646128cda9b4e7a730459246d16213af">
+  <data key="d0">developed economies</data>
+  <data key="d1">entity</data>
+  <data key="d2">7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1</data>
+</node>
+<node id="fe254163d2a4cc8d5c89827e444aee9a6287780870a0e7fe130776ebdc443f7e">
+  <data key="d0">largest slum city</data>
+  <data key="d1">entity</data>
+  <data key="d2">7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1</data>
+</node>
+<node id="02bfc6fce69fef74052b198a2da8e61619bcb078bbb812a827fd71691da52c42">
+  <data key="d0">Orangi, Karachi, Pakistan</data>
+  <data key="d1">entity</data>
+  <data key="d2">7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1</data>
+</node>
+<node id="9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1">
+  <data key="d2">9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1</data>
+  <data key="d0">Time Out is a global magazine published by Time Out Group. Time Out started as a London-only publication in 1968 and has expanded its editorial recommendations to 333 cities in 59 countries worldwide. In 2012, the London edition became a free publication, with a weekly readership of over 307,000. Time Out's global market presence includes partnerships with Nokia and mobile apps for iOS and Android operating systems. It was the recipient of the International Consumer Magazine of the Year award in both 2010 and 2011 and the rebranded International Consumer Media Brand of the Year in 2013 and 2014. History Time Out was first published in 1968 as a London listings magazine by Tony Elliott, who used his birthday money to produce a one-sheet pamphlet, with Bob Harris as co-editor. The first product was titled Where It's At, before being inspired by Dave Brubeck's album Time Out. Time Out began as an alternative magazine alongside other members of the underground press in the UK, but by 1980 it had abandoned its original collective decision-making structure and its commitment to equal pay for all its workers, leading to a strike and the foundation of a competing magazine, City Limits, by former staffers. By now its former radicalism has all but vanished. As one example of its early editorial stance, in 1976, London's Time Out published the names of 60 purported CIA agents stationed in England.</data>
+  <data key="d1">passage</data>
+</node>
+<node id="7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1">
+  <data key="d2">7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1</data>
+  <data key="d0">A slum is a derogatory term for a highly populated urban residential area consisting of densely packed housing units of weak build quality and often associated with poverty. The infrastructure in slums is often deteriorated or incomplete, and they are primarily inhabited by impoverished people. Although slums are usually located in urban areas, they can be located in suburban areas where housing quality is low and living conditions are poor. Slum residences vary from shanty houses to professionally built dwellings which, because of poor-quality construction or lack of basic maintenance, have deteriorated. While slums differ in size and other characteristics, most lack reliable sanitation services, supply of clean water, reliable electricity, law enforcement, and other basic services. The United Nations defines slums as ".... informal settlements lacking one or more of the following conditions: access to improved water, access to improved sanitation, sufficient living area, housing durability, and security of tenure." Due to increasing urbanization of the general populace, slums became common in the 19th to late 20th centuries in the United States and Europe. Slums are still predominantly found in urban regions of developing countries, but are also still found in developed economies. The world's largest slum city is found in Orangi in Karachi, Pakistan. Slums form and grow in different parts of the world for many different reasons.</data>
+  <data key="d1">passage</data>
+</node>
+<node id="e1bf4d200b47980dfd2c1dabb8ea86802f6648c8d0db0b9764457cffb6109c24">
+  <data key="d2">concept_file</data>
+  <data key="d0">places</data>
+  <data key="d1">concept</data>
+</node>
+<node id="cb55d0df6b735ef61b097678f6bd73019504c58749267e7ed9ad280116765c68">
+  <data key="d2">concept_file</data>
+  <data key="d0">recognition</data>
+  <data key="d1">concept</data>
+</node>
+<node id="2bd8789798d69b9510e94f61fbdeb201969c7f26585272150493c9607bc6a245">
+  <data key="d2">concept_file</data>
+  <data key="d0">policing</data>
+  <data key="d1">concept</data>
+</node>
+<node id="42c6eeb5edf2d9248ae043ff7f94fb3d6766eb3294ac75ab4662e2ee9130be24">
+  <data key="d2">concept_file</data>
+  <data key="d0">foundation</data>
+  <data key="d1">concept</data>
+</node>
+<node id="2b668f5ed6852bb167d2b57274bc77652af10950311f392eeeeecb9b54c89672">
+  <data key="d2">concept_file</data>
+  <data key="d0">governance</data>
+  <data key="d1">concept</data>
+</node>
+<node id="3d3c8851775e3ed76a3fec66a5be38153159e9b2c9911c0665a90b8c048608fb">
+  <data key="d2">concept_file</data>
+  <data key="d0">insult</data>
+  <data key="d1">concept</data>
+</node>
+<node id="16c6df90d4a9a8bf750e4639c25dd18f9987f17fca7d1d36998451d622f9708f">
+  <data key="d2">concept_file</data>
+  <data key="d0">inequality</data>
+  <data key="d1">concept</data>
+</node>
+<node id="ee84cebf72890f69c4e5a4328ea788f614c8ade244ab086e0826e00cf187bc2b">
+  <data key="d2">concept_file</data>
+  <data key="d0">region</data>
+  <data key="d1">concept</data>
+</node>
+<node id="d7f41025891dd9435666bf14c5813aef8504b6d9874fd09a7333d9cda1141460">
+  <data key="d2">concept_file</data>
+  <data key="d0">construction</data>
+  <data key="d1">concept</data>
+</node>
+<node id="390ab86bdf6ce855d4f17951e9f343930989e62575b085c5bc4dfc14422a99d7">
+  <data key="d2">concept_file</data>
+  <data key="d0">award</data>
+  <data key="d1">concept</data>
+</node>
+<node id="61fd53edbb3e8fd5243e46b44c43fd6d707aebfab1e004ea05d5faa44016b884">
+  <data key="d2">concept_file</data>
+  <data key="d0">development</data>
+  <data key="d1">concept</data>
+</node>
+<node id="6a3542bf793e08e9aa5171df70e69bfeada806945231f0347c9e4ee3f94875b7">
+  <data key="d2">concept_file</data>
+  <data key="d0">housing</data>
+  <data key="d1">concept</data>
+</node>
+<node id="6cffce8e22f4f081365768ceb83c6e0adfa99a243a0343f2dc51140e152139d6">
+  <data key="d2">concept_file</data>
+  <data key="d0">group</data>
+  <data key="d1">concept</data>
+</node>
+<node id="3e4c530463436a8626cfb1243146c16935ed8169f5e138aaf75e2a4bd5148991">
+  <data key="d2">concept_file</data>
+  <data key="d0">hardship</data>
+  <data key="d1">concept</data>
+</node>
+<node id="01c84c487370c4887ceb6bb04a1c88ad2054ab983ed89648eab2a1bfd663bd8d">
+  <data key="d2">concept_file</data>
+  <data key="d0">societies</data>
+  <data key="d1">concept</data>
+</node>
+<node id="6f47f2c4c1cc5e3292eb58869837d9675df6984b524af7cc6ed6521725f274b5">
+  <data key="d2">concept_file</data>
+  <data key="d0">deprivation</data>
+  <data key="d1">concept</data>
+</node>
+<node id="2b3643f4e18cc15ba6a16c4a9af58b194179b712427e803680fc80b58eee6de0">
+  <data key="d2">concept_file</data>
+  <data key="d0">coalition</data>
+  <data key="d1">concept</data>
+</node>
+<node id="8aec68420ea9ebcb8a2b24bde67b713e417889cab1dc12caaa1349858cdbbe99">
+  <data key="d2">concept_file</data>
+  <data key="d0">demographic</data>
+  <data key="d1">concept</data>
+</node>
+<node id="8cbfebfa699ba5216fe74424ad6fcfd1450ecbef971b5987a6e45663ccad86d7">
+  <data key="d2">concept_file</data>
+  <data key="d0">security</data>
+  <data key="d1">concept</data>
+</node>
+<node id="8adc47bb7d5c4d1eab9a1438c8681817e16b12279296acb92d094d380de18ca9">
+  <data key="d2">concept_file</data>
+  <data key="d0">time period</data>
+  <data key="d1">concept</data>
+</node>
+<node id="e42be0253efc2adf36febf851ccd760caf890b50f5a153c9e0414861323c7046">
+  <data key="d2">concept_file</data>
+  <data key="d0">covert</data>
+  <data key="d1">concept</data>
+</node>
+<node id="ec5130dfaa7b08280d49de817bbb1106076c9f672f1efd39488d8858f7ed83de">
+  <data key="d2">concept_file</data>
+  <data key="d0">slum</data>
+  <data key="d1">concept</data>
+</node>
+<node id="94f086c92c08e4262da0980b0564a321836aa05748db7868ecda023cfc107a75">
+  <data key="d2">concept_file</data>
+  <data key="d0">forum</data>
+  <data key="d1">concept</data>
+</node>
+<node id="367c6e4371547f114d0fd4c19ba3775d04de440bc53f43b89b267cb0dd80bb34">
+  <data key="d2">concept_file</data>
+  <data key="d0">expression</data>
+  <data key="d1">concept</data>
+</node>
+<node id="47ad5158c24c2e8edd8d4e4c39384fbe615873e9aebc759348eee2a1020810d9">
+  <data key="d2">concept_file</data>
+  <data key="d0">architecture</data>
+  <data key="d1">concept</data>
+</node>
+<node id="1aa70037b514a74004bab904736171a73d8f311e86e55c52e86fbddf001371db">
+  <data key="d2">concept_file</data>
+  <data key="d0">organization</data>
+  <data key="d1">concept</data>
+</node>
+<node id="7db214bcda610b89c59b6b15ce57d82a64dad7ff6e00c898ec3ccb77d9ad2c28">
+  <data key="d2">concept_file</data>
+  <data key="d0">funds</data>
+  <data key="d1">concept</data>
+</node>
+<node id="7c4c46234a0794aeed7858a77e90b3648eff198437306f5b730de42606a45e7e">
+  <data key="d2">concept_file</data>
+  <data key="d0">individual</data>
+  <data key="d1">concept</data>
+</node>
+<node id="301113e0a33d807f4e207a40ac44094ecfcb9dd9341499a5279989a0af9016b2">
+  <data key="d2">concept_file</data>
+  <data key="d0">operating systems</data>
+  <data key="d1">concept</data>
+</node>
+<node id="ae8f3243c37ee142b4100c9c544e5674ec1b8bea22958a5cac7f7e2daee615db">
+  <data key="d2">concept_file</data>
+  <data key="d0">innovation</data>
+  <data key="d1">concept</data>
+</node>
+<node id="b2cd465805af36f0ea2f14c6f514b9a684ad82cf4088033d0ef647334295428a">
+  <data key="d2">concept_file</data>
+  <data key="d0">accolade</data>
+  <data key="d1">concept</data>
+</node>
+<node id="0ab84ac7af6adcf6d6bd5a17cdcc7ab705a42b46e4f45a45b54333e28adfcbe5">
+  <data key="d2">concept_file</data>
+  <data key="d0">necessity</data>
+  <data key="d1">concept</data>
+</node>
+<node id="e4998139b14e4728487b5b83bbeb0071e44248bdcf6b2d4e2bac3d05afc33b5f">
+  <data key="d2">concept_file</data>
+  <data key="d0">challenge</data>
+  <data key="d1">concept</data>
+</node>
+<node id="3aef5e8cb218cd8149d031dd5f0e72352d880c0c620f95bc390600f8d3ee9932">
+  <data key="d2">concept_file</data>
+  <data key="d0">authority</data>
+  <data key="d1">concept</data>
+</node>
+<node id="f85b5d9a35c23892a7ca45cdff353baf28a7d97cae3a57dc8473786a76f83a5a">
+  <data key="d2">concept_file</data>
+  <data key="d0">system</data>
+  <data key="d1">concept</data>
+</node>
+<node id="7b9d2c052ef36cb5d98f96d4fb0ca332d9c94a2d40844002e374df0444f29739">
+  <data key="d2">concept_file</data>
+  <data key="d0">resource</data>
+  <data key="d1">concept</data>
+</node>
+<node id="71f61f09642d35103566f34407fafaadd8d600cbe8f38f485b17dae83ecd35af">
+  <data key="d2">concept_file</data>
+  <data key="d0">edition</data>
+  <data key="d1">concept</data>
+</node>
+<node id="61ddf373d8e37d8ad69cf7f0730c2895ce57638aa6cf29aa76545bfd744a1193">
+  <data key="d2">concept_file</data>
+  <data key="d0">editor</data>
+  <data key="d1">concept</data>
+</node>
+<node id="c38fa67696ac0790d4c1fcc2cbd5d37af80aebce28c82fa2cec76fffec6793bb">
+  <data key="d2">concept_file</data>
+  <data key="d0">item</data>
+  <data key="d1">concept</data>
+</node>
+<node id="aab0424ae358aa9688bac6a373559c49582013288daa4fdcdad10e6b69f8dc1c">
+  <data key="d2">concept_file</data>
+  <data key="d0">quantity</data>
+  <data key="d1">concept</data>
+</node>
+<node id="1786e7b117334a2edeb8ab43218e9a50e019e7dea68f9c5034c2c80c0efcb97b">
+  <data key="d2">concept_file</data>
+  <data key="d0">population increase</data>
+  <data key="d1">concept</data>
+</node>
+<node id="e6db6b8ba72fb4619513ad8cd88c63177dd91ae8e74132ccc52457a47abeba84">
+  <data key="d2">concept_file</data>
+  <data key="d0">service</data>
+  <data key="d1">concept</data>
+</node>
+<node id="bae753a176c2857d369ffbcbf11fc2ffb3bb785ec0bdf556329aaae860cb259a">
+  <data key="d2">concept_file</data>
+  <data key="d0">project</data>
+  <data key="d1">concept</data>
+</node>
+<node id="9325fd5da4a44513848881a53e31ccce532dc82cca7a5d6226eaf22a4ecd1419">
+  <data key="d2">concept_file</data>
+  <data key="d0">environment</data>
+  <data key="d1">concept</data>
+</node>
+<node id="c42790233f1d0ad8477ed4ce0ef0591f429185491916a2cc0ddf2ff32d9c3313">
+  <data key="d2">concept_file</data>
+  <data key="d0">issue</data>
+  <data key="d1">concept</data>
+</node>
+<node id="534b4d2518227e012da93b04b74d74c4bb437a1f842c4557ccdba735cf2a089d">
+  <data key="d2">concept_file</data>
+  <data key="d0">initiative</data>
+  <data key="d1">concept</data>
+</node>
+<node id="0944b0b414c99676b48ab681e2539bbae52a1b58fa634e9befbae75debd43659">
+  <data key="d2">concept_file</data>
+  <data key="d0">expansion</data>
+  <data key="d1">concept</data>
+</node>
+<node id="e1570abbf8ae7a0e7761be1ee9df7e697d2f4c0998f0bed5e6e5048c46974852">
+  <data key="d2">concept_file</data>
+  <data key="d0">software</data>
+  <data key="d1">concept</data>
+</node>
+<node id="40b6a43e7d69b3292b9b74a993a5f72ee8ef05fd0789af8973b64c216837548d">
+  <data key="d2">concept_file</data>
+  <data key="d0">era</data>
+  <data key="d1">concept</data>
+</node>
+<node id="0a84f6655ea6073b8191b7cfe50adc115ab257e1d6fd86fe55fa378ce4a105c0">
+  <data key="d2">concept_file</data>
+  <data key="d0">platforms</data>
+  <data key="d1">concept</data>
+</node>
+<node id="e905b5b2889a43acf199d6b17879a6b53c19f5353d7b8dea0ded6d47e1faa220">
+  <data key="d2">concept_file</data>
+  <data key="d0">resources</data>
+  <data key="d1">concept</data>
+</node>
+<node id="c2c6f903f92beb34601cf97442992f43707c0808ef1036dc3a060cfce8b99f32">
+  <data key="d2">concept_file</data>
+  <data key="d0">media outlet</data>
+  <data key="d1">concept</data>
+</node>
+<node id="91164c63a32ebf88be6885ba3845704113cbc8ca72584c4d5334891027a3148e">
+  <data key="d2">concept_file</data>
+  <data key="d0">applications</data>
+  <data key="d1">concept</data>
+</node>
+<node id="e810615a82034083ad332649e17c07b0b092dd6a47b1d7d28e08b689aa054a97">
+  <data key="d2">concept_file</data>
+  <data key="d0">social issue</data>
+  <data key="d1">concept</data>
+</node>
+<node id="39a4ddbc780667bf64ba8ca27e1efdf979880f38eaee00f7d01d3b6686299099">
+  <data key="d2">concept_file</data>
+  <data key="d0">living spaces</data>
+  <data key="d1">concept</data>
+</node>
+<node id="6829832b030d817ec2b9bae896646248e672d84d3cd08b35fd12c8bdaccf083e">
+  <data key="d2">concept_file</data>
+  <data key="d0">century</data>
+  <data key="d1">concept</data>
+</node>
+<node id="e421cc2bbf4d431af62ab013e4470fde15ff561de28691a12859971d6ff4e03c">
+  <data key="d2">concept_file</data>
+  <data key="d0">provision</data>
+  <data key="d1">concept</data>
+</node>
+<node id="4fe35e18935457e8ba7b77ca02727e9763ba73828be39b6df1154835f0e01eec">
+  <data key="d2">concept_file</data>
+  <data key="d0">destinations</data>
+  <data key="d1">concept</data>
+</node>
+<node id="e423a2423b85764bf8a0454ab1212ec721b6f5ee7e36e7c1f04311ed19a24cad">
+  <data key="d2">concept_file</data>
+  <data key="d0">agents</data>
+  <data key="d1">concept</data>
+</node>
+<node id="3a3b5c24aae6501646b72a55538178ffefacce1c5a146b84506c8e1192565fb9">
+  <data key="d2">concept_file</data>
+  <data key="d0">populations</data>
+  <data key="d1">concept</data>
+</node>
+<node id="aba9e9868d1f1c92e35fb67655b16f7c1f0d7662ae246db57902ce1110970c9e">
+  <data key="d2">concept_file</data>
+  <data key="d0">record</data>
+  <data key="d1">concept</data>
+</node>
+<node id="bc8ffb6b398c1d7d4dfe7514f088c238da961dff1480f79c03131ce88feaaec4">
+  <data key="d2">concept_file</data>
+  <data key="d0">statistic</data>
+  <data key="d1">concept</data>
+</node>
+<node id="46cf41bca552b0c7f61d6b9ad5a5b699ecd2a1b908b7cfd27f4e3b5c8e156705">
+  <data key="d2">concept_file</data>
+  <data key="d0">personality</data>
+  <data key="d1">concept</data>
+</node>
+<node id="cc928978c5c4b9d815c1c32a96f25658e8c3344257dc92ec0c9ecdac9e3331ec">
+  <data key="d2">concept_file</data>
+  <data key="d0">dwellings</data>
+  <data key="d1">concept</data>
+</node>
+<node id="cf1fca71aa858328e522933b0c1648cc22ce7e0c94b6ef37a1e531c2b26ca20a">
+  <data key="d2">concept_file</data>
+  <data key="d0">growth</data>
+  <data key="d1">concept</data>
+</node>
+<node id="201958fcf817fb6388eccf8b0350eae3f4869d4e56788c7274b78863427c2a29">
+  <data key="d2">concept_file</data>
+  <data key="d0">essential</data>
+  <data key="d1">concept</data>
+</node>
+<node id="0d47355c55e07e636178df239bb0b7e538c542cf2d6b2376ca5c362aa37acf9a">
+  <data key="d2">concept_file</data>
+  <data key="d0">journal</data>
+  <data key="d1">concept</data>
+</node>
+<node id="8759109f5e0102baad762322eafa8e02ff3c88dec7a1c00e4d4a9c009c19de7a">
+  <data key="d2">concept_file</data>
+  <data key="d0">urban settlement</data>
+  <data key="d1">concept</data>
+</node>
+<node id="20c00167f4a5dce42ec3643566972693f74c04a807924c0fac3d9f4ff67f7383">
+  <data key="d2">concept_file</data>
+  <data key="d0">sanitation</data>
+  <data key="d1">concept</data>
+</node>
+<node id="ff4a6bb145190450b46f7984d0c5ca978291eb670c05476f5ae93114db605384">
+  <data key="d2">concept_file</data>
+  <data key="d0">establishment</data>
+  <data key="d1">concept</data>
+</node>
+<node id="cf34f6b981cbb526981d1a47ea05e3db9ed58dc4fc54b5d5a7fe72486d2e6252">
+  <data key="d2">concept_file</data>
+  <data key="d0">print media</data>
+  <data key="d1">concept</data>
+</node>
+<node id="e27db466dbbac7e3b70ddae05aee706f6f38d4f82030a4d7965b01a0ae855fac">
+  <data key="d2">concept_file</data>
+  <data key="d0">poverty</data>
+  <data key="d1">concept</data>
+</node>
+<node id="2f8a7b30addd4ca768db69101f83a03783c736dc7f4b13cf219bd300b01992d7">
+  <data key="d2">concept_file</data>
+  <data key="d0">number</data>
+  <data key="d1">concept</data>
+</node>
+<node id="99941545c9e4e390bc7029c78719c0955ae46c9cbfd16193d3f0cadc29a26ddf">
+  <data key="d2">concept_file</data>
+  <data key="d0">model</data>
+  <data key="d1">concept</data>
+</node>
+<node id="9f8f2eff45e762f64d9592edcb9be5565e32816c124828e3236f480e1a43389f">
+  <data key="d2">concept_file</data>
+  <data key="d0">manufacturer</data>
+  <data key="d1">concept</data>
+</node>
+<node id="ec9a8038944b7594405fc77c0afbd4ce8015b776edfbe593ce93fe11a44f7aa6">
+  <data key="d2">concept_file</data>
+  <data key="d0">offering</data>
+  <data key="d1">concept</data>
+</node>
+<node id="f4174fb065ed74cf838cfe8074ddeca03829541559dc76a3b60888f0f72bf1e7">
+  <data key="d2">concept_file</data>
+  <data key="d0">individuals</data>
+  <data key="d1">concept</data>
+</node>
+<node id="70e4015b6980c91f36a3508d8a96a2e821c89569900c9d5aaafaf79188f2daef">
+  <data key="d2">concept_file</data>
+  <data key="d0">entrepreneur</data>
+  <data key="d1">concept</data>
+</node>
+<node id="420d6aed65f3d7122b929a69bbdd10d0cff4386606ba83f2ceae2d0d472c7803">
+  <data key="d2">concept_file</data>
+  <data key="d0">phrase</data>
+  <data key="d1">concept</data>
+</node>
+<node id="139d201c72c2c2304431342e0caa8bacfbf526a7761cf83ca9c3fa83662a5f33">
+  <data key="d2">concept_file</data>
+  <data key="d0">count</data>
+  <data key="d1">concept</data>
+</node>
+<node id="2442da54f68cd0eaac3a601b9c754d95a9796f6ff296227392a200091c980242">
+  <data key="d2">concept_file</data>
+  <data key="d0">neighborhood</data>
+  <data key="d1">concept</data>
+</node>
+<node id="7301badb93d9b543fcf3d03edc74488206bcf0b75415df8e94f373a2e9c6b84b">
+  <data key="d2">concept_file</data>
+  <data key="d0">technology</data>
+  <data key="d1">concept</data>
+</node>
+<node id="85ab0f7abd41bd4af24407921169bbc76b9f952821c759aed4209624db530b72">
+  <data key="d2">concept_file</data>
+  <data key="d0">living conditions</data>
+  <data key="d1">concept</data>
+</node>
+<node id="abdb0de3c072f2e4ce9804e3705c928dbd07caeb25cdf216168f8f208c47652e">
+  <data key="d2">concept_file</data>
+  <data key="d0">cash</data>
+  <data key="d1">concept</data>
+</node>
+<node id="7d779582c0ee175150637286ae917d50bf533c8d5e63b4e63675375095cc3bc8">
+  <data key="d2">concept_file</data>
+  <data key="d0">magazine</data>
+  <data key="d1">concept</data>
+</node>
+<node id="723dd4520d42049cf449f1bf11b4ead0e41619bfde4dac0984b13085f25fc4ad">
+  <data key="d2">concept_file</data>
+  <data key="d0">hygiene</data>
+  <data key="d1">concept</data>
+</node>
+<node id="414f529dda34f2480f668a861d734d2300dea3ef79c41abeb90506b2c126b977">
+  <data key="d2">concept_file</data>
+  <data key="d0">distinction</data>
+  <data key="d1">concept</data>
+</node>
+<node id="652475378d712ac7803db5d75dea3e8094aa518618b49bdfd9be18eff1b9a9a9">
+  <data key="d2">concept_file</data>
+  <data key="d0">honor</data>
+  <data key="d1">concept</data>
+</node>
+<node id="fd939c403c08c35faf352aa55fd42d1c44968e0ebf5e7974fa6d0a3068b25069">
+  <data key="d2">concept_file</data>
+  <data key="d0">publication</data>
+  <data key="d1">concept</data>
+</node>
+<node id="6493f8d39192082fa9d3f96dbf5e0d79612c09d7f20261109baf9e34eec08c0d">
+  <data key="d2">concept_file</data>
+  <data key="d0">location</data>
+  <data key="d1">concept</data>
+</node>
+<node id="a850f8380004232f78f91fe96037bc842fcd490ad1626e29c82fff8462fe5c77">
+  <data key="d2">concept_file</data>
+  <data key="d0">areas</data>
+  <data key="d1">concept</data>
+</node>
+<node id="3b30d28d8b3b69f2d665bc1c6089bfe2709a058f5d2ff3ac788c5c2a49d876a8">
+  <data key="d2">concept_file</data>
+  <data key="d0">locations</data>
+  <data key="d1">concept</data>
+</node>
+<node id="6f924a4364c8f9c85fb42cc76364af837ec08f97f6b7a7b0143220af943e9611">
+  <data key="d2">concept_file</data>
+  <data key="d0">agency</data>
+  <data key="d1">concept</data>
+</node>
+<node id="809a9fc2bef1adb39fc1f5b592c2c634f17e7daf584f376e8e04a429c83d7df5">
+  <data key="d2">concept_file</data>
+  <data key="d0">music</data>
+  <data key="d1">concept</data>
+</node>
+<node id="2cad7ca1226d66941867daef5d06495deab4e04bbb3c56f500098ed5253b6798">
+  <data key="d2">concept_file</data>
+  <data key="d0">units</data>
+  <data key="d1">concept</data>
+</node>
+<node id="57f2f4335362df8cb7a9d6b79ee0987b9fe1ef186f58a832622ffc8edb93e52b">
+  <data key="d2">concept_file</data>
+  <data key="d0">accommodations</data>
+  <data key="d1">concept</data>
+</node>
+<node id="2bfe436f17e954847db3f1533210cbc32755ed6373ba04729c056923b9543739">
+  <data key="d2">concept_file</data>
+  <data key="d0">economies</data>
+  <data key="d1">concept</data>
+</node>
+<node id="9a8eec554e033f234a999a01c938df1a3bb3de0aa86459b4b2c1323204e941e9">
+  <data key="d2">concept_file</data>
+  <data key="d0">intelligence</data>
+  <data key="d1">concept</data>
+</node>
+<node id="88170ea9869af15cc875265a2f56f1a35903a840fb081075d7c6fa927b9a5c4e">
+  <data key="d2">concept_file</data>
+  <data key="d0">modernization</data>
+  <data key="d1">concept</data>
+</node>
+<node id="530a7c484d415d389b647acc3050145eca4dd0808b9204238f3ce43c975d4f43">
+  <data key="d2">concept_file</data>
+  <data key="d0">transformation</data>
+  <data key="d1">concept</data>
+</node>
+<node id="c5d9bff2f40dc42c1fd484d7e3a41ebdffbf114e881fb84596d67694804ef256">
+  <data key="d2">concept_file</data>
+  <data key="d0">struggle</data>
+  <data key="d1">concept</data>
+</node>
+<node id="dbd8d64656490dab8fb5713c471bdb2343b3d803867ce0def7ddadd9c1d6ae41">
+  <data key="d2">concept_file</data>
+  <data key="d0">city</data>
+  <data key="d1">concept</data>
+</node>
+<node id="a55108a840d1095eba2e0d7833f5dbeb60585ca12faa7cc39b0bcbe9e875dc89">
+  <data key="d2">concept_file</data>
+  <data key="d0">change</data>
+  <data key="d1">concept</data>
+</node>
+<node id="6f98bde9b4b47d887f94a659078edea94b905575bcdc9bf3d6d575981bb0d3b8">
+  <data key="d2">concept_file</data>
+  <data key="d0">international body</data>
+  <data key="d1">concept</data>
+</node>
+<node id="62c839f1ab8a4a9e2eeabd1bf89be2717d0c93fb94d56c0cd3dbc712530b0905">
+  <data key="d2">concept_file</data>
+  <data key="d0">cities</data>
+  <data key="d1">concept</data>
+</node>
+<node id="cc2459a768fed8b7225f438ccfe6e10813e81befaf57e236a2a48a282313ce57">
+  <data key="d2">concept_file</data>
+  <data key="d0">institution</data>
+  <data key="d1">concept</data>
+</node>
+<node id="1181e399577ded51075d94bbf89c17529a668c4d281c7af03140e0408fe18d05">
+  <data key="d2">concept_file</data>
+  <data key="d0">urban development</data>
+  <data key="d1">concept</data>
+</node>
+<node id="18548e5e1c7bc69f2abdf456a3f4a27695148d6eb74be8727e5d46c30996d17e">
+  <data key="d2">concept_file</data>
+  <data key="d0">age</data>
+  <data key="d1">concept</data>
+</node>
+<node id="39ea8aec606d13105329cfe1b8bbe0f0a7520160c7c63cbd371fce3276599b67">
+  <data key="d2">concept_file</data>
+  <data key="d0">figure</data>
+  <data key="d1">concept</data>
+</node>
+<node id="400a839627b0178b419103ffde833291539eabc0a7414b3788a4f1d86bc0a506">
+  <data key="d2">concept_file</data>
+  <data key="d0">print</data>
+  <data key="d1">concept</data>
+</node>
+<node id="68b0fc1f50a49d908243ea319229d21e87bfba1e50535d311d561bae4d59ba99">
+  <data key="d2">concept_file</data>
+  <data key="d0">gift</data>
+  <data key="d1">concept</data>
+</node>
+<node id="f9238a9a4787bd27d643a6dee5dd6453ab2c4ee16b2b5fa0482262f79de0bef5">
+  <data key="d2">concept_file</data>
+  <data key="d0">status</data>
+  <data key="d1">concept</data>
+</node>
+<node id="117445d535fba768094091aa34514304f539f5927c3e275e5bfbeaf0ea79111c">
+  <data key="d2">concept_file</data>
+  <data key="d0">quality</data>
+  <data key="d1">concept</data>
+</node>
+<node id="97e2dfd33a4968ddf2403163a93e9ac67fc3bde5cc8c25833a67285988b49873">
+  <data key="d2">concept_file</data>
+  <data key="d0">title</data>
+  <data key="d1">concept</data>
+</node>
+<node id="8cea62ed19cee2be5c55e4e885b1a0a620bb211c54058e97617bbfbb8cd8424e">
+  <data key="d2">concept_file</data>
+  <data key="d0">condition</data>
+  <data key="d1">concept</data>
+</node>
+<node id="af3c5c7c0263fa1ecd6c676082b4d4a2e773d96468a5d6517e85b97f00b9911f">
+  <data key="d2">concept_file</data>
+  <data key="d0">release</data>
+  <data key="d1">concept</data>
+</node>
+<node id="e9b52e83a2497e9656a7b6030ddf5175d54c4f991cacebd04f074ae42e103c3e">
+  <data key="d2">concept_file</data>
+  <data key="d0">person</data>
+  <data key="d1">concept</data>
+</node>
+<node id="56f1e1a7b60762ec1c4ac18d721e73d17b9e32ee1bea19912f5e24dcfecac34b">
+  <data key="d2">concept_file</data>
+  <data key="d0">founder</data>
+  <data key="d1">concept</data>
+</node>
+<node id="72e07ac7bffc5912536bd21c369a3f7ae2d29dc8f539b31e06f319b696ac40d6">
+  <data key="d2">concept_file</data>
+  <data key="d0">power</data>
+  <data key="d1">concept</data>
+</node>
+<node id="c4f6273f45567b09a21b99d1fa4873d9eeeb538a46d5e8e9403a39316e1f5d86">
+  <data key="d2">concept_file</data>
+  <data key="d0">journalist</data>
+  <data key="d1">concept</data>
+</node>
+<node id="d12810a9dea5e1ce10a088283b41454348c5b81f81a84eeaba68afaa5bb27adb">
+  <data key="d2">concept_file</data>
+  <data key="d0">urban area</data>
+  <data key="d1">concept</data>
+</node>
+<node id="3bb1dfa36f89bcd8aae960602023eb7b30589c61ad570117e08ff8483de635e9">
+  <data key="d2">concept_file</data>
+  <data key="d0">society</data>
+  <data key="d1">concept</data>
+</node>
+<node id="101e85a7dcd45012be51280d29bfd96a459b7f197177d20a2c1a45fb786f9cce">
+  <data key="d2">concept_file</data>
+  <data key="d0">company</data>
+  <data key="d1">concept</data>
+</node>
+<node id="5f31ea758f2b980820c267cf507d9fc54d4561599ce8eeafc34a5407491f8ee0">
+  <data key="d2">concept_file</data>
+  <data key="d0">energy</data>
+  <data key="d1">concept</data>
+</node>
+<node id="47fc63a4daac3bc7616cc35bc727d5d6125359367468616bf472903a8ff9a1c5">
+  <data key="d2">concept_file</data>
+  <data key="d0">support</data>
+  <data key="d1">concept</data>
+</node>
+<node id="75fdb8570d272c93a47f53befa4a769e6632740126bd5593d535cada6d4f8e00">
+  <data key="d2">concept_file</data>
+  <data key="d0">terminology</data>
+  <data key="d1">concept</data>
+</node>
+<node id="531e052315bb2ed0af7d99b35b5f1827e220f0bf9e819cee0133f4c8cbb373ef">
+  <data key="d2">concept_file</data>
+  <data key="d0">impoverished community</data>
+  <data key="d1">concept</data>
+</node>
+<node id="b5f5ff68af3949ba441b878d8e6c17728bb87de8de379987d0c8cd7d5c96fcfa">
+  <data key="d2">concept_file</data>
+  <data key="d0">accommodation</data>
+  <data key="d1">concept</data>
+</node>
+<node id="a8ce19eaa13e655db1c3babac3475b055d6ff0b77512b0c3bb6a2f46781a8932">
+  <data key="d2">concept_file</data>
+  <data key="d0">housing crisis</data>
+  <data key="d1">concept</data>
+</node>
+<node id="0f1e93e5393171eb4db858c86fdfc7fdbd878e69815f0f2cdda67d69cb2e17eb">
+  <data key="d2">concept_file</data>
+  <data key="d0">health</data>
+  <data key="d1">concept</data>
+</node>
+<node id="cf46271e028e4ab201cde71694fece2f7cdff1ff04be20ba95f5bad6187cf728">
+  <data key="d2">concept_file</data>
+  <data key="d0">community</data>
+  <data key="d1">concept</data>
+</node>
+<node id="2f162c9d7c715f3b2f7eaf16bc96b2afcc5eebee61ae5b1af4210f05a89305f9">
+  <data key="d2">concept_file</data>
+  <data key="d0">writer</data>
+  <data key="d1">concept</data>
+</node>
+<node id="2ccc0842ac496334310132e968263a38798b7730851041dad2b77c42926fe6f9">
+  <data key="d2">concept_file</data>
+  <data key="d0">mobile technology</data>
+  <data key="d1">concept</data>
+</node>
+<node id="3054a9eaddc0b33c11d3162d393cb36349e6cf4ddaa2311e00d66acba1a9f062">
+  <data key="d2">concept_file</data>
+  <data key="d0">countries</data>
+  <data key="d1">concept</data>
+</node>
+<node id="bca865397d09aab04f836f3305ce5f58ae052932905a6ff583ca860527730317">
+  <data key="d2">concept_file</data>
+  <data key="d0">markets</data>
+  <data key="d1">concept</data>
+</node>
+<node id="eb11b1f064db74a7a001cf9290d7d4c71809b4dcae4365e59ab3d46bb84ed6dc">
+  <data key="d2">concept_file</data>
+  <data key="d0">nations</data>
+  <data key="d1">concept</data>
+</node>
+<node id="21a7ba20a9a5faa03e606438bdfb80edf9c700dcac19b7ee78b00857e64ec4d5">
+  <data key="d2">concept_file</data>
+  <data key="d0">structures</data>
+  <data key="d1">concept</data>
+</node>
+<node id="47f101f94a5d2dfad53087daccceccd1b0c72fbe4bcde88146158bdc6fd16857">
+  <data key="d2">concept_file</data>
+  <data key="d0">operatives</data>
+  <data key="d1">concept</data>
+</node>
+<node id="1be072e80cda9f215bec899560553581091616623b2d51686aeace537014fc2b">
+  <data key="d2">concept_file</data>
+  <data key="d0">launch</data>
+  <data key="d1">concept</data>
+</node>
+<node id="bdc8992455a27cce2fed9429359ab40b50b806020606766787683651c687c49a">
+  <data key="d2">concept_file</data>
+  <data key="d0">entity</data>
+  <data key="d1">concept</data>
+</node>
+<node id="e1cf82c5bada6ee9046a116dd1f21fd30aec83f14f34a693dd6ca7eae62e0256">
+  <data key="d2">concept_file</data>
+  <data key="d0">area</data>
+  <data key="d1">concept</data>
+</node>
+<node id="3b863f6bfebac9c0c3c8053d2d9956296d61f3eddec02bf80028338cd8a345d9">
+  <data key="d2">concept_file</data>
+  <data key="d0">regions</data>
+  <data key="d1">concept</data>
+</node>
+<node id="ab2bf0bd01dcc28648b33fb080484ec95ef423d12a1b5db3315e20921e63b465">
+  <data key="d2">concept_file</data>
+  <data key="d0">personnel</data>
+  <data key="d1">concept</data>
+</node>
+<node id="e0db6aabf3e9e80747ecb283b09329de39d6839d64e67b60c806e963544178ce">
+  <data key="d2">concept_file</data>
+  <data key="d0">framework</data>
+  <data key="d1">concept</data>
+</node>
+<node id="54803cf097df61916f02c01daf9a41932c61ca6b86866986865ae6443d3f97b6">
+  <data key="d2">concept_file</data>
+  <data key="d0">label</data>
+  <data key="d1">concept</data>
+</node>
+<node id="ffd21d47bdd764447b00d2c09a7b0c84daaa41b0ab895e7970b9817213164291">
+  <data key="d2">concept_file</data>
+  <data key="d0">infrastructure</data>
+  <data key="d1">concept</data>
+</node>
+<node id="d9f4dbfb946e5fabb498c0ca6903412484fd9fcf47d705ba3f37f62559cb0093">
+  <data key="d2">concept_file</data>
+  <data key="d0">media</data>
+  <data key="d1">concept</data>
+</node>
+<node id="d1726146484d9c07aac1bbca034130219c5c35567b972340491f2ba94a9a3ab7">
+  <data key="d2">concept_file</data>
+  <data key="d0">state</data>
+  <data key="d1">concept</data>
+</node>
+<node id="771c735b928cafbaf62d168b428bc618f05f91c7439bc3f3e2e8e11bcd8135c0">
+  <data key="d2">concept_file</data>
+  <data key="d0">utility</data>
+  <data key="d1">concept</data>
+</node>
+<node id="5b79cbca996a4cd3206e514c304470cac4c1a4dc91a94c985b30c70fe42d9372">
+  <data key="d2">concept_file</data>
+  <data key="d0">telecommunications</data>
+  <data key="d1">concept</data>
+</node>
+<node id="69bb07e27736217eb267fadff891e833b2f61a59601d9c55028f884df759249b">
+  <data key="d2">concept_file</data>
+  <data key="d0">network</data>
+  <data key="d1">concept</data>
+</node>
+<node id="09a40c7c395a10d3b1186eed77b8301a037861480d43f335a5aca4d17cffb278">
+  <data key="d2">concept_file</data>
+  <data key="d0">album</data>
+  <data key="d1">concept</data>
+</node>
+<node id="89ae88ae194527e1a71696fb7d0d1b1306f5f66f9d29282ce09c83927720cf8b">
+  <data key="d2">concept_file</data>
+  <data key="d0">composition</data>
+  <data key="d1">concept</data>
+</node>
+<node id="017b8c18d08a2bba6ee0d3070cfc32974256e1a4f793f662de01f66cc3eb7abe">
+  <data key="d2">concept_file</data>
+  <data key="d0">brand</data>
+  <data key="d1">concept</data>
+</node>
+<node id="988ebf0465a27ce12048bac8596b0b2253437a469a08e236834665ca57c24d48">
+  <data key="d2">concept_file</data>
+  <data key="d0">population</data>
+  <data key="d1">concept</data>
+</node>
+<node id="de8638a60dc8d6c89c617ae6ae651af3624d3e334abd9a3511c5042b1a2db968">
+  <data key="d2">concept_file</data>
+  <data key="d0">approach</data>
+  <data key="d1">concept</data>
+</node>
+<node id="0dacf7e78a765565d777181536e5275cac39434e6072f0a9265c4cc4a6cde057">
+  <data key="d2">concept_file</data>
+  <data key="d0">structure</data>
+  <data key="d1">concept</data>
+</node>
+<node id="8037e6639b6bcdf6a8f9a0e621f22f1255b040549b87cabd0b581e732b8c6db0">
+  <data key="d2">concept_file</data>
+  <data key="d0">creation</data>
+  <data key="d1">concept</data>
+</node>
+<node id="3f4ef22bfa6c4a49091215c2f09b929a97d51186fd636650932f1e07dbf43440">
+  <data key="d2">concept_file</data>
+  <data key="d0">platform</data>
+  <data key="d1">concept</data>
+</node>
+<node id="9d24b9b56d45289a2f95873ba6df27058c3eedef8b3c3c37555c70ed30a2ac09">
+  <data key="d2">concept_file</data>
+  <data key="d0">publisher</data>
+  <data key="d1">concept</data>
+</node>
+<node id="cd7c01a30a8632d0068ec846b78622efbd919dc77efe6940fa064e0f195cf9ac">
+  <data key="d2">concept_file</data>
+  <data key="d0">periodical</data>
+  <data key="d1">concept</data>
+</node>
+<node id="00ac04aa45ebca8ac0ca3d346b16c79bec24a76966a03d5d4798ea37a96de387">
+  <data key="d2">concept_file</data>
+  <data key="d0">protection</data>
+  <data key="d1">concept</data>
+</node>
+<node id="1ef36601ee685966029541fcdc701b337bd43a7680530de3771820117bdf15fb">
+  <data key="d2">concept_file</data>
+  <data key="d0">enforcement</data>
+  <data key="d1">concept</data>
+</node>
+<node id="d5f17add456a537d5a036528cf7f2d92621ab2b7410cfacfc3b9d819da51533c">
+  <data key="d2">concept_file</data>
+  <data key="d0">services</data>
+  <data key="d1">concept</data>
+</node>
+<node id="d4f9a291ffe5a0a93693f47f1d54d0fbfbf4a6663c32418411a12e33f73cd293">
+  <data key="d2">concept_file</data>
+  <data key="d0">historical context</data>
+  <data key="d1">concept</data>
+</node>
+<node id="5bddbba7acdd8c39cc969e7bde7d37a1fa470bbbcc405e7f23c46b4ceaf8da53">
+  <data key="d2">concept_file</data>
+  <data key="d0">allowance</data>
+  <data key="d1">concept</data>
+</node>
+<node id="61b44ce3e6414984a6e6d6b181be1c6efdeac1f1796c93d0816c7bbece5728ab">
+  <data key="d2">concept_file</data>
+  <data key="d0">jazz</data>
+  <data key="d1">concept</data>
+</node>
+<node id="946c58826e9d866f2c7e0458cf6fcac9ea30397493fcc867adf87f1e2f40ed45">
+  <data key="d2">concept_file</data>
+  <data key="d0">work</data>
+  <data key="d1">concept</data>
+</node>
+<node id="ddbd7f34bc1dcd9bd50aeade482edfc2458c0ae185f42e252eefc98747c7cb98">
+  <data key="d2">concept_file</data>
+  <data key="d0">settlement</data>
+  <data key="d1">concept</data>
+</node>
+<edge source="92814496f9605fca6a01eb4f24c9833dff15e59fe23aa32e83cab0caade17e08" target="5be6eb8e209675c3a41a470131a0e26f9932ebd09da0c72f4f60d17331405686">
+  <data key="d3">is published by</data>
+  <data key="d4">Relation</data>
+  <data key="d5">made public by,printed by,distributed by,issued by,released by</data>
+</edge>
+<edge source="92814496f9605fca6a01eb4f24c9833dff15e59fe23aa32e83cab0caade17e08" target="54b64b428e2a018a30d99faa0dbb3229f8b16d7a960951b6bcf60ba8d6292283">
+  <data key="d3">started as</data>
+  <data key="d4">Relation</data>
+  <data key="d5">originated from,initiated as,emerged from,began as,developed from</data>
+</edge>
+<edge source="92814496f9605fca6a01eb4f24c9833dff15e59fe23aa32e83cab0caade17e08" target="f70ace1806b0dec2befd97ed11a3c9a2d8db835d8f0ee259a2739e741e7619c5">
+  <data key="d3">expanded to</data>
+  <data key="d4">Relation</data>
+  <data key="d5">extended,enlarged,broadened,widened,increased</data>
+</edge>
+<edge source="92814496f9605fca6a01eb4f24c9833dff15e59fe23aa32e83cab0caade17e08" target="b0b8b87698462496805b44891e63592e80057ad48ed1427cb9a45b7815bad01c">
+  <data key="d3">has a readership of</data>
+  <data key="d4">Relation</data>
+  <data key="d5">follower base,readership count,audience size,subscriber number</data>
+</edge>
+<edge source="92814496f9605fca6a01eb4f24c9833dff15e59fe23aa32e83cab0caade17e08" target="8787e70f52e89a9570217099ed6d9716bf4757d5ab868519ff43e63e24afe2c2">
+  <data key="d3">includes partnerships with</data>
+  <data key="d4">Relation</data>
+  <data key="d5">forms alliances with,engages in partnerships,establishes connections with,collaborates with</data>
+</edge>
+<edge source="92814496f9605fca6a01eb4f24c9833dff15e59fe23aa32e83cab0caade17e08" target="c157a9f2d81e525e03e1ef4852209d89f19459726ca06b113e1749f9b03ff556">
+  <data key="d3">has mobile apps for</data>
+  <data key="d4">Relation</data>
+  <data key="d5">supports mobile platforms,provides software,offers applications,features apps</data>
+</edge>
+<edge source="92814496f9605fca6a01eb4f24c9833dff15e59fe23aa32e83cab0caade17e08" target="6c72c6947c8152ea0c1016438d8d4f48fef998446d025bb578a97a1a6ac28f84">
+  <data key="d3">was recipient of</data>
+  <data key="d4">Relation</data>
+  <data key="d5">gained,received,acquired,obtained,accepted</data>
+</edge>
+<edge source="92814496f9605fca6a01eb4f24c9833dff15e59fe23aa32e83cab0caade17e08" target="386a11d1bcb2cfe18cdac748649a2ad1a6345b029ab6d20fcd5aa4387b39794b">
+  <data key="d3">was rebranded as</data>
+  <data key="d4">Relation</data>
+  <data key="d5">redefined,renamed,transformed,updated,reclassified</data>
+</edge>
+<edge source="92814496f9605fca6a01eb4f24c9833dff15e59fe23aa32e83cab0caade17e08" target="8dc4f5a3a8044a7ca933d37c0a2b23462785f1a125799cb28e9580a6193009d6">
+  <data key="d3">was first published by</data>
+  <data key="d4">Relation</data>
+  <data key="d5">issued by,launched by,introduced by,released by,presented by</data>
+</edge>
+<edge source="92814496f9605fca6a01eb4f24c9833dff15e59fe23aa32e83cab0caade17e08" target="341f7413ee22b076da9119c021c7a5a0ea27e1078f3f4f61987f8568f18bf2e3">
+  <data key="d3">was co-edited by</data>
+  <data key="d4">Relation</data>
+  <data key="d5">shared authorship,collaborated on,jointly edited,co-authored</data>
+</edge>
+<edge source="92814496f9605fca6a01eb4f24c9833dff15e59fe23aa32e83cab0caade17e08" target="b2ce878bd5b80a799f91fc1f2d54275d08886044aeecc97626f319466830d36e">
+  <data key="d3">was inspired by</data>
+  <data key="d4">Relation</data>
+  <data key="d5">influenced by,driven by,sparked by,guided by,motivated by</data>
+</edge>
+<edge source="92814496f9605fca6a01eb4f24c9833dff15e59fe23aa32e83cab0caade17e08" target="6bacced9104b4be4f9f0aee4591f7adc08994483e771f57bf012d445d33cd857">
+  <data key="d3">abandoned</data>
+  <data key="d4">Relation</data>
+  <data key="d5">relinquished,deserted,neglected,left behind,forsaken</data>
+</edge>
+<edge source="92814496f9605fca6a01eb4f24c9833dff15e59fe23aa32e83cab0caade17e08" target="97051a2f9be6cb5482b24d2a4599b92c64e03cc03be6533ff514b806ea57d781">
+  <data key="d3">led to</data>
+  <data key="d4">Relation</data>
+  <data key="d5">resulted in,brought about,caused,produced,triggered</data>
+</edge>
+<edge source="92814496f9605fca6a01eb4f24c9833dff15e59fe23aa32e83cab0caade17e08" target="1cafc22ec484523cb3144f7035c345661b65869b720601785ddc3b1ee8d18ffd">
+  <data key="d3">published names of</data>
+  <data key="d4">Relation</data>
+  <data key="d5">disclosed names,announced names,listed names,revealed names,shared names</data>
+</edge>
+<edge source="92814496f9605fca6a01eb4f24c9833dff15e59fe23aa32e83cab0caade17e08" target="9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="92814496f9605fca6a01eb4f24c9833dff15e59fe23aa32e83cab0caade17e08" target="fd939c403c08c35faf352aa55fd42d1c44968e0ebf5e7974fa6d0a3068b25069">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="92814496f9605fca6a01eb4f24c9833dff15e59fe23aa32e83cab0caade17e08" target="7d779582c0ee175150637286ae917d50bf533c8d5e63b4e63675375095cc3bc8">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="92814496f9605fca6a01eb4f24c9833dff15e59fe23aa32e83cab0caade17e08" target="d9f4dbfb946e5fabb498c0ca6903412484fd9fcf47d705ba3f37f62559cb0093">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="92814496f9605fca6a01eb4f24c9833dff15e59fe23aa32e83cab0caade17e08" target="3f4ef22bfa6c4a49091215c2f09b929a97d51186fd636650932f1e07dbf43440">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="92814496f9605fca6a01eb4f24c9833dff15e59fe23aa32e83cab0caade17e08" target="017b8c18d08a2bba6ee0d3070cfc32974256e1a4f793f662de01f66cc3eb7abe">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="5be6eb8e209675c3a41a470131a0e26f9932ebd09da0c72f4f60d17331405686" target="9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="5be6eb8e209675c3a41a470131a0e26f9932ebd09da0c72f4f60d17331405686" target="101e85a7dcd45012be51280d29bfd96a459b7f197177d20a2c1a45fb786f9cce">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="5be6eb8e209675c3a41a470131a0e26f9932ebd09da0c72f4f60d17331405686" target="9d24b9b56d45289a2f95873ba6df27058c3eedef8b3c3c37555c70ed30a2ac09">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="5be6eb8e209675c3a41a470131a0e26f9932ebd09da0c72f4f60d17331405686" target="d9f4dbfb946e5fabb498c0ca6903412484fd9fcf47d705ba3f37f62559cb0093">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="5be6eb8e209675c3a41a470131a0e26f9932ebd09da0c72f4f60d17331405686" target="1aa70037b514a74004bab904736171a73d8f311e86e55c52e86fbddf001371db">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="5be6eb8e209675c3a41a470131a0e26f9932ebd09da0c72f4f60d17331405686" target="017b8c18d08a2bba6ee0d3070cfc32974256e1a4f793f662de01f66cc3eb7abe">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="54b64b428e2a018a30d99faa0dbb3229f8b16d7a960951b6bcf60ba8d6292283" target="9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="54b64b428e2a018a30d99faa0dbb3229f8b16d7a960951b6bcf60ba8d6292283" target="fd939c403c08c35faf352aa55fd42d1c44968e0ebf5e7974fa6d0a3068b25069">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="54b64b428e2a018a30d99faa0dbb3229f8b16d7a960951b6bcf60ba8d6292283" target="7d779582c0ee175150637286ae917d50bf533c8d5e63b4e63675375095cc3bc8">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="54b64b428e2a018a30d99faa0dbb3229f8b16d7a960951b6bcf60ba8d6292283" target="cd7c01a30a8632d0068ec846b78622efbd919dc77efe6940fa064e0f195cf9ac">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="54b64b428e2a018a30d99faa0dbb3229f8b16d7a960951b6bcf60ba8d6292283" target="c2c6f903f92beb34601cf97442992f43707c0808ef1036dc3a060cfce8b99f32">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="54b64b428e2a018a30d99faa0dbb3229f8b16d7a960951b6bcf60ba8d6292283" target="0d47355c55e07e636178df239bb0b7e538c542cf2d6b2376ca5c362aa37acf9a">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="f70ace1806b0dec2befd97ed11a3c9a2d8db835d8f0ee259a2739e741e7619c5" target="9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="f70ace1806b0dec2befd97ed11a3c9a2d8db835d8f0ee259a2739e741e7619c5" target="3b30d28d8b3b69f2d665bc1c6089bfe2709a058f5d2ff3ac788c5c2a49d876a8">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="f70ace1806b0dec2befd97ed11a3c9a2d8db835d8f0ee259a2739e741e7619c5" target="62c839f1ab8a4a9e2eeabd1bf89be2717d0c93fb94d56c0cd3dbc712530b0905">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="f70ace1806b0dec2befd97ed11a3c9a2d8db835d8f0ee259a2739e741e7619c5" target="3b863f6bfebac9c0c3c8053d2d9956296d61f3eddec02bf80028338cd8a345d9">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="f70ace1806b0dec2befd97ed11a3c9a2d8db835d8f0ee259a2739e741e7619c5" target="a850f8380004232f78f91fe96037bc842fcd490ad1626e29c82fff8462fe5c77">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="f70ace1806b0dec2befd97ed11a3c9a2d8db835d8f0ee259a2739e741e7619c5" target="e1bf4d200b47980dfd2c1dabb8ea86802f6648c8d0db0b9764457cffb6109c24">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="f70ace1806b0dec2befd97ed11a3c9a2d8db835d8f0ee259a2739e741e7619c5" target="4fe35e18935457e8ba7b77ca02727e9763ba73828be39b6df1154835f0e01eec">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="263c9378de25281038147eb136fc32812d9dc17c88f62b1005081539063e3e0b" target="dbed9d38d61b4ae47dc977f90b8542efff52df41c6b8942e87fbef99531119ea">
+  <data key="d3">became</data>
+  <data key="d4">Relation</data>
+  <data key="d5">transformed,changed into,turned into,developed into,evolved into</data>
+</edge>
+<edge source="263c9378de25281038147eb136fc32812d9dc17c88f62b1005081539063e3e0b" target="9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="263c9378de25281038147eb136fc32812d9dc17c88f62b1005081539063e3e0b" target="fd939c403c08c35faf352aa55fd42d1c44968e0ebf5e7974fa6d0a3068b25069">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="263c9378de25281038147eb136fc32812d9dc17c88f62b1005081539063e3e0b" target="71f61f09642d35103566f34407fafaadd8d600cbe8f38f485b17dae83ecd35af">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="263c9378de25281038147eb136fc32812d9dc17c88f62b1005081539063e3e0b" target="af3c5c7c0263fa1ecd6c676082b4d4a2e773d96468a5d6517e85b97f00b9911f">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="263c9378de25281038147eb136fc32812d9dc17c88f62b1005081539063e3e0b" target="7d779582c0ee175150637286ae917d50bf533c8d5e63b4e63675375095cc3bc8">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="263c9378de25281038147eb136fc32812d9dc17c88f62b1005081539063e3e0b" target="400a839627b0178b419103ffde833291539eabc0a7414b3788a4f1d86bc0a506">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="dbed9d38d61b4ae47dc977f90b8542efff52df41c6b8942e87fbef99531119ea" target="9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="dbed9d38d61b4ae47dc977f90b8542efff52df41c6b8942e87fbef99531119ea" target="fd939c403c08c35faf352aa55fd42d1c44968e0ebf5e7974fa6d0a3068b25069">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="dbed9d38d61b4ae47dc977f90b8542efff52df41c6b8942e87fbef99531119ea" target="7d779582c0ee175150637286ae917d50bf533c8d5e63b4e63675375095cc3bc8">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="dbed9d38d61b4ae47dc977f90b8542efff52df41c6b8942e87fbef99531119ea" target="cd7c01a30a8632d0068ec846b78622efbd919dc77efe6940fa064e0f195cf9ac">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="dbed9d38d61b4ae47dc977f90b8542efff52df41c6b8942e87fbef99531119ea" target="7b9d2c052ef36cb5d98f96d4fb0ca332d9c94a2d40844002e374df0444f29739">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="dbed9d38d61b4ae47dc977f90b8542efff52df41c6b8942e87fbef99531119ea" target="cf34f6b981cbb526981d1a47ea05e3db9ed58dc4fc54b5d5a7fe72486d2e6252">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="b0b8b87698462496805b44891e63592e80057ad48ed1427cb9a45b7815bad01c" target="9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="b0b8b87698462496805b44891e63592e80057ad48ed1427cb9a45b7815bad01c" target="2f8a7b30addd4ca768db69101f83a03783c736dc7f4b13cf219bd300b01992d7">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="b0b8b87698462496805b44891e63592e80057ad48ed1427cb9a45b7815bad01c" target="39ea8aec606d13105329cfe1b8bbe0f0a7520160c7c63cbd371fce3276599b67">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="b0b8b87698462496805b44891e63592e80057ad48ed1427cb9a45b7815bad01c" target="bc8ffb6b398c1d7d4dfe7514f088c238da961dff1480f79c03131ce88feaaec4">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="b0b8b87698462496805b44891e63592e80057ad48ed1427cb9a45b7815bad01c" target="139d201c72c2c2304431342e0caa8bacfbf526a7761cf83ca9c3fa83662a5f33">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="b0b8b87698462496805b44891e63592e80057ad48ed1427cb9a45b7815bad01c" target="aab0424ae358aa9688bac6a373559c49582013288daa4fdcdad10e6b69f8dc1c">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="8787e70f52e89a9570217099ed6d9716bf4757d5ab868519ff43e63e24afe2c2" target="9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="8787e70f52e89a9570217099ed6d9716bf4757d5ab868519ff43e63e24afe2c2" target="017b8c18d08a2bba6ee0d3070cfc32974256e1a4f793f662de01f66cc3eb7abe">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="8787e70f52e89a9570217099ed6d9716bf4757d5ab868519ff43e63e24afe2c2" target="101e85a7dcd45012be51280d29bfd96a459b7f197177d20a2c1a45fb786f9cce">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="8787e70f52e89a9570217099ed6d9716bf4757d5ab868519ff43e63e24afe2c2" target="5b79cbca996a4cd3206e514c304470cac4c1a4dc91a94c985b30c70fe42d9372">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="8787e70f52e89a9570217099ed6d9716bf4757d5ab868519ff43e63e24afe2c2" target="9f8f2eff45e762f64d9592edcb9be5565e32816c124828e3236f480e1a43389f">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="8787e70f52e89a9570217099ed6d9716bf4757d5ab868519ff43e63e24afe2c2" target="7301badb93d9b543fcf3d03edc74488206bcf0b75415df8e94f373a2e9c6b84b">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="c157a9f2d81e525e03e1ef4852209d89f19459726ca06b113e1749f9b03ff556" target="9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="c157a9f2d81e525e03e1ef4852209d89f19459726ca06b113e1749f9b03ff556" target="301113e0a33d807f4e207a40ac44094ecfcb9dd9341499a5279989a0af9016b2">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="c157a9f2d81e525e03e1ef4852209d89f19459726ca06b113e1749f9b03ff556" target="0a84f6655ea6073b8191b7cfe50adc115ab257e1d6fd86fe55fa378ce4a105c0">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="c157a9f2d81e525e03e1ef4852209d89f19459726ca06b113e1749f9b03ff556" target="e1570abbf8ae7a0e7761be1ee9df7e697d2f4c0998f0bed5e6e5048c46974852">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="c157a9f2d81e525e03e1ef4852209d89f19459726ca06b113e1749f9b03ff556" target="2ccc0842ac496334310132e968263a38798b7730851041dad2b77c42926fe6f9">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="c157a9f2d81e525e03e1ef4852209d89f19459726ca06b113e1749f9b03ff556" target="91164c63a32ebf88be6885ba3845704113cbc8ca72584c4d5334891027a3148e">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="6c72c6947c8152ea0c1016438d8d4f48fef998446d025bb578a97a1a6ac28f84" target="9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="6c72c6947c8152ea0c1016438d8d4f48fef998446d025bb578a97a1a6ac28f84" target="390ab86bdf6ce855d4f17951e9f343930989e62575b085c5bc4dfc14422a99d7">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="6c72c6947c8152ea0c1016438d8d4f48fef998446d025bb578a97a1a6ac28f84" target="cb55d0df6b735ef61b097678f6bd73019504c58749267e7ed9ad280116765c68">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="6c72c6947c8152ea0c1016438d8d4f48fef998446d025bb578a97a1a6ac28f84" target="652475378d712ac7803db5d75dea3e8094aa518618b49bdfd9be18eff1b9a9a9">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="6c72c6947c8152ea0c1016438d8d4f48fef998446d025bb578a97a1a6ac28f84" target="b2cd465805af36f0ea2f14c6f514b9a684ad82cf4088033d0ef647334295428a">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="6c72c6947c8152ea0c1016438d8d4f48fef998446d025bb578a97a1a6ac28f84" target="97e2dfd33a4968ddf2403163a93e9ac67fc3bde5cc8c25833a67285988b49873">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="6c72c6947c8152ea0c1016438d8d4f48fef998446d025bb578a97a1a6ac28f84" target="414f529dda34f2480f668a861d734d2300dea3ef79c41abeb90506b2c126b977">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="386a11d1bcb2cfe18cdac748649a2ad1a6345b029ab6d20fcd5aa4387b39794b" target="9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="386a11d1bcb2cfe18cdac748649a2ad1a6345b029ab6d20fcd5aa4387b39794b" target="390ab86bdf6ce855d4f17951e9f343930989e62575b085c5bc4dfc14422a99d7">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="386a11d1bcb2cfe18cdac748649a2ad1a6345b029ab6d20fcd5aa4387b39794b" target="97e2dfd33a4968ddf2403163a93e9ac67fc3bde5cc8c25833a67285988b49873">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="386a11d1bcb2cfe18cdac748649a2ad1a6345b029ab6d20fcd5aa4387b39794b" target="cb55d0df6b735ef61b097678f6bd73019504c58749267e7ed9ad280116765c68">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="386a11d1bcb2cfe18cdac748649a2ad1a6345b029ab6d20fcd5aa4387b39794b" target="652475378d712ac7803db5d75dea3e8094aa518618b49bdfd9be18eff1b9a9a9">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="386a11d1bcb2cfe18cdac748649a2ad1a6345b029ab6d20fcd5aa4387b39794b" target="414f529dda34f2480f668a861d734d2300dea3ef79c41abeb90506b2c126b977">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="8dc4f5a3a8044a7ca933d37c0a2b23462785f1a125799cb28e9580a6193009d6" target="a5a7f377e65b3cc1d2fb310041f1b8ab86e6f8ca8b6609b4934fa66771cc6957">
+  <data key="d3">used</data>
+  <data key="d4">Relation</data>
+  <data key="d5">utilized,exploited,employed,applied,consumed</data>
+</edge>
+<edge source="8dc4f5a3a8044a7ca933d37c0a2b23462785f1a125799cb28e9580a6193009d6" target="9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="8dc4f5a3a8044a7ca933d37c0a2b23462785f1a125799cb28e9580a6193009d6" target="e9b52e83a2497e9656a7b6030ddf5175d54c4f991cacebd04f074ae42e103c3e">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="8dc4f5a3a8044a7ca933d37c0a2b23462785f1a125799cb28e9580a6193009d6" target="9d24b9b56d45289a2f95873ba6df27058c3eedef8b3c3c37555c70ed30a2ac09">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="8dc4f5a3a8044a7ca933d37c0a2b23462785f1a125799cb28e9580a6193009d6" target="70e4015b6980c91f36a3508d8a96a2e821c89569900c9d5aaafaf79188f2daef">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="8dc4f5a3a8044a7ca933d37c0a2b23462785f1a125799cb28e9580a6193009d6" target="56f1e1a7b60762ec1c4ac18d721e73d17b9e32ee1bea19912f5e24dcfecac34b">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="8dc4f5a3a8044a7ca933d37c0a2b23462785f1a125799cb28e9580a6193009d6" target="7c4c46234a0794aeed7858a77e90b3648eff198437306f5b730de42606a45e7e">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="a5a7f377e65b3cc1d2fb310041f1b8ab86e6f8ca8b6609b4934fa66771cc6957" target="9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="a5a7f377e65b3cc1d2fb310041f1b8ab86e6f8ca8b6609b4934fa66771cc6957" target="7db214bcda610b89c59b6b15ce57d82a64dad7ff6e00c898ec3ccb77d9ad2c28">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="a5a7f377e65b3cc1d2fb310041f1b8ab86e6f8ca8b6609b4934fa66771cc6957" target="abdb0de3c072f2e4ce9804e3705c928dbd07caeb25cdf216168f8f208c47652e">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="a5a7f377e65b3cc1d2fb310041f1b8ab86e6f8ca8b6609b4934fa66771cc6957" target="5bddbba7acdd8c39cc969e7bde7d37a1fa470bbbcc405e7f23c46b4ceaf8da53">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="a5a7f377e65b3cc1d2fb310041f1b8ab86e6f8ca8b6609b4934fa66771cc6957" target="68b0fc1f50a49d908243ea319229d21e87bfba1e50535d311d561bae4d59ba99">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="a5a7f377e65b3cc1d2fb310041f1b8ab86e6f8ca8b6609b4934fa66771cc6957" target="e905b5b2889a43acf199d6b17879a6b53c19f5353d7b8dea0ded6d47e1faa220">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="341f7413ee22b076da9119c021c7a5a0ea27e1078f3f4f61987f8568f18bf2e3" target="9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="341f7413ee22b076da9119c021c7a5a0ea27e1078f3f4f61987f8568f18bf2e3" target="61ddf373d8e37d8ad69cf7f0730c2895ce57638aa6cf29aa76545bfd744a1193">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="341f7413ee22b076da9119c021c7a5a0ea27e1078f3f4f61987f8568f18bf2e3" target="2f162c9d7c715f3b2f7eaf16bc96b2afcc5eebee61ae5b1af4210f05a89305f9">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="341f7413ee22b076da9119c021c7a5a0ea27e1078f3f4f61987f8568f18bf2e3" target="c4f6273f45567b09a21b99d1fa4873d9eeeb538a46d5e8e9403a39316e1f5d86">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="341f7413ee22b076da9119c021c7a5a0ea27e1078f3f4f61987f8568f18bf2e3" target="46cf41bca552b0c7f61d6b9ad5a5b699ecd2a1b908b7cfd27f4e3b5c8e156705">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="341f7413ee22b076da9119c021c7a5a0ea27e1078f3f4f61987f8568f18bf2e3" target="39ea8aec606d13105329cfe1b8bbe0f0a7520160c7c63cbd371fce3276599b67">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="c1a294ac9c36d535a8f6b78109c03d017b7269a3bc0dbff9d5b7861daaa8ddf4" target="4acbb22e77818687a0769b7cde177c6bf98e6cf2b2359fad37a06cd1a9022b2c">
+  <data key="d3">was titled</data>
+  <data key="d4">Relation</data>
+  <data key="d5">labeled,called,referred to,designated,named</data>
+</edge>
+<edge source="c1a294ac9c36d535a8f6b78109c03d017b7269a3bc0dbff9d5b7861daaa8ddf4" target="9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="c1a294ac9c36d535a8f6b78109c03d017b7269a3bc0dbff9d5b7861daaa8ddf4" target="c38fa67696ac0790d4c1fcc2cbd5d37af80aebce28c82fa2cec76fffec6793bb">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="c1a294ac9c36d535a8f6b78109c03d017b7269a3bc0dbff9d5b7861daaa8ddf4" target="ec9a8038944b7594405fc77c0afbd4ce8015b776edfbe593ce93fe11a44f7aa6">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="c1a294ac9c36d535a8f6b78109c03d017b7269a3bc0dbff9d5b7861daaa8ddf4" target="af3c5c7c0263fa1ecd6c676082b4d4a2e773d96468a5d6517e85b97f00b9911f">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="c1a294ac9c36d535a8f6b78109c03d017b7269a3bc0dbff9d5b7861daaa8ddf4" target="ae8f3243c37ee142b4100c9c544e5674ec1b8bea22958a5cac7f7e2daee615db">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="c1a294ac9c36d535a8f6b78109c03d017b7269a3bc0dbff9d5b7861daaa8ddf4" target="8037e6639b6bcdf6a8f9a0e621f22f1255b040549b87cabd0b581e732b8c6db0">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="c1a294ac9c36d535a8f6b78109c03d017b7269a3bc0dbff9d5b7861daaa8ddf4" target="1be072e80cda9f215bec899560553581091616623b2d51686aeace537014fc2b">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="4acbb22e77818687a0769b7cde177c6bf98e6cf2b2359fad37a06cd1a9022b2c" target="9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="4acbb22e77818687a0769b7cde177c6bf98e6cf2b2359fad37a06cd1a9022b2c" target="09a40c7c395a10d3b1186eed77b8301a037861480d43f335a5aca4d17cffb278">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="4acbb22e77818687a0769b7cde177c6bf98e6cf2b2359fad37a06cd1a9022b2c" target="809a9fc2bef1adb39fc1f5b592c2c634f17e7daf584f376e8e04a429c83d7df5">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="4acbb22e77818687a0769b7cde177c6bf98e6cf2b2359fad37a06cd1a9022b2c" target="af3c5c7c0263fa1ecd6c676082b4d4a2e773d96468a5d6517e85b97f00b9911f">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="4acbb22e77818687a0769b7cde177c6bf98e6cf2b2359fad37a06cd1a9022b2c" target="bae753a176c2857d369ffbcbf11fc2ffb3bb785ec0bdf556329aaae860cb259a">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="4acbb22e77818687a0769b7cde177c6bf98e6cf2b2359fad37a06cd1a9022b2c" target="97e2dfd33a4968ddf2403163a93e9ac67fc3bde5cc8c25833a67285988b49873">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="b2ce878bd5b80a799f91fc1f2d54275d08886044aeecc97626f319466830d36e" target="9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="b2ce878bd5b80a799f91fc1f2d54275d08886044aeecc97626f319466830d36e" target="09a40c7c395a10d3b1186eed77b8301a037861480d43f335a5aca4d17cffb278">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="b2ce878bd5b80a799f91fc1f2d54275d08886044aeecc97626f319466830d36e" target="809a9fc2bef1adb39fc1f5b592c2c634f17e7daf584f376e8e04a429c83d7df5">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="b2ce878bd5b80a799f91fc1f2d54275d08886044aeecc97626f319466830d36e" target="61b44ce3e6414984a6e6d6b181be1c6efdeac1f1796c93d0816c7bbece5728ab">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="b2ce878bd5b80a799f91fc1f2d54275d08886044aeecc97626f319466830d36e" target="aba9e9868d1f1c92e35fb67655b16f7c1f0d7662ae246db57902ce1110970c9e">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="b2ce878bd5b80a799f91fc1f2d54275d08886044aeecc97626f319466830d36e" target="89ae88ae194527e1a71696fb7d0d1b1306f5f66f9d29282ce09c83927720cf8b">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="b2ce878bd5b80a799f91fc1f2d54275d08886044aeecc97626f319466830d36e" target="946c58826e9d866f2c7e0458cf6fcac9ea30397493fcc867adf87f1e2f40ed45">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="6bacced9104b4be4f9f0aee4591f7adc08994483e771f57bf012d445d33cd857" target="9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="6bacced9104b4be4f9f0aee4591f7adc08994483e771f57bf012d445d33cd857" target="f85b5d9a35c23892a7ca45cdff353baf28a7d97cae3a57dc8473786a76f83a5a">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="6bacced9104b4be4f9f0aee4591f7adc08994483e771f57bf012d445d33cd857" target="1aa70037b514a74004bab904736171a73d8f311e86e55c52e86fbddf001371db">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="6bacced9104b4be4f9f0aee4591f7adc08994483e771f57bf012d445d33cd857" target="e0db6aabf3e9e80747ecb283b09329de39d6839d64e67b60c806e963544178ce">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="6bacced9104b4be4f9f0aee4591f7adc08994483e771f57bf012d445d33cd857" target="2b668f5ed6852bb167d2b57274bc77652af10950311f392eeeeecb9b54c89672">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="6bacced9104b4be4f9f0aee4591f7adc08994483e771f57bf012d445d33cd857" target="99941545c9e4e390bc7029c78719c0955ae46c9cbfd16193d3f0cadc29a26ddf">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="6bacced9104b4be4f9f0aee4591f7adc08994483e771f57bf012d445d33cd857" target="de8638a60dc8d6c89c617ae6ae651af3624d3e334abd9a3511c5042b1a2db968">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="97051a2f9be6cb5482b24d2a4599b92c64e03cc03be6533ff514b806ea57d781" target="9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="97051a2f9be6cb5482b24d2a4599b92c64e03cc03be6533ff514b806ea57d781" target="1aa70037b514a74004bab904736171a73d8f311e86e55c52e86fbddf001371db">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="97051a2f9be6cb5482b24d2a4599b92c64e03cc03be6533ff514b806ea57d781" target="534b4d2518227e012da93b04b74d74c4bb437a1f842c4557ccdba735cf2a089d">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="97051a2f9be6cb5482b24d2a4599b92c64e03cc03be6533ff514b806ea57d781" target="bae753a176c2857d369ffbcbf11fc2ffb3bb785ec0bdf556329aaae860cb259a">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="97051a2f9be6cb5482b24d2a4599b92c64e03cc03be6533ff514b806ea57d781" target="ff4a6bb145190450b46f7984d0c5ca978291eb670c05476f5ae93114db605384">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="97051a2f9be6cb5482b24d2a4599b92c64e03cc03be6533ff514b806ea57d781" target="bdc8992455a27cce2fed9429359ab40b50b806020606766787683651c687c49a">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="1cafc22ec484523cb3144f7035c345661b65869b720601785ddc3b1ee8d18ffd" target="9e9e63589ed15ca212ea424c57635b80f6819431610407cb05b02ef1fbe8c3b1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="1cafc22ec484523cb3144f7035c345661b65869b720601785ddc3b1ee8d18ffd" target="e423a2423b85764bf8a0454ab1212ec721b6f5ee7e36e7c1f04311ed19a24cad">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="1cafc22ec484523cb3144f7035c345661b65869b720601785ddc3b1ee8d18ffd" target="47f101f94a5d2dfad53087daccceccd1b0c72fbe4bcde88146158bdc6fd16857">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="1cafc22ec484523cb3144f7035c345661b65869b720601785ddc3b1ee8d18ffd" target="ab2bf0bd01dcc28648b33fb080484ec95ef423d12a1b5db3315e20921e63b465">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="1cafc22ec484523cb3144f7035c345661b65869b720601785ddc3b1ee8d18ffd" target="9a8eec554e033f234a999a01c938df1a3bb3de0aa86459b4b2c1323204e941e9">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="1cafc22ec484523cb3144f7035c345661b65869b720601785ddc3b1ee8d18ffd" target="1aa70037b514a74004bab904736171a73d8f311e86e55c52e86fbddf001371db">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="1cafc22ec484523cb3144f7035c345661b65869b720601785ddc3b1ee8d18ffd" target="e42be0253efc2adf36febf851ccd760caf890b50f5a153c9e0414861323c7046">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="fb4ab26bb408f7f6bd57ba0a150fd8162bf44291c686d9a0aba00fc608377e08" target="1250c862b061eb8c7491a6892ad70548f4d9e2a82774dc305081d695efa7a59c">
+  <data key="d3">is a</data>
+  <data key="d4">Relation</data>
+  <data key="d5">classifies as,defines,belongs to,represents,categorizes</data>
+</edge>
+<edge source="fb4ab26bb408f7f6bd57ba0a150fd8162bf44291c686d9a0aba00fc608377e08" target="355220adf865e6902cc85147c76cb0855fa7d33524b9cf874b997e02f9f8ea0d">
+  <data key="d3">consists of</data>
+  <data key="d4">Relation</data>
+  <data key="d5">be made of,be composed of,comprise,include,contain</data>
+</edge>
+<edge source="fb4ab26bb408f7f6bd57ba0a150fd8162bf44291c686d9a0aba00fc608377e08" target="f9f1db0c24418b0cca86bb2853ad841ab3d459218834dd70201e10446fd1477a">
+  <data key="d3">is associated with</data>
+  <data key="d4">Relation</data>
+  <data key="d5">linked with,connected to,affiliated with,related to,tied to</data>
+</edge>
+<edge source="fb4ab26bb408f7f6bd57ba0a150fd8162bf44291c686d9a0aba00fc608377e08" target="e17ded53533ac371e4decc53dae93ac334b56a8467ae0b0375fce5ea8ec0f6cc">
+  <data key="d3">is inhabited by</data>
+  <data key="d4">Relation</data>
+  <data key="d5">dwell in,populate,occupy,live in,reside in</data>
+</edge>
+<edge source="fb4ab26bb408f7f6bd57ba0a150fd8162bf44291c686d9a0aba00fc608377e08" target="7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="fb4ab26bb408f7f6bd57ba0a150fd8162bf44291c686d9a0aba00fc608377e08" target="2442da54f68cd0eaac3a601b9c754d95a9796f6ff296227392a200091c980242">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="fb4ab26bb408f7f6bd57ba0a150fd8162bf44291c686d9a0aba00fc608377e08" target="e1cf82c5bada6ee9046a116dd1f21fd30aec83f14f34a693dd6ca7eae62e0256">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="fb4ab26bb408f7f6bd57ba0a150fd8162bf44291c686d9a0aba00fc608377e08" target="cf46271e028e4ab201cde71694fece2f7cdff1ff04be20ba95f5bad6187cf728">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="fb4ab26bb408f7f6bd57ba0a150fd8162bf44291c686d9a0aba00fc608377e08" target="ddbd7f34bc1dcd9bd50aeade482edfc2458c0ae185f42e252eefc98747c7cb98">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="fb4ab26bb408f7f6bd57ba0a150fd8162bf44291c686d9a0aba00fc608377e08" target="9325fd5da4a44513848881a53e31ccce532dc82cca7a5d6226eaf22a4ecd1419">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="fb4ab26bb408f7f6bd57ba0a150fd8162bf44291c686d9a0aba00fc608377e08" target="6493f8d39192082fa9d3f96dbf5e0d79612c09d7f20261109baf9e34eec08c0d">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="1250c862b061eb8c7491a6892ad70548f4d9e2a82774dc305081d695efa7a59c" target="7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="1250c862b061eb8c7491a6892ad70548f4d9e2a82774dc305081d695efa7a59c" target="54803cf097df61916f02c01daf9a41932c61ca6b86866986865ae6443d3f97b6">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="1250c862b061eb8c7491a6892ad70548f4d9e2a82774dc305081d695efa7a59c" target="420d6aed65f3d7122b929a69bbdd10d0cff4386606ba83f2ceae2d0d472c7803">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="1250c862b061eb8c7491a6892ad70548f4d9e2a82774dc305081d695efa7a59c" target="367c6e4371547f114d0fd4c19ba3775d04de440bc53f43b89b267cb0dd80bb34">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="1250c862b061eb8c7491a6892ad70548f4d9e2a82774dc305081d695efa7a59c" target="3d3c8851775e3ed76a3fec66a5be38153159e9b2c9911c0665a90b8c048608fb">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="1250c862b061eb8c7491a6892ad70548f4d9e2a82774dc305081d695efa7a59c" target="75fdb8570d272c93a47f53befa4a769e6632740126bd5593d535cada6d4f8e00">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="355220adf865e6902cc85147c76cb0855fa7d33524b9cf874b997e02f9f8ea0d" target="7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="355220adf865e6902cc85147c76cb0855fa7d33524b9cf874b997e02f9f8ea0d" target="6a3542bf793e08e9aa5171df70e69bfeada806945231f0347c9e4ee3f94875b7">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="355220adf865e6902cc85147c76cb0855fa7d33524b9cf874b997e02f9f8ea0d" target="2cad7ca1226d66941867daef5d06495deab4e04bbb3c56f500098ed5253b6798">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="355220adf865e6902cc85147c76cb0855fa7d33524b9cf874b997e02f9f8ea0d" target="cc928978c5c4b9d815c1c32a96f25658e8c3344257dc92ec0c9ecdac9e3331ec">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="355220adf865e6902cc85147c76cb0855fa7d33524b9cf874b997e02f9f8ea0d" target="21a7ba20a9a5faa03e606438bdfb80edf9c700dcac19b7ee78b00857e64ec4d5">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="355220adf865e6902cc85147c76cb0855fa7d33524b9cf874b997e02f9f8ea0d" target="cf46271e028e4ab201cde71694fece2f7cdff1ff04be20ba95f5bad6187cf728">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="355220adf865e6902cc85147c76cb0855fa7d33524b9cf874b997e02f9f8ea0d" target="ddbd7f34bc1dcd9bd50aeade482edfc2458c0ae185f42e252eefc98747c7cb98">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="f9f1db0c24418b0cca86bb2853ad841ab3d459218834dd70201e10446fd1477a" target="7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="f9f1db0c24418b0cca86bb2853ad841ab3d459218834dd70201e10446fd1477a" target="6f47f2c4c1cc5e3292eb58869837d9675df6984b524af7cc6ed6521725f274b5">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="f9f1db0c24418b0cca86bb2853ad841ab3d459218834dd70201e10446fd1477a" target="3e4c530463436a8626cfb1243146c16935ed8169f5e138aaf75e2a4bd5148991">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="f9f1db0c24418b0cca86bb2853ad841ab3d459218834dd70201e10446fd1477a" target="c5d9bff2f40dc42c1fd484d7e3a41ebdffbf114e881fb84596d67694804ef256">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="f9f1db0c24418b0cca86bb2853ad841ab3d459218834dd70201e10446fd1477a" target="16c6df90d4a9a8bf750e4639c25dd18f9987f17fca7d1d36998451d622f9708f">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="f9f1db0c24418b0cca86bb2853ad841ab3d459218834dd70201e10446fd1477a" target="e4998139b14e4728487b5b83bbeb0071e44248bdcf6b2d4e2bac3d05afc33b5f">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="f9f1db0c24418b0cca86bb2853ad841ab3d459218834dd70201e10446fd1477a" target="c42790233f1d0ad8477ed4ce0ef0591f429185491916a2cc0ddf2ff32d9c3313">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="939ccfc9f0d5e359a2ca1a98e9acc6e361943008ef7d52bdf29557006bbfb9ba" target="f1d212b87695eb955e8e723aa21f28fc74cd8e021c3b95fe3f164de9aef09f46">
+  <data key="d3">is</data>
+  <data key="d4">Relation</data>
+  <data key="d5">exists,represents,constitutes,signifies,embodies</data>
+</edge>
+<edge source="939ccfc9f0d5e359a2ca1a98e9acc6e361943008ef7d52bdf29557006bbfb9ba" target="7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="939ccfc9f0d5e359a2ca1a98e9acc6e361943008ef7d52bdf29557006bbfb9ba" target="f85b5d9a35c23892a7ca45cdff353baf28a7d97cae3a57dc8473786a76f83a5a">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="939ccfc9f0d5e359a2ca1a98e9acc6e361943008ef7d52bdf29557006bbfb9ba" target="e0db6aabf3e9e80747ecb283b09329de39d6839d64e67b60c806e963544178ce">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="939ccfc9f0d5e359a2ca1a98e9acc6e361943008ef7d52bdf29557006bbfb9ba" target="42c6eeb5edf2d9248ae043ff7f94fb3d6766eb3294ac75ab4662e2ee9130be24">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="939ccfc9f0d5e359a2ca1a98e9acc6e361943008ef7d52bdf29557006bbfb9ba" target="0dacf7e78a765565d777181536e5275cac39434e6072f0a9265c4cc4a6cde057">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="939ccfc9f0d5e359a2ca1a98e9acc6e361943008ef7d52bdf29557006bbfb9ba" target="69bb07e27736217eb267fadff891e833b2f61a59601d9c55028f884df759249b">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="939ccfc9f0d5e359a2ca1a98e9acc6e361943008ef7d52bdf29557006bbfb9ba" target="47fc63a4daac3bc7616cc35bc727d5d6125359367468616bf472903a8ff9a1c5">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="f1d212b87695eb955e8e723aa21f28fc74cd8e021c3b95fe3f164de9aef09f46" target="7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="f1d212b87695eb955e8e723aa21f28fc74cd8e021c3b95fe3f164de9aef09f46" target="8cea62ed19cee2be5c55e4e885b1a0a620bb211c54058e97617bbfbb8cd8424e">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="f1d212b87695eb955e8e723aa21f28fc74cd8e021c3b95fe3f164de9aef09f46" target="d1726146484d9c07aac1bbca034130219c5c35567b972340491f2ba94a9a3ab7">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="f1d212b87695eb955e8e723aa21f28fc74cd8e021c3b95fe3f164de9aef09f46" target="117445d535fba768094091aa34514304f539f5927c3e275e5bfbeaf0ea79111c">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="f1d212b87695eb955e8e723aa21f28fc74cd8e021c3b95fe3f164de9aef09f46" target="f9238a9a4787bd27d643a6dee5dd6453ab2c4ee16b2b5fa0482262f79de0bef5">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="f1d212b87695eb955e8e723aa21f28fc74cd8e021c3b95fe3f164de9aef09f46" target="0dacf7e78a765565d777181536e5275cac39434e6072f0a9265c4cc4a6cde057">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="e17ded53533ac371e4decc53dae93ac334b56a8467ae0b0375fce5ea8ec0f6cc" target="7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="e17ded53533ac371e4decc53dae93ac334b56a8467ae0b0375fce5ea8ec0f6cc" target="f4174fb065ed74cf838cfe8074ddeca03829541559dc76a3b60888f0f72bf1e7">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="e17ded53533ac371e4decc53dae93ac334b56a8467ae0b0375fce5ea8ec0f6cc" target="cf46271e028e4ab201cde71694fece2f7cdff1ff04be20ba95f5bad6187cf728">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="e17ded53533ac371e4decc53dae93ac334b56a8467ae0b0375fce5ea8ec0f6cc" target="988ebf0465a27ce12048bac8596b0b2253437a469a08e236834665ca57c24d48">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="e17ded53533ac371e4decc53dae93ac334b56a8467ae0b0375fce5ea8ec0f6cc" target="6cffce8e22f4f081365768ceb83c6e0adfa99a243a0343f2dc51140e152139d6">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="e17ded53533ac371e4decc53dae93ac334b56a8467ae0b0375fce5ea8ec0f6cc" target="3bb1dfa36f89bcd8aae960602023eb7b30589c61ad570117e08ff8483de635e9">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="e17ded53533ac371e4decc53dae93ac334b56a8467ae0b0375fce5ea8ec0f6cc" target="8aec68420ea9ebcb8a2b24bde67b713e417889cab1dc12caaa1349858cdbbe99">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="fb319825c198e4d48c0012ba1d309cbd73b4a42dd0c84e5cbc18880a5c083949" target="59540028a7d7fd0be63e40ec1b76e21ad240cec69eaad8042340aa4f45903059">
+  <data key="d3">vary from</data>
+  <data key="d4">Relation</data>
+  <data key="d5">change from,differ from,contrast with,deviate from,fluctuate from</data>
+</edge>
+<edge source="fb319825c198e4d48c0012ba1d309cbd73b4a42dd0c84e5cbc18880a5c083949" target="7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="fb319825c198e4d48c0012ba1d309cbd73b4a42dd0c84e5cbc18880a5c083949" target="6a3542bf793e08e9aa5171df70e69bfeada806945231f0347c9e4ee3f94875b7">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="fb319825c198e4d48c0012ba1d309cbd73b4a42dd0c84e5cbc18880a5c083949" target="cc928978c5c4b9d815c1c32a96f25658e8c3344257dc92ec0c9ecdac9e3331ec">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="fb319825c198e4d48c0012ba1d309cbd73b4a42dd0c84e5cbc18880a5c083949" target="57f2f4335362df8cb7a9d6b79ee0987b9fe1ef186f58a832622ffc8edb93e52b">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="fb319825c198e4d48c0012ba1d309cbd73b4a42dd0c84e5cbc18880a5c083949" target="85ab0f7abd41bd4af24407921169bbc76b9f952821c759aed4209624db530b72">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="fb319825c198e4d48c0012ba1d309cbd73b4a42dd0c84e5cbc18880a5c083949" target="cf46271e028e4ab201cde71694fece2f7cdff1ff04be20ba95f5bad6187cf728">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="fb319825c198e4d48c0012ba1d309cbd73b4a42dd0c84e5cbc18880a5c083949" target="9325fd5da4a44513848881a53e31ccce532dc82cca7a5d6226eaf22a4ecd1419">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="59540028a7d7fd0be63e40ec1b76e21ad240cec69eaad8042340aa4f45903059" target="7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="59540028a7d7fd0be63e40ec1b76e21ad240cec69eaad8042340aa4f45903059" target="6a3542bf793e08e9aa5171df70e69bfeada806945231f0347c9e4ee3f94875b7">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="59540028a7d7fd0be63e40ec1b76e21ad240cec69eaad8042340aa4f45903059" target="b5f5ff68af3949ba441b878d8e6c17728bb87de8de379987d0c8cd7d5c96fcfa">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="59540028a7d7fd0be63e40ec1b76e21ad240cec69eaad8042340aa4f45903059" target="21a7ba20a9a5faa03e606438bdfb80edf9c700dcac19b7ee78b00857e64ec4d5">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="59540028a7d7fd0be63e40ec1b76e21ad240cec69eaad8042340aa4f45903059" target="39a4ddbc780667bf64ba8ca27e1efdf979880f38eaee00f7d01d3b6686299099">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="59540028a7d7fd0be63e40ec1b76e21ad240cec69eaad8042340aa4f45903059" target="cc928978c5c4b9d815c1c32a96f25658e8c3344257dc92ec0c9ecdac9e3331ec">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="59540028a7d7fd0be63e40ec1b76e21ad240cec69eaad8042340aa4f45903059" target="d7f41025891dd9435666bf14c5813aef8504b6d9874fd09a7333d9cda1141460">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="59540028a7d7fd0be63e40ec1b76e21ad240cec69eaad8042340aa4f45903059" target="47ad5158c24c2e8edd8d4e4c39384fbe615873e9aebc759348eee2a1020810d9">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="fdc3f041b52271578264d530e376d8d7b12204daa81276e2f4721ad549d649bb" target="a1d123e3a6fb9e0aae8e01ae86179cdcc4de3ce634090ab7362106cc134481db">
+  <data key="d3">lack</data>
+  <data key="d4">Relation</data>
+  <data key="d5">insufficiency,absence,deficiency,want,scarcity</data>
+</edge>
+<edge source="fdc3f041b52271578264d530e376d8d7b12204daa81276e2f4721ad549d649bb" target="0363485ab1c2fcdb89782d873c600762ea6e2290b003a288bd5986652a2beaee">
+  <data key="d3">lack</data>
+  <data key="d4">Relation</data>
+  <data key="d5">insufficiency,absence,deficiency,want,scarcity</data>
+</edge>
+<edge source="fdc3f041b52271578264d530e376d8d7b12204daa81276e2f4721ad549d649bb" target="7eba09c332e533b043909ab30111d388efee3ba0d16a8aea812e9cd1e906b4de">
+  <data key="d3">lack</data>
+  <data key="d4">Relation</data>
+  <data key="d5">insufficiency,absence,deficiency,want,scarcity</data>
+</edge>
+<edge source="fdc3f041b52271578264d530e376d8d7b12204daa81276e2f4721ad549d649bb" target="b661a90f9fca5deb337c39335e03a7fbc4f629c79121d8ae04b9e3d877a332c3">
+  <data key="d3">lack</data>
+  <data key="d4">Relation</data>
+  <data key="d5">insufficiency,absence,deficiency,want,scarcity</data>
+</edge>
+<edge source="fdc3f041b52271578264d530e376d8d7b12204daa81276e2f4721ad549d649bb" target="4f7e83e579c0e3615fc3c8edfcf327590692999995af1fb1adbe8029c198fa0b">
+  <data key="d3">became common in</data>
+  <data key="d4">Relation</data>
+  <data key="d5">establish presence,gain prevalence,spread,become widespread,popularize</data>
+</edge>
+<edge source="fdc3f041b52271578264d530e376d8d7b12204daa81276e2f4721ad549d649bb" target="31f38fbe20a48240b2d7e645c986f9b020568c30aec3b7c98a0f40e841990e72">
+  <data key="d3">are found in</data>
+  <data key="d4">Relation</data>
+  <data key="d5">exist in,occur in,be present in,reside in,appear in</data>
+</edge>
+<edge source="fdc3f041b52271578264d530e376d8d7b12204daa81276e2f4721ad549d649bb" target="ac7e9acbe180bd6482416ef16667c65f646128cda9b4e7a730459246d16213af">
+  <data key="d3">are found in</data>
+  <data key="d4">Relation</data>
+  <data key="d5">exist in,occur in,be present in,reside in,appear in</data>
+</edge>
+<edge source="fdc3f041b52271578264d530e376d8d7b12204daa81276e2f4721ad549d649bb" target="7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="fdc3f041b52271578264d530e376d8d7b12204daa81276e2f4721ad549d649bb" target="d12810a9dea5e1ce10a088283b41454348c5b81f81a84eeaba68afaa5bb27adb">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="fdc3f041b52271578264d530e376d8d7b12204daa81276e2f4721ad549d649bb" target="531e052315bb2ed0af7d99b35b5f1827e220f0bf9e819cee0133f4c8cbb373ef">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="fdc3f041b52271578264d530e376d8d7b12204daa81276e2f4721ad549d649bb" target="6a3542bf793e08e9aa5171df70e69bfeada806945231f0347c9e4ee3f94875b7">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="fdc3f041b52271578264d530e376d8d7b12204daa81276e2f4721ad549d649bb" target="2442da54f68cd0eaac3a601b9c754d95a9796f6ff296227392a200091c980242">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="fdc3f041b52271578264d530e376d8d7b12204daa81276e2f4721ad549d649bb" target="ddbd7f34bc1dcd9bd50aeade482edfc2458c0ae185f42e252eefc98747c7cb98">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="fdc3f041b52271578264d530e376d8d7b12204daa81276e2f4721ad549d649bb" target="9325fd5da4a44513848881a53e31ccce532dc82cca7a5d6226eaf22a4ecd1419">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="a1d123e3a6fb9e0aae8e01ae86179cdcc4de3ce634090ab7362106cc134481db" target="7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="a1d123e3a6fb9e0aae8e01ae86179cdcc4de3ce634090ab7362106cc134481db" target="20c00167f4a5dce42ec3643566972693f74c04a807924c0fac3d9f4ff67f7383">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="a1d123e3a6fb9e0aae8e01ae86179cdcc4de3ce634090ab7362106cc134481db" target="d5f17add456a537d5a036528cf7f2d92621ab2b7410cfacfc3b9d819da51533c">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="a1d123e3a6fb9e0aae8e01ae86179cdcc4de3ce634090ab7362106cc134481db" target="723dd4520d42049cf449f1bf11b4ead0e41619bfde4dac0984b13085f25fc4ad">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="a1d123e3a6fb9e0aae8e01ae86179cdcc4de3ce634090ab7362106cc134481db" target="ffd21d47bdd764447b00d2c09a7b0c84daaa41b0ab895e7970b9817213164291">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="a1d123e3a6fb9e0aae8e01ae86179cdcc4de3ce634090ab7362106cc134481db" target="0f1e93e5393171eb4db858c86fdfc7fdbd878e69815f0f2cdda67d69cb2e17eb">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="a1d123e3a6fb9e0aae8e01ae86179cdcc4de3ce634090ab7362106cc134481db" target="47fc63a4daac3bc7616cc35bc727d5d6125359367468616bf472903a8ff9a1c5">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="0363485ab1c2fcdb89782d873c600762ea6e2290b003a288bd5986652a2beaee" target="7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="0363485ab1c2fcdb89782d873c600762ea6e2290b003a288bd5986652a2beaee" target="7b9d2c052ef36cb5d98f96d4fb0ca332d9c94a2d40844002e374df0444f29739">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="0363485ab1c2fcdb89782d873c600762ea6e2290b003a288bd5986652a2beaee" target="0ab84ac7af6adcf6d6bd5a17cdcc7ab705a42b46e4f45a45b54333e28adfcbe5">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="0363485ab1c2fcdb89782d873c600762ea6e2290b003a288bd5986652a2beaee" target="771c735b928cafbaf62d168b428bc618f05f91c7439bc3f3e2e8e11bcd8135c0">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="0363485ab1c2fcdb89782d873c600762ea6e2290b003a288bd5986652a2beaee" target="e6db6b8ba72fb4619513ad8cd88c63177dd91ae8e74132ccc52457a47abeba84">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="0363485ab1c2fcdb89782d873c600762ea6e2290b003a288bd5986652a2beaee" target="201958fcf817fb6388eccf8b0350eae3f4869d4e56788c7274b78863427c2a29">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="0363485ab1c2fcdb89782d873c600762ea6e2290b003a288bd5986652a2beaee" target="e421cc2bbf4d431af62ab013e4470fde15ff561de28691a12859971d6ff4e03c">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="7eba09c332e533b043909ab30111d388efee3ba0d16a8aea812e9cd1e906b4de" target="7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="7eba09c332e533b043909ab30111d388efee3ba0d16a8aea812e9cd1e906b4de" target="72e07ac7bffc5912536bd21c369a3f7ae2d29dc8f539b31e06f319b696ac40d6">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="7eba09c332e533b043909ab30111d388efee3ba0d16a8aea812e9cd1e906b4de" target="5f31ea758f2b980820c267cf507d9fc54d4561599ce8eeafc34a5407491f8ee0">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="7eba09c332e533b043909ab30111d388efee3ba0d16a8aea812e9cd1e906b4de" target="771c735b928cafbaf62d168b428bc618f05f91c7439bc3f3e2e8e11bcd8135c0">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="7eba09c332e533b043909ab30111d388efee3ba0d16a8aea812e9cd1e906b4de" target="7b9d2c052ef36cb5d98f96d4fb0ca332d9c94a2d40844002e374df0444f29739">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="7eba09c332e533b043909ab30111d388efee3ba0d16a8aea812e9cd1e906b4de" target="e6db6b8ba72fb4619513ad8cd88c63177dd91ae8e74132ccc52457a47abeba84">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="b661a90f9fca5deb337c39335e03a7fbc4f629c79121d8ae04b9e3d877a332c3" target="7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="b661a90f9fca5deb337c39335e03a7fbc4f629c79121d8ae04b9e3d877a332c3" target="3aef5e8cb218cd8149d031dd5f0e72352d880c0c620f95bc390600f8d3ee9932">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="b661a90f9fca5deb337c39335e03a7fbc4f629c79121d8ae04b9e3d877a332c3" target="2bd8789798d69b9510e94f61fbdeb201969c7f26585272150493c9607bc6a245">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="b661a90f9fca5deb337c39335e03a7fbc4f629c79121d8ae04b9e3d877a332c3" target="8cbfebfa699ba5216fe74424ad6fcfd1450ecbef971b5987a6e45663ccad86d7">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="b661a90f9fca5deb337c39335e03a7fbc4f629c79121d8ae04b9e3d877a332c3" target="1ef36601ee685966029541fcdc701b337bd43a7680530de3771820117bdf15fb">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="b661a90f9fca5deb337c39335e03a7fbc4f629c79121d8ae04b9e3d877a332c3" target="6f924a4364c8f9c85fb42cc76364af837ec08f97f6b7a7b0143220af943e9611">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="b661a90f9fca5deb337c39335e03a7fbc4f629c79121d8ae04b9e3d877a332c3" target="00ac04aa45ebca8ac0ca3d346b16c79bec24a76966a03d5d4798ea37a96de387">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="f06f5d672fde051a4286ab36008995357222df2d58a26880c209479df322e906" target="fdc3f041b52271578264d530e376d8d7b12204daa81276e2f4721ad549d649bb">
+  <data key="d3">defines</data>
+  <data key="d4">Relation</data>
+  <data key="d5">delineates,characterizes,describes,outlines,specifies</data>
+</edge>
+<edge source="f06f5d672fde051a4286ab36008995357222df2d58a26880c209479df322e906" target="7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="f06f5d672fde051a4286ab36008995357222df2d58a26880c209479df322e906" target="1aa70037b514a74004bab904736171a73d8f311e86e55c52e86fbddf001371db">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="f06f5d672fde051a4286ab36008995357222df2d58a26880c209479df322e906" target="6f924a4364c8f9c85fb42cc76364af837ec08f97f6b7a7b0143220af943e9611">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="f06f5d672fde051a4286ab36008995357222df2d58a26880c209479df322e906" target="6f98bde9b4b47d887f94a659078edea94b905575bcdc9bf3d6d575981bb0d3b8">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="f06f5d672fde051a4286ab36008995357222df2d58a26880c209479df322e906" target="2b3643f4e18cc15ba6a16c4a9af58b194179b712427e803680fc80b58eee6de0">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="f06f5d672fde051a4286ab36008995357222df2d58a26880c209479df322e906" target="94f086c92c08e4262da0980b0564a321836aa05748db7868ecda023cfc107a75">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="f06f5d672fde051a4286ab36008995357222df2d58a26880c209479df322e906" target="cc2459a768fed8b7225f438ccfe6e10813e81befaf57e236a2a48a282313ce57">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="d4e9cf45a3661ae0fbc1a8f0c9926a354df26a84f3d315c6218f6228dd15e65d" target="829732965581c2a8711e98bb1fc32475dcd832fdf5a232169cfacfaf989956a6">
+  <data key="d3">caused</data>
+  <data key="d4">Relation</data>
+  <data key="d5">resulted in,led to,produced,initiated,triggered</data>
+</edge>
+<edge source="d4e9cf45a3661ae0fbc1a8f0c9926a354df26a84f3d315c6218f6228dd15e65d" target="7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="d4e9cf45a3661ae0fbc1a8f0c9926a354df26a84f3d315c6218f6228dd15e65d" target="61fd53edbb3e8fd5243e46b44c43fd6d707aebfab1e004ea05d5faa44016b884">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="d4e9cf45a3661ae0fbc1a8f0c9926a354df26a84f3d315c6218f6228dd15e65d" target="0944b0b414c99676b48ab681e2539bbae52a1b58fa634e9befbae75debd43659">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="d4e9cf45a3661ae0fbc1a8f0c9926a354df26a84f3d315c6218f6228dd15e65d" target="530a7c484d415d389b647acc3050145eca4dd0808b9204238f3ce43c975d4f43">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="d4e9cf45a3661ae0fbc1a8f0c9926a354df26a84f3d315c6218f6228dd15e65d" target="88170ea9869af15cc875265a2f56f1a35903a840fb081075d7c6fa927b9a5c4e">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="d4e9cf45a3661ae0fbc1a8f0c9926a354df26a84f3d315c6218f6228dd15e65d" target="a55108a840d1095eba2e0d7833f5dbeb60585ca12faa7cc39b0bcbe9e875dc89">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="d4e9cf45a3661ae0fbc1a8f0c9926a354df26a84f3d315c6218f6228dd15e65d" target="cf1fca71aa858328e522933b0c1648cc22ce7e0c94b6ef37a1e531c2b26ca20a">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="829732965581c2a8711e98bb1fc32475dcd832fdf5a232169cfacfaf989956a6" target="7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="829732965581c2a8711e98bb1fc32475dcd832fdf5a232169cfacfaf989956a6" target="1181e399577ded51075d94bbf89c17529a668c4d281c7af03140e0408fe18d05">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="829732965581c2a8711e98bb1fc32475dcd832fdf5a232169cfacfaf989956a6" target="e27db466dbbac7e3b70ddae05aee706f6f38d4f82030a4d7965b01a0ae855fac">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="829732965581c2a8711e98bb1fc32475dcd832fdf5a232169cfacfaf989956a6" target="a8ce19eaa13e655db1c3babac3475b055d6ff0b77512b0c3bb6a2f46781a8932">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="829732965581c2a8711e98bb1fc32475dcd832fdf5a232169cfacfaf989956a6" target="e810615a82034083ad332649e17c07b0b092dd6a47b1d7d28e08b689aa054a97">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="829732965581c2a8711e98bb1fc32475dcd832fdf5a232169cfacfaf989956a6" target="1786e7b117334a2edeb8ab43218e9a50e019e7dea68f9c5034c2c80c0efcb97b">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="829732965581c2a8711e98bb1fc32475dcd832fdf5a232169cfacfaf989956a6" target="16c6df90d4a9a8bf750e4639c25dd18f9987f17fca7d1d36998451d622f9708f">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="4f7e83e579c0e3615fc3c8edfcf327590692999995af1fb1adbe8029c198fa0b" target="7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="4f7e83e579c0e3615fc3c8edfcf327590692999995af1fb1adbe8029c198fa0b" target="8adc47bb7d5c4d1eab9a1438c8681817e16b12279296acb92d094d380de18ca9">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="4f7e83e579c0e3615fc3c8edfcf327590692999995af1fb1adbe8029c198fa0b" target="40b6a43e7d69b3292b9b74a993a5f72ee8ef05fd0789af8973b64c216837548d">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="4f7e83e579c0e3615fc3c8edfcf327590692999995af1fb1adbe8029c198fa0b" target="6829832b030d817ec2b9bae896646248e672d84d3cd08b35fd12c8bdaccf083e">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="4f7e83e579c0e3615fc3c8edfcf327590692999995af1fb1adbe8029c198fa0b" target="d4f9a291ffe5a0a93693f47f1d54d0fbfbf4a6663c32418411a12e33f73cd293">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="4f7e83e579c0e3615fc3c8edfcf327590692999995af1fb1adbe8029c198fa0b" target="18548e5e1c7bc69f2abdf456a3f4a27695148d6eb74be8727e5d46c30996d17e">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="31f38fbe20a48240b2d7e645c986f9b020568c30aec3b7c98a0f40e841990e72" target="7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="31f38fbe20a48240b2d7e645c986f9b020568c30aec3b7c98a0f40e841990e72" target="eb11b1f064db74a7a001cf9290d7d4c71809b4dcae4365e59ab3d46bb84ed6dc">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="31f38fbe20a48240b2d7e645c986f9b020568c30aec3b7c98a0f40e841990e72" target="3b863f6bfebac9c0c3c8053d2d9956296d61f3eddec02bf80028338cd8a345d9">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="31f38fbe20a48240b2d7e645c986f9b020568c30aec3b7c98a0f40e841990e72" target="2bfe436f17e954847db3f1533210cbc32755ed6373ba04729c056923b9543739">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="31f38fbe20a48240b2d7e645c986f9b020568c30aec3b7c98a0f40e841990e72" target="01c84c487370c4887ceb6bb04a1c88ad2054ab983ed89648eab2a1bfd663bd8d">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="31f38fbe20a48240b2d7e645c986f9b020568c30aec3b7c98a0f40e841990e72" target="a850f8380004232f78f91fe96037bc842fcd490ad1626e29c82fff8462fe5c77">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="31f38fbe20a48240b2d7e645c986f9b020568c30aec3b7c98a0f40e841990e72" target="3a3b5c24aae6501646b72a55538178ffefacce1c5a146b84506c8e1192565fb9">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="ac7e9acbe180bd6482416ef16667c65f646128cda9b4e7a730459246d16213af" target="7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="ac7e9acbe180bd6482416ef16667c65f646128cda9b4e7a730459246d16213af" target="eb11b1f064db74a7a001cf9290d7d4c71809b4dcae4365e59ab3d46bb84ed6dc">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="ac7e9acbe180bd6482416ef16667c65f646128cda9b4e7a730459246d16213af" target="3054a9eaddc0b33c11d3162d393cb36349e6cf4ddaa2311e00d66acba1a9f062">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="ac7e9acbe180bd6482416ef16667c65f646128cda9b4e7a730459246d16213af" target="3b863f6bfebac9c0c3c8053d2d9956296d61f3eddec02bf80028338cd8a345d9">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="ac7e9acbe180bd6482416ef16667c65f646128cda9b4e7a730459246d16213af" target="bca865397d09aab04f836f3305ce5f58ae052932905a6ff583ca860527730317">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="ac7e9acbe180bd6482416ef16667c65f646128cda9b4e7a730459246d16213af" target="01c84c487370c4887ceb6bb04a1c88ad2054ab983ed89648eab2a1bfd663bd8d">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="ac7e9acbe180bd6482416ef16667c65f646128cda9b4e7a730459246d16213af" target="2bfe436f17e954847db3f1533210cbc32755ed6373ba04729c056923b9543739">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="fe254163d2a4cc8d5c89827e444aee9a6287780870a0e7fe130776ebdc443f7e" target="02bfc6fce69fef74052b198a2da8e61619bcb078bbb812a827fd71691da52c42">
+  <data key="d3">is located in</data>
+  <data key="d4">Relation</data>
+  <data key="d5">exists in,found in,resides in,situated at,positioned in</data>
+</edge>
+<edge source="fe254163d2a4cc8d5c89827e444aee9a6287780870a0e7fe130776ebdc443f7e" target="7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="fe254163d2a4cc8d5c89827e444aee9a6287780870a0e7fe130776ebdc443f7e" target="ec5130dfaa7b08280d49de817bbb1106076c9f672f1efd39488d8858f7ed83de">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="fe254163d2a4cc8d5c89827e444aee9a6287780870a0e7fe130776ebdc443f7e" target="dbd8d64656490dab8fb5713c471bdb2343b3d803867ce0def7ddadd9c1d6ae41">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="fe254163d2a4cc8d5c89827e444aee9a6287780870a0e7fe130776ebdc443f7e" target="d12810a9dea5e1ce10a088283b41454348c5b81f81a84eeaba68afaa5bb27adb">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="fe254163d2a4cc8d5c89827e444aee9a6287780870a0e7fe130776ebdc443f7e" target="ddbd7f34bc1dcd9bd50aeade482edfc2458c0ae185f42e252eefc98747c7cb98">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="fe254163d2a4cc8d5c89827e444aee9a6287780870a0e7fe130776ebdc443f7e" target="cf46271e028e4ab201cde71694fece2f7cdff1ff04be20ba95f5bad6187cf728">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="fe254163d2a4cc8d5c89827e444aee9a6287780870a0e7fe130776ebdc443f7e" target="988ebf0465a27ce12048bac8596b0b2253437a469a08e236834665ca57c24d48">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="02bfc6fce69fef74052b198a2da8e61619bcb078bbb812a827fd71691da52c42" target="7b44f87772ba4b2153a81d6a09938898347aaee14c1b42aa21a6df5e68dc7ff1">
+  <data key="d3">mention in</data>
+  <data key="d4">Source</data>
+</edge>
+<edge source="02bfc6fce69fef74052b198a2da8e61619bcb078bbb812a827fd71691da52c42" target="6493f8d39192082fa9d3f96dbf5e0d79612c09d7f20261109baf9e34eec08c0d">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="02bfc6fce69fef74052b198a2da8e61619bcb078bbb812a827fd71691da52c42" target="e1cf82c5bada6ee9046a116dd1f21fd30aec83f14f34a693dd6ca7eae62e0256">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="02bfc6fce69fef74052b198a2da8e61619bcb078bbb812a827fd71691da52c42" target="cf46271e028e4ab201cde71694fece2f7cdff1ff04be20ba95f5bad6187cf728">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="02bfc6fce69fef74052b198a2da8e61619bcb078bbb812a827fd71691da52c42" target="2442da54f68cd0eaac3a601b9c754d95a9796f6ff296227392a200091c980242">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="02bfc6fce69fef74052b198a2da8e61619bcb078bbb812a827fd71691da52c42" target="8759109f5e0102baad762322eafa8e02ff3c88dec7a1c00e4d4a9c009c19de7a">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+<edge source="02bfc6fce69fef74052b198a2da8e61619bcb078bbb812a827fd71691da52c42" target="ee84cebf72890f69c4e5a4328ea788f614c8ade244ab086e0826e00cf187bc2b">
+  <data key="d3">has_concept</data>
+  <data key="d4">Concept</data>
+</edge>
+</graph></graphml>

@@ -229,7 +229,7 @@ class KGTripleExtraction(OperatorABC):
 
     def _filter_triples(
         self, triples: Any, valid_entities: List[str]
-    ) -> List[List[str]]:
+    ) -> List[str]:
         if not isinstance(triples, list):
             return []
 
@@ -263,7 +263,7 @@ class KGTripleExtraction(OperatorABC):
             if triple_key in seen:
                 continue
             seen.add(triple_key)
-            filtered_triples.append([subject, relation, obj])
+            filtered_triples.append(f"<subj> {subject} <obj> {obj} <rel> {relation}")
 
         return filtered_triples
 
@@ -306,7 +306,7 @@ class KGTripleExtraction(OperatorABC):
 
     def _parse_llm_response(
         self, response: str, valid_entities: Optional[List[str]] = None
-    ) -> List[List[str]]:
+    ) -> List[str]:
         try:
             cleaned = response.replace("```json", "").replace("```", "").strip()
             parsed = json.loads(cleaned)

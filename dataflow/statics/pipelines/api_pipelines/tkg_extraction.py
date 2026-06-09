@@ -1,13 +1,5 @@
 import argparse
-import sys
-from pathlib import Path
-
-REPO_ROOT = Path(__file__).resolve().parents[4]
-if str(REPO_ROOT) not in sys.path:
-    sys.path.insert(0, str(REPO_ROOT))
-
 from dataflow.operators.generate import TKGTupleExtraction
-
 from _kgflow_pipeline_utils import add_common_args, build_llm_serving, build_storage, latest_step_path
 
 
@@ -28,7 +20,7 @@ class TKGExtractionPipeline:
             input_key=self.args.input_key,
             output_key="tuple",
         )
-        return latest_step_path(self.args, 1)
+        return latest_step_path(self.args, self.storage.operator_step + 1)
 
 
 def parse_args():

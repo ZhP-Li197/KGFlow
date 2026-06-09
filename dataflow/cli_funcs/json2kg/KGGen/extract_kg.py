@@ -1,15 +1,3 @@
-"""
-Extract KGs for each dataset item and write them back to JSON.
-
-This version supports:
-- resuming from an existing output file
-- periodic checkpoint saves during extraction
-- optional retry of previously failed items
-python extract_kg.py 
-  --dataset dataset\L5_diff\l5_relation_only_with_difficulty.json 
-  --retry-errors
-"""
-
 from __future__ import annotations
 
 import argparse

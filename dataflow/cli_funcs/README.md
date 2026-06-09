@@ -99,7 +99,7 @@ $env:EVALUATOR_RETRIEVAL_MODEL="all-MiniLM-L6-v2"
 ## Minimal Workflow
 
 ```powershell
-cd D:\Programing\KGFlow\kgflow-test
+cd path\to\your\kgflow-workdir
 text2kg load WikiGeneral
 text2kg run kggen WikiGeneral
 text2kg eval kggen WikiGeneral coverage

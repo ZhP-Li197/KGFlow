@@ -1,4 +1,4 @@
-from dataflow.prompts.core_kg.rel_triple_refinement import KGInferredTripleGenerationPrompt
+from dataflow.prompts.core_kg.rel_triple_refinement import KGInferAndCheckTriplePrompt
 from dataflow.prompts.core_kg.rel_triple_generate import KGRelationGenerationPrompt
 import pandas as pd
 from dataflow.utils.registry import OPERATOR_REGISTRY
@@ -15,8 +15,7 @@ import re
 
 
 @prompt_restrict(
-    KGInferredTripleGenerationPrompt,
-    KGRelationGenerationPrompt
+    KGInferAndCheckTriplePrompt
 )
 @OPERATOR_REGISTRY.register()
 class KGRelationTripleInference(OperatorABC):
@@ -36,7 +35,7 @@ class KGRelationTripleInference(OperatorABC):
         seed: int = 0,
         lang: str = "en",
         with_text: bool = False,
-        merge_to_input: bool = False,   # ⭐ 新增参数
+        merge_to_input: bool = False,   
     ):
         self.rng = random.Random(seed)
         self.llm_serving = llm_serving
@@ -45,11 +44,7 @@ class KGRelationTripleInference(OperatorABC):
         self.merge_to_input = merge_to_input
         self.logger = get_logger()
 
-        self.prompt_template = (
-            KGRelationGenerationPrompt(lang=self.lang)
-            if self.with_text
-            else KGInferredTripleGenerationPrompt(lang=self.lang)
-        )
+        self.prompt_template = KGInferAndCheckTriplePrompt(lang=self.lang)
 
     @staticmethod
     def get_desc(lang: str = "en") -> tuple:
@@ -84,7 +79,7 @@ class KGRelationTripleInference(OperatorABC):
             if self.with_text:
                 user_prompt = self.prompt_template.build_prompt(triple, text)
             else:
-                user_prompt = self.prompt_template.build_prompt(triple)
+                user_prompt = self.prompt_template.build_prompt(triple, text)
 
             system_prompt = self.prompt_template.build_system_prompt()
 
@@ -114,20 +109,18 @@ class KGRelationTripleInference(OperatorABC):
         text = []
 
         if self.with_text:
-            self.input_key_meta = "raw_chunk"
+            self.input_key_meta = "text"
             text = dataframe[self.input_key_meta].tolist()
 
         outputs = self.process_batch(triples, text)
         inferred_triples = [o[self.output_key] for o in outputs]
 
-        # ===== 原始行为：只写 inferred_triple =====
+
         dataframe[self.output_key] = inferred_triples
 
-        # ===== ⭐ 新增：是否合并回原 triple =====
         if self.merge_to_input:
             merged_triples = []
             for original, inferred in zip(triples, inferred_triples):
-                # 保持顺序去重
                 seen = set()
                 merged = []
                 for t in original + inferred:
@@ -161,7 +154,15 @@ class KGRelationTripleInference(OperatorABC):
         try:
             json_str = re.search(r"\{.*\}", response, re.DOTALL).group()
             parsed = json.loads(json_str)
-            return parsed.get("inferred_triple", [])
+            triples = parsed.get("inferred_triple", parsed.get("relations", []))
+            output = []
+            for triple in triples if isinstance(triples, list) else []:
+                if isinstance(triple, str):
+                    output.append(triple)
+                elif isinstance(triple, list) and len(triple) == 3:
+                    subject, relation, obj = triple
+                    output.append(f"<subj> {subject} <obj> {obj} <rel> {relation}")
+            return output
         except Exception as e:
             self.logger.warning(f"Failed to parse LLM response: {e}")
             return []

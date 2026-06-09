@@ -1,13 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-====================================
-DataFlow-KG: FinKGTupleExtraction
-====================================
-
-License:
-    MIT License
-"""
-
 from dataflow.prompts.diverse_kg.finkg import FinKGRelationExtractorPrompt
 from dataflow.prompts.diverse_kg.finkg import FinKGAttributeExtractorPrompt
 from dataflow.prompts.diverse_kg.finkg import FinKGExtractionPrompt
@@ -41,17 +31,6 @@ def load_finkg_ontology(*args, **kwargs):
 )
 @OPERATOR_REGISTRY.register()
 class FinKGTupleExtraction(OperatorABC):
-    r"""
-    Extract financial knowledge graph quadruples from text using LLM.
-
-    Supports two ontology quadruple types and one coverage quadruple mode:
-      - relation: <subj> Entity <obj> Entity <rel> Relation <time> TimeValue
-      - attribute: <subj> Entity <attribute> Attribute <value> AttributeValue <time> TimeValue
-      - coverage: ["subject", "predicate", "object", "time"]
-
-    Each quadruple is accompanied by entity_class labels from the ontology.
-    """
-
     def __init__(
         self,
         llm_serving: LLMServingABC,
@@ -174,7 +153,7 @@ class FinKGTupleExtraction(OperatorABC):
             tuples = self._tuple_parse_llm_response(responses[0])
             entity_class = self._class_parse_llm_response(responses[0])
 
-            if isinstance(self.prompt_template, FinKGCoverageExtractionPrompt):
+            if isinstance(self.prompt_template, FinKGExtractionPrompt):
                 results.append(
                     {
                         "source_text": processed_text,

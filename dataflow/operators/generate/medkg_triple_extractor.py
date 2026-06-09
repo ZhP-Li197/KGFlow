@@ -243,7 +243,9 @@ class MedKGTripleExtraction(OperatorABC):
         results = []
         for item in raw:
             if isinstance(item, list) and len(item) == 3:
-                results.append([str(x).strip() for x in item])
+                subj, rel, obj = (str(x).strip() for x in item)
+                if subj and rel and obj:
+                    results.append(f"<subj> {subj} <obj> {obj} <rel> {rel}")
                 continue
             if not isinstance(item, str):
                 continue
@@ -255,7 +257,7 @@ class MedKGTripleExtraction(OperatorABC):
                 continue
             subj, obj, rel = (p.strip() for p in m.groups())
             if subj and rel and obj:
-                results.append([subj, rel, obj])
+                results.append(f"<subj> {subj} <obj> {obj} <rel> {rel}")
         return results
 
     def _class_parse_llm_response(self, response: str) -> List[Dict[str, Any]]:
