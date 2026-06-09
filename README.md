@@ -1,200 +1,180 @@
 # KGFlow: A Unified Operator-Centric System for Automated Knowledge Graph Construction
 
-<!-- <p align="center">
-  <img src="static/dataflow-KG%20framework.png" alt="DataFlow-KG framework" width="100%">
-</p> -->
+KGFlow is a unified operator-centric system for automated text-to-knowledge-graph construction. It decomposes KG construction into reusable operators and supports reproducible benchmarking across KGFlow pipelines and representative text-to-KG baselines.
 
-<!-- <p align="center">
-  <b>DataFlow Knowledge Graph</b>: An LLM-Driven Knowledge Graph Processing Library
-</p>
-
-<p align="center">
-  Build, enrich, reason over, and operationalize knowledge graphs with composable operators.
-</p> -->
-
-<!-- <p align="center">
-  <a href="https://github.com/OpenDCAI/DataFlow-KG">GitHub</a> |
-  <a href="https://zhp-li197.github.io/DataFlow-KG-Doc/zh/">Documentation</a> |
-  <a href="README.zh.md">中文 README</a>
-</p> -->
+KGFlow aims to make text-to-KG construction easier to use, easier to extend, and easier to evaluate.
 
 ---
 
-<!-- ## 0. News
+## Overview
 
-## 1. 🤖 Overview
+Knowledge graph construction from text usually involves multiple stages, such as entity extraction, relation extraction, tuple refinement, quality evaluation, and filtering. Existing systems are often tied to fixed schemas, specific fact representations, or manually engineered workflows.
 
-**DataFlow-KG** (short for DataFlow Knowledge Graph) is an LLM-driven knowledge graph processing library built on top of the [DataFlow](https://github.com/OpenDCAI/DataFlow) ecosystem. It is designed to provide reusable, extensible, and modular operators for knowledge graph construction, reasoning, retrieval, querying, and domain-specific applications. The original [DataFlow](https://github.com/OpenDCAI/DataFlow) project provides a clean, elegant, and highly extensible foundation for building practical data-centric LLM workflows.
+KGFlow addresses this problem by organizing KG construction as an operator-centric workflow. A KG construction pipeline is built by composing reusable operators under a unified interface. This design enables KGFlow to support different construction scenarios, including general-purpose KG construction, domain-specific KG construction, temporal KG construction, and other structurally complex KG settings.
 
-Rather than treating KG workflows as isolated scripts, DataFlow-KG organizes graph capabilities into operator packages by graph type and application scenario. These operators can be composed into larger pipelines, including but not limited to:
+KGFlow also provides a simple command-line interface for loading benchmark datasets, running KG construction methods, and evaluating generated KGs.
 
-- knowledge graph construction
-- graph reasoning
-- graph retrieval
-- domain-specific knowledge graph applications
+---
 
-DataFlow-KG aims to serve as a unified infrastructure layer for research and development on graph-centric LLM applications.
+## Key Features
 
+### Unified Operator-Centric Workflow
 
-## 2. ✨ Key Features
+KGFlow decomposes text-to-KG construction into reusable operators for generation, refinement, evaluation, and filtering. These operators can be composed into executable pipelines for different KG construction tasks.
 
-### 2.1. Modular Operator Library for KG Workflows
-DataFlow-KG provides reusable operators that can be flexibly composed into pipelines for graph construction, graph enrichment, reasoning, retrieval, and task-specific graph processing. Operators are not standalone utilities. They are designed to be assembled into end-to-end workflows, enabling scalable and reproducible graph data engineering.
+### Automated KG Construction Pipelines
 
-### 2.2 Unified Support for Multiple KG Paradigms
-The library supports a broad range of graph settings in one framework, including general KG, commonsense KG, temporal KG, multimodal KG, hyper-relational KG, Graph RAG, and domain-specific KGs. As an extension of DataFlow, DataFlow-KG follows the same design philosophy of composable operators and pipeline-based processing, making it easy to integrate with broader data preparation workflows.
+KGFlow supports pipeline-based KG construction through the `text2kg run` command. Users can select KGFlow pipelines or baseline methods with a unified command-line interface.
 
-### 2.3. Research-to-Application Coverage
-The framework is designed for both research scenarios and practical vertical applications, supporting graph processing tasks from foundational KG construction to specialized domain deployment.
+### One-Click Benchmarking
 
+KGFlow standardizes the experimental workflow into three steps:
 
-## 3. 🔍 Installation
+```bash
+text2kg load [dataset_name]
+text2kg run [method_name] [dataset_name]
+text2kg eval [method_name] [dataset_name] [metric_name]
+```
 
-### 3.1. Create and activate a Python environment
+This makes it convenient to compare KGFlow with other text-to-KG construction methods under the same dataset and evaluation protocol.
+
+### Integrated Baselines
+
+KGFlow supports running multiple text-to-KG construction methods through the same interface, including:
+
+* `kgflow`
+* `kggen`
+* `autoschemakg`
+* `treekg`
+
+---
+
+## Installation
+
+### 1. Clone or update the repository
+
+If you have not cloned the repository yet, run:
+
+```bash
+git clone https://github.com/ZhP-Li197/KGFlow.git
+cd KGFlow
+```
+
+If you have already cloned the repository, update it first:
+
+```bash
+git pull
+```
+
+### 2. Create and activate the environment
 
 ```bash
 conda create -n text2kg python=3.10
 conda activate text2kg
-````
+```
 
-### 3.2. Install DataFlow-KG
+### 3. Install KGFlow in editable mode
 
 ```bash
-pip install uv
-uv pip install dataflow-kg
+pip install -e .
 ```
 
-If you want to enable **local GPU inference**, use:
+KGFlow requires Python 3.10 or later.
 
-```bash
-conda create -n text2kg python=3.10
-conda activate text2kg
+---
 
-pip install uv
-uv pip install dataflow-kg[vllm]
-```
+## Quickstart
 
-> DataFlow-KG supports Python >= 3.10.
+The following example shows how to load the `WikiGeneral` dataset, run KGFlow and several baselines, and evaluate their factual coverage.
 
-### 3.3. Verify the installation
-
-You can check whether the installation is successful with:
-
-```bash
-text2kg -v
-```
-
-If the installation is correct and DataFlow-KG is the latest release, you will see something like:
-
-```log
-open-dataflow-kg codebase version: 0.9.0
-        Checking for updates...
-        Local version:  0.9.0
-        PyPI newest version:  0.9.0
-        You are using the latest version: 0.9.0.
-```
-
-In addition, the `text2kg env` command can be used to inspect the current hardware and software environment, which is useful for bug reporting:
+### 1. Check the environment
 
 ```bash
 text2kg env
 ```
 
+This command prints the current software and hardware environment, which is useful for verifying installation and reporting issues.
 
-## 4. 🚀 Quickstart
-
-DataFlow-KG follows a **code generation + custom modification + script execution** workflow.  In practice, you initialize a project with the CLI, customize the generated pipeline script if needed, and then run the Python file to execute your workflow.
-
-You can get started in **three steps**.
-
-### 4.1. Initialize a project
-
-Run the following command in an empty directory:
+### 2. Load the benchmark dataset
 
 ```bash
-text2kg init
-````
+text2kg load WikiGeneral
+```
 
-### 4.2. Choose a pipeline type
+This command prepares the `WikiGeneral` dataset for later construction and evaluation.
 
-Pipelines with the same name across different folders are usually incremental variants with different dependency requirements:
-
-| Directory       | Required Resources    |
-| --------------- | --------------------- |
-| `api_pipelines` | CPU + LLM API         |
-| `gpu_pipelines` | CPU + API + local GPU |
-
-> **Tip:** If you are new to DataFlow-KG, start with `api_pipelines`.
-> Later, if you have a local GPU, you can replace `LLMServing` with a local model backend.
-
-
-### 4.3. Run your first pipeline
-
-Go into any pipeline directory, for example:
+### 3. Run KGFlow
 
 ```bash
-cd api_pipelines
+text2kg run kgflow WikiGeneral --pipeline general
 ```
 
-Open one of the generated Python pipeline files. In most cases, you only need to check two configurations:
+This command runs KGFlow on the `WikiGeneral` dataset using the `general` pipeline.
 
-#### 4.3.1 Input data path
-
-```python
-self.storage = FileStorage(
-    first_entry_file_name="<path_to_dataset>"
-)
-```
-
-By default, this points to the provided example dataset, so you can run it directly.
-You can also replace it with your own dataset path.
-
-#### 4.3.2 LLM serving configuration
-
-If you are using an API-based serving backend, set the API key first.
-
-**Linux / macOS**
+### 4. Run baseline methods
 
 ```bash
-export DF_API_KEY=sk-xxxxx
+text2kg run kggen WikiGeneral
+text2kg run autoschemakg WikiGeneral
+text2kg run treekg WikiGeneral
 ```
 
-**Windows CMD**
+These commands run the integrated baseline methods on the same dataset.
 
-```bat
-set DF_API_KEY=sk-xxxxx
-```
-
-**PowerShell**
-
-```powershell
-$env:DF_API_KEY="sk-xxxxx"
-```
-
-Then run the pipeline script:
+### 5. Evaluate factual coverage
 
 ```bash
-python xxx_pipeline.py
+text2kg eval kggen WikiGeneral coverage
+text2kg eval autoschemakg WikiGeneral coverage
+text2kg eval treekg WikiGeneral coverage
+text2kg eval kgflow WikiGeneral coverage
+```
+
+The `coverage` metric evaluates how well the generated KG covers the factual information in the source text.
+
+---
+
+## Supported Example Methods
+
+| Method       | Command Name   | Description                                      |
+| ------------ | -------------- | ------------------------------------------------ |
+| KGFlow       | `kgflow`       | Operator-centric KG construction pipeline        |
+| KGGen        | `kggen`        | LLM-based KG generation baseline                 |
+| AutoSchemaKG | `autoschemakg` | Automatic schema-guided KG construction baseline |
+| TreeKG       | `treekg`       | Tree-structured KG construction baseline         |
+
+---
+
+## Supported Example Dataset
+
+| Dataset      | Command Name   | Description                                                                                      |
+| ------------ | -------------- | ------------------------------------------------------------------------------------------------ |
+| WikiGeneral  | `WikiGeneral`  | General-domain text-to-KG benchmark dataset derived from Wikipedia-style documents               |
+| WelleGeneral | `WelleGeneral` | General-domain text-to-KG benchmark dataset derived from Deutsche Welle documents                |
+| Temporal     | `Temporal`     | Temporal text-to-KG benchmark dataset derived from Wikipedia documents with temporal expressions |
+| Medical      | `Medical`      | Biomedical text-to-KG benchmark dataset derived from BC5CDR                                      |
+| Finance      | `Finance`      | Financial text-to-KG benchmark dataset derived from EDGAR filings                                |
+| Legal        | `Legal`        | Legal text-to-KG benchmark dataset derived from LEDGAR contract clauses                          |
+
 ```
 
 ---
 
+## Citation
 
-
-## 5. 📚 Licence
-
-DataFlow-KG is released under the **Apache License 2.0**.
-
-
-
-## 6. 🎓 Citation
-If you use DataFlow-KG in your research, please cite:
+If you use KGFlow in your research, please cite:
 
 ```bibtex
-@misc{dataflowkg2026,
-  title={DataFlow-KG: LLM-Driven Knowledge Graph Processing Library},
-  author={DataFlow-KG Team},
+@misc{kgflow2026,
+  title={KGFlow: A Unified Operator-Centric System for Automated Knowledge Graph Construction},
+  author={Zhengpin Li and Wanpeng Tang and Xuemeng Liu and Xinyuan Liu and Runhao Zhao and Huanyao Zhang and Weinan E and Wentao Zhang},
   year={2026},
-  howpublished={\url{https://github.com/OpenDCAI/DataFlow-KG}}
+  howpublished={\url{https://github.com/ZhP-Li197/KGFlow}}
 }
-``` -->
+```
+
+---
+
+## License
+
+KGFlow is released under the Apache License 2.0.

@@ -49,3 +49,7 @@ pyvis
 dotenv
 dspy
 neo4j
+semhash
+inflect
+rank_bm25
+sentence_transformers
