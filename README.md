@@ -1,4 +1,4 @@
-# KGFlow: A Unified Operator-Centric System for Automated Knowledge Graph Construction
+# KGFlow: A Unified Operator-Centric System for Heterogeneous Knowledge Graph Construction
 
 KGFlow is a unified operator-centric system for automated text-to-knowledge-graph construction. It decomposes KG construction into reusable operators and supports reproducible benchmarking across KGFlow pipelines and representative text-to-KG baselines.
 
