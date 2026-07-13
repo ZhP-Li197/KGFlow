@@ -165,7 +165,7 @@ If you use KGFlow in your research, please cite:
 
 ```bibtex
 @misc{kgflow2026,
-  title={KGFlow: A Unified Operator-Centric System for Automated Knowledge Graph Construction},
+  title={KGFlow: A Unified Operator-Centric System for Heterogeneous Knowledge Graph Construction},
   author={Zhengpin Li and Wanpeng Tang and Xuemeng Liu and Xinyuan Liu and Runhao Zhao and Huanyao Zhang and Weinan E and Wentao Zhang},
   year={2026},
   howpublished={\url{https://github.com/ZhP-Li197/KGFlow}}
